@@ -1,6 +1,7 @@
 
 package com.airbus.pocs3.factory.impl;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -39,10 +40,7 @@ public class CompleteProfile implements IProfile {
         .filter(profile -> profile != this)
         .flatMap(profile -> profile.getApplications().stream())
         .distinct()
-//        .map(application -> (MPerspective) modelService.find(perspectiveId, application))
-//        .filter(Objects::nonNull)
-//        .sorted(Comparator.comparing(MPerspective::getLabel))
-//        .map(MPerspective::getElementId)
+        .sorted(Comparator.comparing(IApplication::getName))
         .collect(Collectors.toList())
         ;
   }

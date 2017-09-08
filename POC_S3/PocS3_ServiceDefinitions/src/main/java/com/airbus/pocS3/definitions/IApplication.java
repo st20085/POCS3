@@ -9,9 +9,4 @@ public interface IApplication {
    * Return application name
    */
   public String getName();
-
-  /**
-   * Return perspective id
-   */
-  public String getPerspectiveId();
 }

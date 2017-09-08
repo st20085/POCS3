@@ -1,27 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <profiles>
-	<application_desc name="Bebop"
-		perspective_id="com.airbus.ds.s3.bebop.ui.perspective.bebop" />
-	<application_desc name="Frequency plan"
-		perspective_id="com.airbus.ds.s3.frequencyplan.ui.perspective.frequencyplan" />
-	<application_desc name="SBD" perspective_id="com.airbus.ds.s3.sbd.ui.perspective.sbd" />
-	<application_desc name="IBD" perspective_id="com.airbus.ds.s3.ibd.ui.perspective.ibd" />
-	<application_desc name="L3D" perspective_id="com.airbus.ds.s3.l3d.ui.perspective.l3d" />
-	<application_desc name="Simudep"
-		perspective_id="com.airbus.ds.s3.simudep.ui.perspective.simudep" />
-	<application_desc name="Allocation Tool"
-		perspective_id="com.airbus.ds.s3.allocationtool.ui.perspective.allocationtool" />
-	<application_desc name="Poc S3 IBD" perspective_id="pocs3_ibd.perspective" />
-	<application_desc name="Poc S3 L3D" perspective_id="pocs3_l3d.perspective" />
-
-
 	<profile name="System">
 		<application name="Bebop" />
 		<application name="Frequency plan" />
 		<application name="SBD" />
 	</profile>
 	<profile name="Payload">
-	<application name="Bebop" />
 		<application name="SBD" />
 		<application name="IBD" />
 	</profile>
@@ -31,9 +15,5 @@
 	</profile>
 	<profile name="Allocation Tool">
 		<application name="Allocation Tool" />
-	</profile>
-	<profile name="Poc S3">
-		<application name="Poc S3 IBD" />
-		<application name="Poc S3 L3D" />
 	</profile>
 </profiles>

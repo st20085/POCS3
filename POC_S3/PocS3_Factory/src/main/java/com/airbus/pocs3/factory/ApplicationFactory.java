@@ -18,7 +18,7 @@ public class ApplicationFactory {
      * @param perspectiveId
      * @return
      */
-    public static IApplication createApplication(String name, String perspectiveId) {
-        return new ApplicationImpl(name, perspectiveId);
+    public static IApplication createApplication(String name) {
+        return new ApplicationImpl(name);
     }
 }

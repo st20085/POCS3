@@ -1,6 +1,8 @@
 
 package com.airbus.pocs3_eap.parts;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
@@ -24,114 +26,115 @@ import com.airbus.pocs3_eap.parts.internal.PocS3EapController;
 
 public class ApplicationBoardPart {
 
-    @Inject
-    private PocS3EapController eapController;
+  @Inject
+  private PocS3EapController eapController;
 
-    @Inject
-    private MApplication application;
+  @Inject
+  private MApplication application;
 
-    @Inject
-    private EModelService modelService;
+  @Inject
+  private EModelService modelService;
 
-    @Inject
-    public ApplicationBoardPart() {
+  @Inject
+  public ApplicationBoardPart() {}
+
+  @PostConstruct
+  public void postConstruct(Composite parent, IProfile profile) {
+    parent.setLayout(new CenterRowLayout());
+
+    this.setProfile(profile, parent);
+  }
+
+  @Inject
+  private void setProfile(@Optional IProfile profile, Composite parent) {
+
+    if (parent == null || parent.isDisposed()) {
+      return;
     }
 
-    @PostConstruct
-    public void postConstruct(Composite parent, IProfile profile) {
-        parent.setLayout(new CenterRowLayout());
-
-        this.setProfile(profile, parent);
+    // dispose all switch perspective buttons
+    for (final Control child : parent.getChildren()) {
+      child.dispose();
     }
 
-    @Inject
-    private void setProfile(@Optional IProfile profile, Composite parent) {
-
-        if (parent == null || parent.isDisposed()) {
-            return;
-        }
-
-        // dispose all switch perspective buttons
-        for (final Control child : parent.getChildren()) {
-            child.dispose();
-        }
-
-        if (profile == null) {
-            return;
-        }
-
-        // recreate switch perspective buttons
-        for (final IApplication application : profile.getApplications()) {
-            String perspectiveId = application.getPerspectiveId();
-
-            // find perspective
-            final MPerspective perspective = (MPerspective) this.modelService.find(perspectiveId, this.application);
-            if (perspective != null) {
-                this.createSwitchPerspectiveButton(parent, application, perspective);
-            } else {
-//                this.createNotFoundPerspectiveButton(parent, application);
-            }
-
-        }
+    if (profile == null) {
+      return;
     }
 
-    /**
-     * @param parent
-     * @param perspectiveId
-     */
-    private void createNotFoundPerspectiveButton(Composite parent, IApplication application) {
-        final Button button = new Button(parent, SWT.FLAT);
+    List<MPerspective> perspectiveList = this.modelService.findElements(this.application, null, MPerspective.class, null);
 
-        button.setText(application.getName());
-        button.setToolTipText("Cannot found perspective="+application.getPerspectiveId());
-        button.setEnabled(false);
+    // recreate switch perspective buttons
+    for (final IApplication application : profile.getApplications()) {
+      // find perspective
 
-        final RowData rowData = new RowData();
-        rowData.width = rowData.height = 100;
-        button.setLayoutData(rowData);
-    }
-
-    /**
-     * @param parent
-     * @param perspectiveId
-     */
-    private void createSwitchPerspectiveButton(Composite parent, IApplication application, MPerspective perspective) {
-        final Button button = new Button(parent, SWT.FLAT);
-
-        button.setText(application.getName());
-        button.setToolTipText(application.getPerspectiveId());
-
-        button.addSelectionListener(new SelectionListener() {
-            // String oldLabel;
-            // String newLabel;
-
-            @Override
-            public void widgetSelected(SelectionEvent e) {
-                // go to perspective
-                ApplicationBoardPart.this.eapController.switchToApplicationPerspective(perspective);
-
-                // final MWindow window = ApplicationBoardPart.this.partService.getActivePart().getContext().get(MWindow.class);
-                // if (this.oldLabel == null || this.newLabel != window.getLabel()) {
-                // this.oldLabel = window.getLabel();
-                // this.newLabel = this.oldLabel+" : "+perspective.getLabel();
-                // } else {
-                // this.newLabel = this.oldLabel+" : "+perspective.getLabel();
-                // }
-                // window.setLabel(newLabel); // TODO marche pas
-            }
-
-            @Override
-            public void widgetDefaultSelected(SelectionEvent e) {}
-        });
-
-        final RowData rowData = new RowData();
-        rowData.width = rowData.height = 100;
-        button.setLayoutData(rowData);
-    }
-
-    @Focus
-    public void onFocus() {
+      java.util.Optional<MPerspective> opt = perspectiveList.stream().filter(perspective -> application.getName().equals(perspective.getLabel())).findFirst();
+      if (opt.isPresent()) {
+        final MPerspective perspective = opt.get();
+        this.createSwitchPerspectiveButton(parent, application, perspective);
+      } else {
+        // this.createNotFoundPerspectiveButton(parent, application);
+      }
 
     }
+  }
+
+  /**
+   * @param parent
+   * @param perspectiveId
+   */
+  private void createNotFoundPerspectiveButton(Composite parent, IApplication application) {
+    final Button button = new Button(parent, SWT.FLAT);
+
+    button.setText(application.getName());
+    button.setToolTipText("Cannot found perspective=" + application.getName());
+    button.setEnabled(false);
+
+    final RowData rowData = new RowData();
+    rowData.width = rowData.height = 100;
+    button.setLayoutData(rowData);
+  }
+
+  /**
+   * @param parent
+   * @param perspectiveId
+   */
+  private void createSwitchPerspectiveButton(Composite parent, IApplication application, MPerspective perspective) {
+    final Button button = new Button(parent, SWT.FLAT);
+
+    button.setText(application.getName());
+    button.setToolTipText(perspective.getElementId());
+
+    button.addSelectionListener(new SelectionListener() {
+      // String oldLabel;
+      // String newLabel;
+
+      @Override
+      public void widgetSelected(SelectionEvent e) {
+        // go to perspective
+        ApplicationBoardPart.this.eapController.switchToApplicationPerspective(perspective);
+
+        // final MWindow window = ApplicationBoardPart.this.partService.getActivePart().getContext().get(MWindow.class);
+        // if (this.oldLabel == null || this.newLabel != window.getLabel()) {
+        // this.oldLabel = window.getLabel();
+        // this.newLabel = this.oldLabel+" : "+perspective.getLabel();
+        // } else {
+        // this.newLabel = this.oldLabel+" : "+perspective.getLabel();
+        // }
+        // window.setLabel(newLabel); // TODO marche pas
+      }
+
+      @Override
+      public void widgetDefaultSelected(SelectionEvent e) {}
+    });
+
+    final RowData rowData = new RowData();
+    rowData.width = rowData.height = 100;
+    button.setLayoutData(rowData);
+  }
+
+  @Focus
+  public void onFocus() {
+
+  }
 
 }
