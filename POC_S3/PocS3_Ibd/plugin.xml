@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+
+   <extension
+         id="PocS3_Ibd.processor"
+         point="org.eclipse.e4.workbench.model">
+      <processor
+            class="com.airbus.pocS3.ibd.IbdProcessor"
+            beforefragment="false">
+      </processor>
+   </extension>
+   <extension
+         id="PocS3_Ibd.fragment"
+         point="org.eclipse.e4.workbench.model">
+      <fragment
+            uri="IBD_fragment.e4xmi">
+      </fragment>
+   </extension>
+   <extension
+         point="org.eclipse.core.expressions.definitions">
+         <definition id="ibd_perspective_activated">
+           <with variable="pocS3.activePerspectiveId">
+            <equals value="pocs3_ibd.perspective">
+            </equals>
+         </with>
+         </definition>
+   </extension>
+
+
+</plugin>

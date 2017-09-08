@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_6wlLcMgZEeSyMNYR5xypkQ" elementId="PocS3_EAP" bindingContexts="_6wlLecgZEeSyMNYR5xypkQ">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_6wlLccgZEeSyMNYR5xypkQ" elementId="com.airbus.pocs3.window.main" label="POC S3 Application" width="640" height="480">
+    <children xsi:type="advanced:PerspectiveStack" xmi:id="_PbtzkJO4EeegJPATF737yg" elementId="pocs3_eap.perspectivestack" selectedElement="_Uc6ckJO4EeegJPATF737yg">
+      <children xsi:type="advanced:Perspective" xmi:id="_Uc6ckJO4EeegJPATF737yg" elementId="pocs3_eap.perspective.profile" selectedElement="_6wlLlMgZEeSyMNYR5xypkQ" label="Profile perspective">
+        <children xsi:type="basic:Part" xmi:id="_6wlLlMgZEeSyMNYR5xypkQ" elementId="PocS3_EAP.sample" contributionURI="bundleclass://PocS3_EAP/com.airbus.pocs3_eap.parts.ProfilePart" label="Profile Part"/>
+      </children>
+      <children xsi:type="advanced:Perspective" xmi:id="_fWZ2MJPaEeegJPATF737yg" elementId="pocs3_eap.perspective.application_board" selectedElement="_zsbesJPbEeegJPATF737yg" label="Application board perspective">
+        <children xsi:type="basic:Part" xmi:id="_zsbesJPbEeegJPATF737yg" elementId="pocs3_eap.part.applicationboard" contributionURI="bundleclass://PocS3_EAP/com.airbus.pocs3_eap.parts.ApplicationBoardPart" label="Application Board"/>
+      </children>
+    </children>
+    <mainMenu xmi:id="_6wlLicgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.main.menu">
+      <children xsi:type="menu:Menu" xmi:id="_t27SsJMREeegJPATF737yg" elementId="pocs3_eap.menu.file" label="File">
+        <tags>stretch</tags>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_kPdpMJMREeegJPATF737yg" elementId="pocs3_eap.install" label="Install" command="_vvZawJMSEeegJPATF737yg"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_NT-yoJMWEeegJPATF737yg" elementId="com.opcoach.e4app.handleditem.about" label="About" command="_LpBFoJMWEeegJPATF737yg"/>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_LLFjQJRlEee9bK1Z4vhX0g" elementId="window" label="&amp;Window">
+        <children xsi:type="menu:Menu" xmi:id="_CLC0MJRnEee9bK1Z4vhX0g" elementId="showView" label="Show &amp;View">
+          <children xsi:type="menu:DirectMenuItem" xmi:id="_P-wGkJRlEee9bK1Z4vhX0g" elementId="viewsShortlist"/>
+        </children>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_NhskEJNOEeejjawio-XBuQ" elementId="help" label="&amp;Help">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_j7-_0JNOEeejjawio-XBuQ" elementId="org.eclipse.equinox.p2.ui.sdk.install" iconURI="platform:/plugin/org.eclipse.equinox.p2.ui.sdk/icons/obj/iu_obj.gif" command="_cZnakJNOEeejjawio-XBuQ">
+          <persistedState key="IIdentifier" value="org.eclipse.equinox.p2.ui.sdk/org.eclipse.equinox.p2.ui.sdk.install"/>
+        </children>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_tdMQUJNOEeejjawio-XBuQ" elementId="org.eclipse.equinox.p2.ui.sdk.installationDetails" iconURI="platform:/plugin/org.eclipse.equinox.p2.ui.sdk/icons/obj/profile_obj.gif" command="_SPNcEJNOEeejjawio-XBuQ">
+          <persistedState key="IIdentifier" value="org.eclipse.equinox.p2.ui.sdk/org.eclipse.equinox.p2.ui.sdk.installationDetails"/>
+        </children>
+      </children>
+    </mainMenu>
+    <trimBars xmi:id="_6wlLlcgZEeSyMNYR5xypkQ" elementId="com.airbus.pocs3.trimbar.top">
+      <children xsi:type="menu:ToolControl" xmi:id="_eHt9oJRrEee9bK1Z4vhX0g" elementId="pocs3_eap.toolcontrol.0" contributionURI="bundleclass://PocS3_EAP/com.airbus.pocs3_eap.parts.HomeControl"/>
+      <children xsi:type="menu:ToolBar" xmi:id="_XKdBAJShEee-6_WKtau9Qg" elementId="pocs3_eap.toolbar"/>
+      <children xsi:type="menu:ToolControl" xmi:id="_UGcNUJRoEee9bK1Z4vhX0g" elementId="PerspectiveSwitcher" toBeRendered="false" visible="false" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.e4.ui.workbench.addons.perspectiveswitcher.PerspectiveSwitcher"/>
+    </trimBars>
+  </children>
+  <handlers xmi:id="_LgCasJMUEeegJPATF737yg" elementId="org.eclipse.equinox.p2.ui.sdk.install" contributionURI="bundleclass://org.eclipse.equinox.internal.p2.ui.sdk/org.eclipse.equinox.internal.p2.ui.sdk.InstallNewSoftwareHandler" command="_vvZawJMSEeegJPATF737yg"/>
+  <handlers xmi:id="_SOeWsJMWEeegJPATF737yg" elementId="com.opcoach.e4app.handler.aboutCommand" contributionURI="bundleclass://PocS3_EAP/com.airbus.pocs3_eap.parts.AboutHandler" command="_LpBFoJMWEeegJPATF737yg"/>
+  <bindingTables xmi:id="_6wlLfsgZEeSyMNYR5xypkQ" elementId="com.airbus.pocs3.bindingtable" bindingContext="_6wlLecgZEeSyMNYR5xypkQ">
+    <bindings xmi:id="_6wlLf8gZEeSyMNYR5xypkQ" elementId="com.airbus.pocs3.keybinding.m1q" keySequence="M1+Q"/>
+    <bindings xmi:id="_6wlLgsgZEeSyMNYR5xypkQ" elementId="com.airbus.pocs3.keybinding.m1o" keySequence="M1+O"/>
+    <bindings xmi:id="_6wlLhcgZEeSyMNYR5xypkQ" elementId="com.airbus.pocs3.keybinding.m1s" keySequence="M1+S"/>
+    <bindings xmi:id="_6wlLiMgZEeSyMNYR5xypkQ" elementId="com.airbus.pocs3.keybinding.m1a" keySequence="M1+A"/>
+  </bindingTables>
+  <rootContext xmi:id="_6wlLecgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.contexts.dialogAndWindow" name="In Dialog and Windows">
+    <children xmi:id="_6wlLesgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.contexts.window" name="In Windows"/>
+    <children xmi:id="_6wlLe8gZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.contexts.dialog" name="In Dialogs"/>
+  </rootContext>
+  <commands xmi:id="_vvZawJMSEeegJPATF737yg" elementId="org.eclipse.equinox.p2.ui.sdk.install" commandName="installNewSoftWare"/>
+  <commands xmi:id="_LpBFoJMWEeegJPATF737yg" elementId="org.eclipse.ui.help.aboutAction" commandName="aboutCommand"/>
+  <commands xmi:id="_SPNcEJNOEeejjawio-XBuQ" elementId="org.eclipse.equinox.p2.ui.sdk.installationDetails" commandName="Installation Details"/>
+  <commands xmi:id="_cZnakJNOEeejjawio-XBuQ" elementId="org.eclipse.equinox.p2.ui.sdk.install" commandName="Install New Software..."/>
+  <addons xmi:id="_6wlLcsgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
+  <addons xmi:id="_6wlLc8gZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
+  <addons xmi:id="_6wlLdMgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
+  <addons xmi:id="_6wlLdcgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.workbench.commands.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.CommandProcessingAddon"/>
+  <addons xmi:id="_6wlLdsgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.workbench.handler.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
+  <addons xmi:id="_6wlLd8gZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.workbench.contexts.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.ContextProcessingAddon"/>
+  <addons xmi:id="_6wlLeMgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.workbench.bindings.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.swt/org.eclipse.e4.ui.workbench.swt.util.BindingProcessingAddon"/>
+</application:Application>

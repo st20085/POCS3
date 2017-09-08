@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: PocS3_Factory
+Bundle-SymbolicName: PocS3_Factory
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: com.airbus.pocs3.factory
+Require-Bundle: PocS3_ServiceDefinitions,
+ javax.inject,
+ org.eclipse.e4.ui.workbench,
+ org.eclipse.e4.ui.model.workbench

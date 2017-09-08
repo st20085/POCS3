@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmlns:ui="http://www.eclipse.org/ui/2010/UIModel/application/ui" xmi:id="_dyyCIJPsEeelFMkguDB9EQ">
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_FcRfYJPuEeelFMkguDB9EQ" featurename="children" parentElementId="pocs3_eap.perspectivestack">
+    <elements xsi:type="advanced:Perspective" xmi:id="_nTB-cJPuEeelFMkguDB9EQ" elementId="pocs3_ibd.perspective" selectedElement="_0V1GYJPuEeelFMkguDB9EQ" label="IBD">
+      <children xsi:type="basic:PartSashContainer" xmi:id="_0V1GYJPuEeelFMkguDB9EQ" elementId="pocs3_ibd.partsashcontainer.0" horizontal="true">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_6QO9YJPwEeelFMkguDB9EQ" elementId="com.airbus.ds.s3.ibd.ui.partsashcontainer.1" containerData="2000">
+          <children xsi:type="basic:PartStack" xmi:id="_6QO9YZPwEeelFMkguDB9EQ" elementId="com.airbus.ds.s3.ibd.ui.partstack.left" containerData="">
+            <children xsi:type="basic:Part" xmi:id="_6QO9YpPwEeelFMkguDB9EQ" elementId="com.airbus.ds.s3.ibd.ui.part.diagrams" contributionURI="bundleclass://PocS3_Ibd/com.airbus.pocS3.ibd.part.BlockDiagramView" label="Diagrams"/>
+          </children>
+          <children xsi:type="basic:PartStack" xmi:id="_6QO9a5PwEeelFMkguDB9EQ" elementId="com.airbus.ds.s3.ibd.ui.partstack.2">
+            <children xsi:type="basic:Part" xmi:id="_6QO9bJPwEeelFMkguDB9EQ" elementId="com.airbus.ds.s3.ibd.ui.part.check" contributionURI="bundleclass://PocS3_Ibd/com.airbus.pocS3.ibd.part.CheckView" label="Check"/>
+          </children>
+        </children>
+        <children xsi:type="basic:PartStack" xmi:id="_VRSv8JPxEeelFMkguDB9EQ" elementId="com.airbus.ds.s3.ibd.ui.partstack.right" containerData="6000">
+          <tags>IbdEditor</tags>
+          <tags>NoAutoCollapse</tags>
+        </children>
+        <children xsi:type="basic:PartSashContainer" xmi:id="_hIwtMJPxEeelFMkguDB9EQ" elementId="com.airbus.ds.s3.ibd.ui.partsashcontainer.2" containerData="2000">
+          <children xsi:type="basic:PartStack" xmi:id="_hIwtMZPxEeelFMkguDB9EQ" elementId="com.airbus.ds.s3.ibd.ui.partstack.0" containerData="50">
+            <children xsi:type="basic:Part" xmi:id="_hIwtMpPxEeelFMkguDB9EQ" elementId="com.airbus.ds.s3.ibd.ui.part.applicationmodules" containerData="" contributionURI="bundleclass://PocS3_Ibd/com.airbus.pocS3.ibd.part.ApplicationModuleView" label="Application Modules" iconURI="">
+              <persistedState key="MODULE_DIR" value="Modules_ibd"/>
+            </children>
+          </children>
+          <children xsi:type="basic:PartStack" xmi:id="_hIwtM5PxEeelFMkguDB9EQ" elementId="com.airbus.ds.s3.ibd.ui.partstack.1" containerData="50">
+            <children xsi:type="basic:Part" xmi:id="_hIwtNJPxEeelFMkguDB9EQ" elementId="com.airbus.ds.s3.ibd.ui.part.myproperties" contributionURI="bundleclass://PocS3_EAP/com.airbus.pocs3_eap.parts.common.PropertyView" label="Properties" iconURI="platform:/plugin/org.eclipse.ui.views/$nl$/icons/full/eview16/prop_ps.png" tooltip="Properties"/>
+          </children>
+        </children>
+      </children>
+    </elements>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_BgFYYJR3Eee-6_WKtau9Qg" featurename="menuContributions" parentElementId="PocS3_EAP">
+    <elements xsi:type="menu:MenuContribution" xmi:id="_RRz8AJSIEee-6_WKtau9Qg" elementId="pocs3_ibd.menucontribution.0" parentId="org.eclipse.ui.main.menu">
+      <children xsi:type="menu:Menu" xmi:id="_L7DSsJSIEee-6_WKtau9Qg" elementId="pocs3_ibd.menu.ibd" label="IBD">
+        <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_7PpcoJSYEee-6_WKtau9Qg" coreExpressionId="ibd_perspective_activated"/>
+        <children xsi:type="menu:DirectMenuItem" xmi:id="_STPYQJSSEee-6_WKtau9Qg" elementId="pocs3_ibd.directmenuitem.test" label="Open IBD"/>
+      </children>
+    </elements>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_oE6o8JSfEee-6_WKtau9Qg" featurename="trimContributions" parentElementId="PocS3_EAP">
+    <elements xsi:type="menu:TrimContribution" xmi:id="_0owSEJShEee-6_WKtau9Qg" elementId="pocs3_ibd.trimcontribution.0" parentId="pocs3_eap.toolbar">
+      <children xsi:type="menu:ToolControl" xmi:id="_zgZhsJSHEee-6_WKtau9Qg" elementId="pocs3_ibd.toolcontrol.0" contributionURI="bundleclass://PocS3_Ibd/com.airbus.pocS3.ibd.part.IbdPlusButton"/>
+    </elements>
+  </fragments>
+</fragment:ModelFragments>

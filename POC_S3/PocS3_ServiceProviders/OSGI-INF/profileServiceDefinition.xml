@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="pocS3 profile Service">
+   <implementation class="com.airbus.pocs3.service.ProfileService"/>
+   <service>
+      <provide interface="com.airbus.pocS3.definitions.IProfileService"/>
+   </service>
+</scr:component>

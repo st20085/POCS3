@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+
+   <extension
+         id="PocS3_l3d.processor"
+         point="org.eclipse.e4.workbench.model">
+      <processor
+            class="com.airbus.pocS3.l3d.L3dProcessor"
+            beforefragment="false">
+      </processor>
+   </extension>
+   <extension
+         id="PocS3_l3d.fragment"
+         point="org.eclipse.e4.workbench.model">
+      <fragment
+            uri="L3D_fragment.e4xmi">
+      </fragment>
+   </extension>
+
+</plugin>

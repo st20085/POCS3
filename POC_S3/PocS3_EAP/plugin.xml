@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            name="PocS3_EAP"
+            application="org.eclipse.e4.ui.workbench.swt.E4Application">
+         <property
+               name="appName"
+               value="PocS3_EAP">
+         </property>
+         <property name="applicationXMI" value="PocS3_EAP/PocS3_Application.e4xmi"> </property>
+      </product>
+   </extension>
+</plugin>
