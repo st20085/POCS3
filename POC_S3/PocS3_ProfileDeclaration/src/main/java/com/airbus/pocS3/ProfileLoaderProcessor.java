@@ -62,7 +62,7 @@ public class ProfileLoaderProcessor {
      * @return
      */
     private static IProfile createProfile(Profile profile) {
-        final List<String> perspectiveIdList = profile.perspectivesList.stream().map(p -> p.id).collect(Collectors.toList());
+        final List<String> perspectiveIdList = profile.applicationList.stream().map(p -> p.perspective_id).collect(Collectors.toList());
         return ProfileFactory.createProfile(profile.name, perspectiveIdList);
     }
 

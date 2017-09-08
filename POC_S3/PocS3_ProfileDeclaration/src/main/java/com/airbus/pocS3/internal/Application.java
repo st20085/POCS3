@@ -9,7 +9,10 @@ import javax.xml.bind.annotation.XmlAttribute;
 /**
  *
  */
-public class Perspective {
-    @XmlAttribute(name = "id")
-    public String id;
+public class Application {
+  @XmlAttribute(name = "name")
+  public String name;
+
+  @XmlAttribute(name = "perspective_id")
+  public String perspective_id;
 }

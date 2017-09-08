@@ -16,6 +16,6 @@ public class Profile {
     @XmlAttribute(name = "name")
     public String name;
 
-    @XmlElement(name = "perspective")
-    public List<Perspective> perspectivesList;
+    @XmlElement(name = "application")
+    public List<Application> applicationList;
 }

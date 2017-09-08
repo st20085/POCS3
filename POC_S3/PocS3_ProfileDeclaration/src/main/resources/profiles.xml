@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <profiles>
     <profile name="System">
-        <perspective id="com.airbus.ds.s3.bebop.ui.perspective.bebop" />
-        <perspective id="com.airbus.ds.s3.frequencyplan.ui.perspective.frequencyplan" />
-        <perspective id="com.airbus.ds.s3.sbd.ui.perspective.sbd" />
+        <application name="Bebop" perspective_id="com.airbus.ds.s3.bebop.ui.perspective.bebop" />
+        <application name="Frequency plan" perspective_id="com.airbus.ds.s3.frequencyplan.ui.perspective.frequencyplan" />
+        <application name="SBD" perspective_id="com.airbus.ds.s3.sbd.ui.perspective.sbd" />
     </profile>
     <profile name="Payload">
-        <perspective id="com.airbus.ds.s3.sbd.ui.perspective.sbd" />
-        <perspective id="com.airbus.ds.s3.ibd.ui.perspective.ibd" />
+        <application name="SBD" perspective_id="com.airbus.ds.s3.sbd.ui.perspective.sbd" />
+        <application name="IBD" perspective_id="com.airbus.ds.s3.ibd.ui.perspective.ibd" />
     </profile>
     <profile name="Accomodation">
-        <perspective id="com.airbus.ds.s3.l3d.ui.perspective.l3d" />
-        <perspective id="com.airbus.ds.s3.simudep.ui.perspective.simudep" />
+        <application name="L3D" perspective_id="com.airbus.ds.s3.l3d.ui.perspective.l3d" />
+        <application name="Simudep" perspective_id="com.airbus.ds.s3.simudep.ui.perspective.simudep" />
     </profile>
     <profile name="Allocation Tool">
-        <perspective id="com.airbus.ds.s3.allocationtool.ui.perspective.allocationtool" />
+        <application name="Allocation Tool" perspective_id="com.airbus.ds.s3.allocationtool.ui.perspective.allocationtool" />
     </profile>
     <profile name="Poc S3">
-        <perspective id="pocs3_ibd.perspective" />
-        <perspective id="pocs3_l3d.perspective" />
+        <application name="Poc S3 IBD" perspective_id="pocs3_ibd.perspective" />
+        <application name="Poc S3 L3D" perspective_id="pocs3_l3d.perspective" />
     </profile>
 </profiles>
