@@ -18,7 +18,7 @@ public interface IProfile {
     public String getName();
 
     /**
-     * Return perspective id
+     * Return application list
      */
-    public List<String> getPerspectiveIds();
+    public List<IApplication> getApplications();
 }

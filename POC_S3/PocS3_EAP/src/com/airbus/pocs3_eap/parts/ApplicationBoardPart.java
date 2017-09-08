@@ -4,10 +4,6 @@ package com.airbus.pocs3_eap.parts;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
-import com.airbus.pocS3.definitions.IProfile;
-import com.airbus.pocs3_eap.layout.CenterRowLayout;
-import com.airbus.pocs3_eap.parts.internal.PocS3EapController;
-
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.e4.ui.model.application.MApplication;
@@ -20,6 +16,11 @@ import org.eclipse.swt.layout.RowData;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+
+import com.airbus.pocS3.definitions.IApplication;
+import com.airbus.pocS3.definitions.IProfile;
+import com.airbus.pocs3_eap.layout.CenterRowLayout;
+import com.airbus.pocs3_eap.parts.internal.PocS3EapController;
 
 public class ApplicationBoardPart {
 
@@ -60,12 +61,15 @@ public class ApplicationBoardPart {
         }
 
         // recreate switch perspective buttons
-        for (final String perspectiveId : profile.getPerspectiveIds()) {
+        for (final IApplication application : profile.getApplications()) {
+            String perspectiveId = application.getPerspectiveId();
+
+            // find perspective
             final MPerspective perspective = (MPerspective) this.modelService.find(perspectiveId, this.application);
             if (perspective != null) {
-                this.createSwitchPerspectiveButton(parent, perspective);
+                this.createSwitchPerspectiveButton(parent, application, perspective);
             } else {
-                this.createNotFoundPerspectiveButton(parent, perspectiveId);
+//                this.createNotFoundPerspectiveButton(parent, application);
             }
 
         }
@@ -75,11 +79,11 @@ public class ApplicationBoardPart {
      * @param parent
      * @param perspectiveId
      */
-    private void createNotFoundPerspectiveButton(Composite parent, String perspectiveId) {
+    private void createNotFoundPerspectiveButton(Composite parent, IApplication application) {
         final Button button = new Button(parent, SWT.FLAT);
 
-        button.setToolTipText(perspectiveId);
-        button.setText("Not found perspective");
+        button.setText(application.getName());
+        button.setToolTipText("Cannot found perspective="+application.getPerspectiveId());
         button.setEnabled(false);
 
         final RowData rowData = new RowData();
@@ -91,11 +95,11 @@ public class ApplicationBoardPart {
      * @param parent
      * @param perspectiveId
      */
-    private void createSwitchPerspectiveButton(Composite parent, MPerspective perspective) {
+    private void createSwitchPerspectiveButton(Composite parent, IApplication application, MPerspective perspective) {
         final Button button = new Button(parent, SWT.FLAT);
 
-        button.setText(perspective.getLabel());
-        button.setToolTipText(perspective.getElementId());
+        button.setText(application.getName());
+        button.setToolTipText(application.getPerspectiveId());
 
         button.addSelectionListener(new SelectionListener() {
             // String oldLabel;

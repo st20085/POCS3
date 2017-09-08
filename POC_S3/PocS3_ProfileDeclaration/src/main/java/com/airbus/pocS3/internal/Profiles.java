@@ -14,6 +14,9 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement(name = "profiles")
 public class Profiles {
-    @XmlElement(name = "profile")
-    public List<Profile> profileList;
+  @XmlElement(name = "application_desc")
+  public List<ApplicationDesc> application_descList;
+
+  @XmlElement(name = "profile")
+  public List<Profile> profileList;
 }

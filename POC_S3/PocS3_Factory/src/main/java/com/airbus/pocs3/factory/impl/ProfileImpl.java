@@ -6,23 +6,24 @@ package com.airbus.pocs3.factory.impl;
 
 import java.util.List;
 
+import com.airbus.pocS3.definitions.IApplication;
 import com.airbus.pocS3.definitions.IProfile;
 
 /**
  *
  */
-public class Profile implements IProfile {
+public class ProfileImpl implements IProfile {
 
     String name;
-    List<String> perspectiveIdList;
+    List<IApplication> applicationList;
 
     /**
      * @param name
-     * @param perspectiveIdList
+     * @param applicationList
      */
-    public Profile(String name, List<String> perspectiveIdList) {
+    public ProfileImpl(String name, List<IApplication> applicationList) {
         this.name = name;
-        this.perspectiveIdList = perspectiveIdList; // TODO copy defensive
+        this.applicationList = applicationList; // TODO copy defensive
     }
 
     @Override
@@ -31,13 +32,12 @@ public class Profile implements IProfile {
     }
 
     @Override
-    public List<String> getPerspectiveIds() {
-        return this.perspectiveIdList; // TODO copy defensive
+    public List<IApplication> getApplications() {
+        return this.applicationList; // TODO copy defensive
     }
 
     @Override
     public String toString() {
-        // TODO Auto-generated method stub
-        return "Profile[name="+this.name+", perspectiveIdList="+this.perspectiveIdList+"]";
+        return "Profile[name="+this.name+", applicationList="+this.applicationList+"]";
     }
 }

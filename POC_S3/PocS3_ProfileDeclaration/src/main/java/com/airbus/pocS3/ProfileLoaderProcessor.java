@@ -5,20 +5,25 @@
 package com.airbus.pocS3;
 
 import java.net.URL;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
 
+import org.eclipse.e4.core.di.annotations.Execute;
+
+import com.airbus.pocS3.definitions.IApplication;
 import com.airbus.pocS3.definitions.IProfile;
 import com.airbus.pocS3.definitions.IProfileService;
+import com.airbus.pocS3.internal.ApplicationDesc;
 import com.airbus.pocS3.internal.Profile;
 import com.airbus.pocS3.internal.Profiles;
+import com.airbus.pocs3.factory.ApplicationFactory;
 import com.airbus.pocs3.factory.ProfileFactory;
-
-import org.eclipse.e4.core.di.annotations.Execute;
 
 /**
  *
@@ -37,7 +42,7 @@ public class ProfileLoaderProcessor {
             final Profiles profiles = loadProfiles();
 
             // for each add to profile service
-            Arrays.stream(getProfiles(profiles))
+            getProfiles(profiles)
                   .forEach(profileService::addProfile);
         } catch (final Exception e) {
             e.printStackTrace();
@@ -49,21 +54,47 @@ public class ProfileLoaderProcessor {
      * @param profiles
      * @return
      */
-    private static IProfile[] getProfiles(Profiles profiles) {
+    private static Stream<IProfile> getProfiles(Profiles profiles) {
+//        final List<IApplication> applicationList = profile.applicationList.stream().map(p -> p.perspective_id).collect(Collectors.toList());
+
+      Map<String, ApplicationDesc> nameToApplicationDescMap = profiles.application_descList
+              .stream()
+              .collect(Collectors.toMap(application_desc -> application_desc.name, Function.identity()));
+
         return profiles.profileList
                 .stream()
-                .map(ProfileLoaderProcessor::createProfile)
-                .toArray(size -> new IProfile[size]);
+                .map(profile -> ProfileLoaderProcessor.createProfile(profile, getApplicationList(profile, nameToApplicationDescMap)))
+                ;
     }
+
+    /**
+     * @param profile
+     * @param nameToApplicationDescMap
+     * @return
+     */
+    private static List<IApplication> getApplicationList(Profile profile, Map<String, ApplicationDesc> nameToApplicationDescMap) {
+      return profile.applicationList.stream()
+             .map(application -> nameToApplicationDescMap.get(application.name))
+             .map(ProfileLoaderProcessor::createApplication)
+             .collect(Collectors.toList());
+    }
+
+    /**
+    *
+    * @param application_desc
+    * @return
+    */
+   private static IApplication createApplication(ApplicationDesc application_desc) {
+       return ApplicationFactory.createApplication(application_desc.name, application_desc.perspective_id);
+   }
 
     /**
      *
      * @param profile
      * @return
      */
-    private static IProfile createProfile(Profile profile) {
-        final List<String> perspectiveIdList = profile.applicationList.stream().map(p -> p.perspective_id).collect(Collectors.toList());
-        return ProfileFactory.createProfile(profile.name, perspectiveIdList);
+    private static IProfile createProfile(Profile profile, List<IApplication> applicationList) {
+        return ProfileFactory.createProfile(profile.name, applicationList);
     }
 
     /**
