@@ -10,10 +10,9 @@
       </children>
     </children>
     <mainMenu xmi:id="_6wlLicgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.main.menu">
-      <children xsi:type="menu:Menu" xmi:id="_t27SsJMREeegJPATF737yg" elementId="pocs3_eap.menu.file" label="File">
+      <children xsi:type="menu:Menu" xmi:id="_t27SsJMREeegJPATF737yg" elementId="file" label="&amp;File">
         <tags>stretch</tags>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_kPdpMJMREeegJPATF737yg" elementId="pocs3_eap.install" label="Install" command="_vvZawJMSEeegJPATF737yg"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_NT-yoJMWEeegJPATF737yg" elementId="com.opcoach.e4app.handleditem.about" label="About" command="_LpBFoJMWEeegJPATF737yg"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_0pGRgJS7EeeU1IzZOTsQDw" elementId="com.sogeti.rental.eap.handleditem.quit" label="Quit" command="_4MhKYJS6EeeU1IzZOTsQDw"/>
       </children>
       <children xsi:type="menu:Menu" xmi:id="_LLFjQJRlEee9bK1Z4vhX0g" elementId="window" label="&amp;Window">
         <children xsi:type="menu:Menu" xmi:id="_CLC0MJRnEee9bK1Z4vhX0g" elementId="showView" label="Show &amp;View">
@@ -27,6 +26,8 @@
         <children xsi:type="menu:HandledMenuItem" xmi:id="_tdMQUJNOEeejjawio-XBuQ" elementId="org.eclipse.equinox.p2.ui.sdk.installationDetails" iconURI="platform:/plugin/org.eclipse.equinox.p2.ui.sdk/icons/obj/profile_obj.gif" command="_SPNcEJNOEeejjawio-XBuQ">
           <persistedState key="IIdentifier" value="org.eclipse.equinox.p2.ui.sdk/org.eclipse.equinox.p2.ui.sdk.installationDetails"/>
         </children>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_NnVioJS6EeeU1IzZOTsQDw" elementId="pocs3_eap.menuseparator.0"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_NT-yoJMWEeegJPATF737yg" elementId="com.opcoach.e4app.handleditem.about" label="About" command="_LpBFoJMWEeegJPATF737yg"/>
       </children>
     </mainMenu>
     <trimBars xmi:id="_6wlLlcgZEeSyMNYR5xypkQ" elementId="com.airbus.pocs3.trimbar.top">
@@ -35,7 +36,9 @@
       <children xsi:type="menu:ToolControl" xmi:id="_UGcNUJRoEee9bK1Z4vhX0g" elementId="PerspectiveSwitcher" toBeRendered="false" visible="false" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.e4.ui.workbench.addons.perspectiveswitcher.PerspectiveSwitcher"/>
     </trimBars>
   </children>
-  <handlers xmi:id="_LgCasJMUEeegJPATF737yg" elementId="org.eclipse.equinox.p2.ui.sdk.install" contributionURI="bundleclass://org.eclipse.equinox.internal.p2.ui.sdk/org.eclipse.equinox.internal.p2.ui.sdk.InstallNewSoftwareHandler" command="_vvZawJMSEeegJPATF737yg"/>
+  <handlers xmi:id="_6yXLQJS6EeeU1IzZOTsQDw" elementId="org.eclipse.ui.file.exit" contributionURI="bundleclass://PocS3_EAP/com.airbus.pocs3_eap.handlers.QuitHandler" command="_4MhKYJS6EeeU1IzZOTsQDw"/>
+  <handlers xmi:id="_LgCasJMUEeegJPATF737yg" elementId="org.eclipse.equinox.p2.ui.sdk.install" contributionURI="bundleclass://org.eclipse.equinox.internal.p2.ui.sdk/org.eclipse.equinox.internal.p2.ui.sdk.InstallNewSoftwareHandler" command="_cZnakJNOEeejjawio-XBuQ"/>
+  <handlers xmi:id="_UXNT8JS6EeeU1IzZOTsQDw" elementId="org.eclipse.equinox.p2.ui.sdk.installationDetails" contributionURI="bundleclass://org.eclipse.equinox.internal.p2.ui.sdk/org.eclipse.equinox.internal.p2.ui.sdk.InstallNewSoftwareHandler" command="_SPNcEJNOEeejjawio-XBuQ"/>
   <handlers xmi:id="_SOeWsJMWEeegJPATF737yg" elementId="com.opcoach.e4app.handler.aboutCommand" contributionURI="bundleclass://PocS3_EAP/com.airbus.pocs3_eap.parts.AboutHandler" command="_LpBFoJMWEeegJPATF737yg"/>
   <bindingTables xmi:id="_6wlLfsgZEeSyMNYR5xypkQ" elementId="com.airbus.pocs3.bindingtable" bindingContext="_6wlLecgZEeSyMNYR5xypkQ">
     <bindings xmi:id="_6wlLf8gZEeSyMNYR5xypkQ" elementId="com.airbus.pocs3.keybinding.m1q" keySequence="M1+Q"/>
@@ -47,10 +50,10 @@
     <children xmi:id="_6wlLesgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.contexts.window" name="In Windows"/>
     <children xmi:id="_6wlLe8gZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.contexts.dialog" name="In Dialogs"/>
   </rootContext>
-  <commands xmi:id="_vvZawJMSEeegJPATF737yg" elementId="org.eclipse.equinox.p2.ui.sdk.install" commandName="installNewSoftWare"/>
-  <commands xmi:id="_LpBFoJMWEeegJPATF737yg" elementId="org.eclipse.ui.help.aboutAction" commandName="aboutCommand"/>
-  <commands xmi:id="_SPNcEJNOEeejjawio-XBuQ" elementId="org.eclipse.equinox.p2.ui.sdk.installationDetails" commandName="Installation Details"/>
+  <commands xmi:id="_4MhKYJS6EeeU1IzZOTsQDw" elementId="org.eclipse.ui.file.exit" commandName="Quit Command"/>
   <commands xmi:id="_cZnakJNOEeejjawio-XBuQ" elementId="org.eclipse.equinox.p2.ui.sdk.install" commandName="Install New Software..."/>
+  <commands xmi:id="_SPNcEJNOEeejjawio-XBuQ" elementId="org.eclipse.equinox.p2.ui.sdk.installationDetails" commandName="Installation Details"/>
+  <commands xmi:id="_LpBFoJMWEeegJPATF737yg" elementId="org.eclipse.ui.help.aboutAction" commandName="About Command"/>
   <addons xmi:id="_6wlLcsgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_6wlLc8gZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_6wlLdMgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
