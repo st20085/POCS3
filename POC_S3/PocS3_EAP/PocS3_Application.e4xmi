@@ -33,17 +33,18 @@
     <trimBars xmi:id="_6wlLlcgZEeSyMNYR5xypkQ" elementId="pocs3_eap.trimbar.top">
       <children xsi:type="menu:ToolControl" xmi:id="_eHt9oJRrEee9bK1Z4vhX0g" elementId="pocs3_eap.toolcontrol.0" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.parts.HomeControl"/>
       <children xsi:type="menu:ToolBar" xmi:id="_XKdBAJShEee-6_WKtau9Qg" elementId="pocs3_eap.toolbar">
-        <children xsi:type="menu:HandledToolItem" xmi:id="_UDt9sJVeEeeJ5c6RdK_DbA" elementId="com.example.e4.rcp.todo.handledtoolitem.save" label="Save" iconURI="platform:/plugin/PocS3_EAP/icons/save_edit.png">
-          <command href="../com.example.e4.rcp.todo/Application.e4xmi#_vTZDkMZXEeGbkqRLZ7osPQ"/>
-        </children>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_UDt9sJVeEeeJ5c6RdK_DbA" elementId="com.example.e4.rcp.todo.handledtoolitem.save" label="Save" iconURI="platform:/plugin/PocS3_EAP/icons/save_edit.png" command="_IS1esJVgEeeJ5c6RdK_DbA"/>
       </children>
       <children xsi:type="menu:ToolControl" xmi:id="_UGcNUJRoEee9bK1Z4vhX0g" elementId="PerspectiveSwitcher" toBeRendered="false" visible="false" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.e4.ui.workbench.addons.perspectiveswitcher.PerspectiveSwitcher"/>
     </trimBars>
   </children>
-  <handlers xmi:id="_6yXLQJS6EeeU1IzZOTsQDw" elementId="org.eclipse.ui.file.exit" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.handlers.QuitHandler" command="_4MhKYJS6EeeU1IzZOTsQDw"/>
-  <handlers xmi:id="_LgCasJMUEeegJPATF737yg" elementId="org.eclipse.equinox.p2.ui.sdk.install" contributionURI="bundleclass://org.eclipse.equinox.internal.p2.ui.sdk/org.eclipse.equinox.internal.p2.ui.sdk.InstallNewSoftwareHandler" command="_cZnakJNOEeejjawio-XBuQ"/>
-  <handlers xmi:id="_UXNT8JS6EeeU1IzZOTsQDw" elementId="org.eclipse.equinox.p2.ui.sdk.installationDetails" contributionURI="bundleclass://org.eclipse.equinox.internal.p2.ui.sdk/org.eclipse.equinox.internal.p2.ui.sdk.InstallNewSoftwareHandler" command="_SPNcEJNOEeejjawio-XBuQ"/>
-  <handlers xmi:id="_SOeWsJMWEeegJPATF737yg" elementId="com.opcoach.e4app.handler.aboutCommand" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.parts.AboutHandler" command="_LpBFoJMWEeegJPATF737yg"/>
+  <handlers xmi:id="_6yXLQJS6EeeU1IzZOTsQDw" elementId="pocS3_eap.file.exit" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.handlers.QuitHandler" command="_4MhKYJS6EeeU1IzZOTsQDw"/>
+  <handlers xmi:id="_LgCasJMUEeegJPATF737yg" elementId="pocS3_eap.sdk.install" contributionURI="bundleclass://org.eclipse.equinox.internal.p2.ui.sdk/org.eclipse.equinox.internal.p2.ui.sdk.InstallNewSoftwareHandler" command="_cZnakJNOEeejjawio-XBuQ"/>
+  <handlers xmi:id="_UXNT8JS6EeeU1IzZOTsQDw" elementId="pocS3_eap.sdk.installationDetails" contributionURI="bundleclass://org.eclipse.equinox.internal.p2.ui.sdk/org.eclipse.equinox.internal.p2.ui.sdk.InstallNewSoftwareHandler" command="_SPNcEJNOEeejjawio-XBuQ"/>
+  <handlers xmi:id="_SOeWsJMWEeegJPATF737yg" elementId="pocS3_eap.aboutCommand" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.parts.AboutHandler" command="_LpBFoJMWEeegJPATF737yg"/>
+  <handlers xmi:id="_UO1hMJVhEeeJ5c6RdK_DbA" elementId="pocS3_eap.save" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.handlers.SaveHandler">
+    <command href="../com.example.e4.rcp.todo/Application.e4xmi#_vTZDkMZXEeGbkqRLZ7osPQ"/>
+  </handlers>
   <bindingTables xmi:id="_6wlLfsgZEeSyMNYR5xypkQ" elementId="pocs3_eap.bindingtable" bindingContext="_6wlLecgZEeSyMNYR5xypkQ">
     <bindings xmi:id="_6wlLf8gZEeSyMNYR5xypkQ" elementId="pocs3_eap.keybinding.m1q" keySequence="M1+Q"/>
     <bindings xmi:id="_6wlLgsgZEeSyMNYR5xypkQ" elementId="pocs3_eap.keybinding.m1o" keySequence="M1+O"/>
@@ -58,6 +59,7 @@
   <commands xmi:id="_cZnakJNOEeejjawio-XBuQ" elementId="org.eclipse.equinox.p2.ui.sdk.install" commandName="Install New Software..."/>
   <commands xmi:id="_SPNcEJNOEeejjawio-XBuQ" elementId="org.eclipse.equinox.p2.ui.sdk.installationDetails" commandName="Installation Details"/>
   <commands xmi:id="_LpBFoJMWEeegJPATF737yg" elementId="org.eclipse.ui.help.aboutAction" commandName="About Command"/>
+  <commands xmi:id="_IS1esJVgEeeJ5c6RdK_DbA" elementId="org.eclipse.ui.file.saveAll" commandName="Save"/>
   <addons xmi:id="_6wlLcsgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_6wlLc8gZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_6wlLdMgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
