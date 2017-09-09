@@ -4,7 +4,7 @@ Bundle-Name: PocS3_Factory
 Bundle-SymbolicName: PocS3_Factory
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: com.airbus.pocs3.factory
+Export-Package: pocs3_factory
 Require-Bundle: PocS3_ServiceDefinitions,
  javax.inject,
  org.eclipse.e4.ui.workbench,

@@ -1,0 +1,95 @@
+// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+package pocs3_eap.parts.internal;
+
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
+import pocs3_eap.parts.PocS3_Constants;
+import pocs3_service_definitions.IProfile;
+
+import org.eclipse.e4.core.contexts.ContextInjectionFactory;
+import org.eclipse.e4.core.di.annotations.Creatable;
+import org.eclipse.e4.core.di.annotations.Optional;
+import org.eclipse.e4.core.di.extensions.EventTopic;
+import org.eclipse.e4.ui.model.application.MApplication;
+import org.eclipse.e4.ui.model.application.ui.MUIElement;
+import org.eclipse.e4.ui.model.application.ui.advanced.MPerspective;
+import org.eclipse.e4.ui.workbench.UIEvents;
+import org.eclipse.e4.ui.workbench.UIEvents.EventTags;
+import org.eclipse.e4.ui.workbench.modeling.EModelService;
+import org.eclipse.e4.ui.workbench.modeling.EPartService;
+
+/**
+ *
+ */
+@Creatable
+@Singleton
+public class PocS3EapController {
+    @Inject
+    private MApplication application;
+
+    @Inject
+    private EModelService modelService;
+
+    @Inject
+    private EPartService partService;
+
+    @Inject
+    @Optional
+    private void injectSelectedPerspectiveId(@EventTopic(UIEvents.ElementContainer.TOPIC_SELECTEDELEMENT) org.osgi.service.event.Event event) {
+        final Object newValue = event.getProperty(EventTags.NEW_VALUE);
+
+        if (newValue instanceof MPerspective) {
+            final MPerspective perspective = (MPerspective) newValue;
+            this.application.getContext().set(PocS3_Constants.POCS3_ACTIVE_PERSPECTIVE_ID, perspective.getElementId());
+        }
+    }
+
+    /**
+     * Switch to application perspective
+     * @param applicationPerspective
+     */
+    public void switchToApplicationPerspective(MPerspective applicationPerspective) {
+        this.partService.switchPerspective(applicationPerspective);
+
+        //
+        final MUIElement pocS3_TrimbarTop = this.modelService.find(PocS3_Constants.POCS3_TRIMBAR_TOP, this.application);
+        pocS3_TrimbarTop.setVisible(true);
+    }
+
+    /*
+     * Switch to profile perspective
+     */
+    public void switchToProfilePerspective() {
+        // unset selectedProfile to Application context
+        this.application.getContext().remove(IProfile.class);
+
+        //
+        final MUIElement pocS3_TrimbarTop = this.modelService.find(PocS3_Constants.POCS3_TRIMBAR_TOP, this.application);
+        pocS3_TrimbarTop.setVisible(false);
+
+        // switch to profile perspective
+        this.partService.switchPerspective(PocS3_Constants.PROFILE_PERSPECTIVE_ID);
+    }
+
+    /**
+     * Switch to application board perspective
+     */
+    public void switchToApplicationBoardPerspective(IProfile profile) {
+
+        // set selectedProfile to Application context
+        this.application.getContext().set(IProfile.class, profile);
+
+        ContextInjectionFactory.inject(profile, this.application.getContext().getActiveLeaf());
+
+        // go to application board perspective
+        this.partService.switchPerspective(PocS3_Constants.APPLICATION_BOARD_PERSPECTIVE_ID);
+
+        //
+        final MUIElement pocS3_TrimbarTop = this.modelService.find(PocS3_Constants.POCS3_TRIMBAR_TOP, this.application);
+        pocS3_TrimbarTop.setVisible(true);
+    }
+}

@@ -3,10 +3,10 @@
   <children xsi:type="basic:TrimmedWindow" xmi:id="_6wlLccgZEeSyMNYR5xypkQ" elementId="com.airbus.pocs3.window.main" label="POC S3 Application" width="640" height="480">
     <children xsi:type="advanced:PerspectiveStack" xmi:id="_PbtzkJO4EeegJPATF737yg" elementId="pocs3_eap.perspectivestack" selectedElement="_Uc6ckJO4EeegJPATF737yg">
       <children xsi:type="advanced:Perspective" xmi:id="_Uc6ckJO4EeegJPATF737yg" elementId="pocs3_eap.perspective.profile" selectedElement="_6wlLlMgZEeSyMNYR5xypkQ" label="Profile perspective">
-        <children xsi:type="basic:Part" xmi:id="_6wlLlMgZEeSyMNYR5xypkQ" elementId="PocS3_EAP.sample" contributionURI="bundleclass://PocS3_EAP/com.airbus.pocs3_eap.parts.ProfilePart" label="Profile Part"/>
+        <children xsi:type="basic:Part" xmi:id="_6wlLlMgZEeSyMNYR5xypkQ" elementId="PocS3_EAP.sample" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.parts.ProfilePart" label="Profile Part"/>
       </children>
       <children xsi:type="advanced:Perspective" xmi:id="_fWZ2MJPaEeegJPATF737yg" elementId="pocs3_eap.perspective.application_board" selectedElement="_zsbesJPbEeegJPATF737yg" label="Application board perspective">
-        <children xsi:type="basic:Part" xmi:id="_zsbesJPbEeegJPATF737yg" elementId="pocs3_eap.part.applicationboard" contributionURI="bundleclass://PocS3_EAP/com.airbus.pocs3_eap.parts.ApplicationBoardPart" label="Application Board"/>
+        <children xsi:type="basic:Part" xmi:id="_zsbesJPbEeegJPATF737yg" elementId="pocs3_eap.part.applicationboard" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.parts.ApplicationBoardPart" label="Application Board"/>
       </children>
     </children>
     <mainMenu xmi:id="_6wlLicgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.main.menu">
@@ -31,15 +31,15 @@
       </children>
     </mainMenu>
     <trimBars xmi:id="_6wlLlcgZEeSyMNYR5xypkQ" elementId="com.airbus.pocs3.trimbar.top">
-      <children xsi:type="menu:ToolControl" xmi:id="_eHt9oJRrEee9bK1Z4vhX0g" elementId="pocs3_eap.toolcontrol.0" contributionURI="bundleclass://PocS3_EAP/com.airbus.pocs3_eap.parts.HomeControl"/>
+      <children xsi:type="menu:ToolControl" xmi:id="_eHt9oJRrEee9bK1Z4vhX0g" elementId="pocs3_eap.toolcontrol.0" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.parts.HomeControl"/>
       <children xsi:type="menu:ToolBar" xmi:id="_XKdBAJShEee-6_WKtau9Qg" elementId="pocs3_eap.toolbar"/>
       <children xsi:type="menu:ToolControl" xmi:id="_UGcNUJRoEee9bK1Z4vhX0g" elementId="PerspectiveSwitcher" toBeRendered="false" visible="false" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.e4.ui.workbench.addons.perspectiveswitcher.PerspectiveSwitcher"/>
     </trimBars>
   </children>
-  <handlers xmi:id="_6yXLQJS6EeeU1IzZOTsQDw" elementId="org.eclipse.ui.file.exit" contributionURI="bundleclass://PocS3_EAP/com.airbus.pocs3_eap.handlers.QuitHandler" command="_4MhKYJS6EeeU1IzZOTsQDw"/>
+  <handlers xmi:id="_6yXLQJS6EeeU1IzZOTsQDw" elementId="org.eclipse.ui.file.exit" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.handlers.QuitHandler" command="_4MhKYJS6EeeU1IzZOTsQDw"/>
   <handlers xmi:id="_LgCasJMUEeegJPATF737yg" elementId="org.eclipse.equinox.p2.ui.sdk.install" contributionURI="bundleclass://org.eclipse.equinox.internal.p2.ui.sdk/org.eclipse.equinox.internal.p2.ui.sdk.InstallNewSoftwareHandler" command="_cZnakJNOEeejjawio-XBuQ"/>
   <handlers xmi:id="_UXNT8JS6EeeU1IzZOTsQDw" elementId="org.eclipse.equinox.p2.ui.sdk.installationDetails" contributionURI="bundleclass://org.eclipse.equinox.internal.p2.ui.sdk/org.eclipse.equinox.internal.p2.ui.sdk.InstallNewSoftwareHandler" command="_SPNcEJNOEeejjawio-XBuQ"/>
-  <handlers xmi:id="_SOeWsJMWEeegJPATF737yg" elementId="com.opcoach.e4app.handler.aboutCommand" contributionURI="bundleclass://PocS3_EAP/com.airbus.pocs3_eap.parts.AboutHandler" command="_LpBFoJMWEeegJPATF737yg"/>
+  <handlers xmi:id="_SOeWsJMWEeegJPATF737yg" elementId="com.opcoach.e4app.handler.aboutCommand" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.parts.AboutHandler" command="_LpBFoJMWEeegJPATF737yg"/>
   <bindingTables xmi:id="_6wlLfsgZEeSyMNYR5xypkQ" elementId="com.airbus.pocs3.bindingtable" bindingContext="_6wlLecgZEeSyMNYR5xypkQ">
     <bindings xmi:id="_6wlLf8gZEeSyMNYR5xypkQ" elementId="com.airbus.pocs3.keybinding.m1q" keySequence="M1+Q"/>
     <bindings xmi:id="_6wlLgsgZEeSyMNYR5xypkQ" elementId="com.airbus.pocs3.keybinding.m1o" keySequence="M1+O"/>

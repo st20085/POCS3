@@ -5,7 +5,7 @@
          id="PocS3_l3d.processor"
          point="org.eclipse.e4.workbench.model">
       <processor
-            class="com.airbus.pocS3.l3d.L3dProcessor"
+            class="pocs3_l3d.L3dProcessor"
             beforefragment="false">
       </processor>
    </extension>

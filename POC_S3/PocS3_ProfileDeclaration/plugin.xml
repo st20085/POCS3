@@ -7,7 +7,7 @@
          point="org.eclipse.e4.workbench.model">
       <processor
             beforefragment="false"
-            class="com.airbus.pocS3.ProfileLoaderProcessor">
+            class="pocs3_profile_loader.ProfileLoaderProcessor">
       </processor>
    </extension>
 </plugin>

@@ -5,7 +5,7 @@
          id="PocS3_Ibd.processor"
          point="org.eclipse.e4.workbench.model">
       <processor
-            class="com.airbus.pocS3.ibd.IbdProcessor"
+            class="pocs3_ibd.IbdProcessor"
             beforefragment="false">
       </processor>
    </extension>
