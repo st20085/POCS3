@@ -11,12 +11,15 @@
 		<module>PocS3_ServiceDefinitions</module>
 		<module>PocS3_Factory</module>
 		<module>PocS3_ServiceProviders</module>
-<!-- 		<module>PocS3_ProfileLoader</module> -->
+ 		<module>PocS3_ProfileLoader</module>
 		
 		<module>PocS3_EAP</module>
 		
 		<module>PocS3_Ibd</module>
 		<module>PocS3_l3d</module>
+		
+ 		<module>PocS3_features</module>
+		
 	</modules>
 
 	<properties>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profiles>
+	<profile name="System">
+		<application name="Bebop" />
+		<application name="Frequency plan" />
+		<application name="SBD" />
+	</profile>
+	<profile name="Payload">
+		<application name="SBD" />
+		<application name="IBD" />
+	</profile>
+	<profile name="Accomodation">
+		<application name="L3D" />
+		<application name="Simudep" />
+	</profile>
+	<profile name="Allocation Tool">
+		<application name="Allocation Tool" />
+	</profile>
+</profiles>
