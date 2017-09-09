@@ -44,7 +44,7 @@ public class PocS3EapController {
 
         if (newValue instanceof MPerspective) {
             final MPerspective perspective = (MPerspective) newValue;
-            this.application.getContext().set(PocS3_Constants.POCS3_ACTIVE_PERSPECTIVE_ID, perspective.getElementId());
+            this.application.getContext().set(PocS3_Constants.POCS3_ACTIVE_PERSPECTIVE_VARIABLE, perspective.getElementId());
         }
     }
 

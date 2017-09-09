@@ -18,7 +18,7 @@ public interface PocS3_Constants {
     public static final String POCS3_TRIMBAR_TOP = "pocs3_eap.trimbar.top";
 
 
-    public static final String POCS3_ACTIVE_PERSPECTIVE_ID = "pocS3.activePerspectiveId";
+    public static final String POCS3_ACTIVE_PERSPECTIVE_VARIABLE = "pocS3.activePerspectiveId";
 
 
 

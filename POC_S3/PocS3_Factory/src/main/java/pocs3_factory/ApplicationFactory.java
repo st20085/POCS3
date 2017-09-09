@@ -15,8 +15,6 @@ public class ApplicationFactory {
     /**
      * Create Application
      * @param name
-     * @param perspectiveId
-     * @return
      */
     public static IApplication createApplication(String name) {
         return new ApplicationImpl(name);

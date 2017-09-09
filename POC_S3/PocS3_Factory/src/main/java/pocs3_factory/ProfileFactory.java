@@ -20,10 +20,10 @@ public class ProfileFactory {
     /**
      * Create profile
      * @param name
-     * @param perspectiveIdList
+     * @param applicationList
      */
-    public static IProfile createProfile(String name, List<IApplication> perspectiveIdList) {
-        return new ProfileImpl(name, perspectiveIdList);
+    public static IProfile createProfile(String name, List<IApplication> applicationList) {
+        return new ProfileImpl(name, applicationList);
     }
 
     public static IProfile getCompleteProfile() {

@@ -15,8 +15,8 @@ public class IbdProcessor {
 
     @Execute
     public void execute(IProfileService profileService) {
-        // final IProfile IBD_profile = ProfileFactory.createProfile("IBD profile", Collections.emptyList());
-        // profileService.addProfile(IBD_profile);
+//         final IProfile IBD_profile = ProfileFactory.createProfile("IBD profile", Collections.emptyList());
+//         profileService.addProfile(IBD_profile);
     }
 
 //    @Inject
@@ -56,7 +56,7 @@ public class IbdProcessor {
     // }
 
 //    @Inject
-//    void setPerspective(@Optional @Named(PocS3_Constants.POCS3_ACTIVE_PERSPECTIVE_ID) String perspectiveId, MApplication application,
+//    void setPerspective(@Optional @Named(PocS3_Constants.POCS3_ACTIVE_PERSPECTIVE_VARIABLE) String perspectiveId, MApplication application,
 //        EModelService modelService, EMenuService menuService, EPartService partService) {
 //        final boolean activate = Ibd_Constants.IBD_PERSPECTIVE_ID.equals(perspectiveId);
 //

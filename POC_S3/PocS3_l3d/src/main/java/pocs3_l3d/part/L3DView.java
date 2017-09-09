@@ -21,7 +21,6 @@ public class L3DView {
 
     @PostConstruct
     public void postConstruct(Composite parent) {
-        System.err.println(parent.getLayout());
         parent.setBackground(Display.getDefault().getSystemColor(SWT.COLOR_WHITE));
     }
 }

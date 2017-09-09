@@ -80,7 +80,7 @@ public class ApplicationBoardPart {
 
   /**
    * @param parent
-   * @param perspectiveId
+   * @param application
    */
   private void createNotFoundPerspectiveButton(Composite parent, IApplication application) {
     final Button button = new Button(parent, SWT.FLAT);
@@ -96,7 +96,7 @@ public class ApplicationBoardPart {
 
   /**
    * @param parent
-   * @param perspectiveId
+   * @param application
    */
   private void createSwitchPerspectiveButton(Composite parent, IApplication application, MPerspective perspective) {
     final Button button = new Button(parent, SWT.FLAT);

@@ -60,6 +60,7 @@ import org.eclipse.swt.widgets.Layout;
  * @see <a href="http://www.eclipse.org/swt/examples.php">SWT Example: LayoutExample</a>
  * @see <a href="http://www.eclipse.org/swt/">Sample code and further information</a>
  */
+@Deprecated // TODO version à corriger
 public final class CenterRowLayout extends Layout {
 
 	/**
