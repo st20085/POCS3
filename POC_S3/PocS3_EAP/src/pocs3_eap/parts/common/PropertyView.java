@@ -7,6 +7,7 @@ package pocs3_eap.parts.common;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
+import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.e4.ui.di.Persist;
 import org.eclipse.e4.ui.model.application.ui.MDirtyable;
 import org.eclipse.swt.SWT;
@@ -23,6 +24,9 @@ public class PropertyView {
   @Inject
   private MDirtyable dirty;
 
+  private Text nameText;
+  private Text valueText;
+
   @Inject
   public PropertyView() {}
 
@@ -34,14 +38,19 @@ public class PropertyView {
 
     // temporary
     new Label(parent, SWT.NONE).setText("Name :");
-    Text text = new Text(parent, SWT.NONE);
-    text.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
-    text.addModifyListener(e -> dirty.setDirty(true));
+    nameText = new Text(parent, SWT.NONE);
+    nameText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+    nameText.addModifyListener(e -> dirty.setDirty(true));
 
     new Label(parent, SWT.NONE).setText("Value :");
-    text = new Text(parent, SWT.NONE);
-    text.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
-    text.addModifyListener(e -> dirty.setDirty(true));
+    valueText = new Text(parent, SWT.NONE);
+    valueText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+    valueText.addModifyListener(e -> dirty.setDirty(true));
+  }
+
+  @Focus
+  public void setFocus() {
+    nameText.setFocus();
   }
 
   @Persist
