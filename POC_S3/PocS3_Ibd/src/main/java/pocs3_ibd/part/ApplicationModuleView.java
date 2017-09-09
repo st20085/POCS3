@@ -31,7 +31,7 @@ public class ApplicationModuleView {
         // temporary
         final TableViewer checkTableViewer = new TableViewer(parent, SWT.NONE);
         checkTableViewer.setContentProvider(ArrayContentProvider.getInstance());
-        checkTableViewer.setInput(new String[] {"KA return", "Ibd1", "Ibd2"});
+        checkTableViewer.setInput(new String[] {"Mod1", "Mod2", "Mod3"});
         checkTableViewer.getControl().setLayoutData(new GridData(GridData.FILL_BOTH));
     }
 }

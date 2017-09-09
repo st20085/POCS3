@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_6wlLcMgZEeSyMNYR5xypkQ" elementId="PocS3_EAP" bindingContexts="_6wlLecgZEeSyMNYR5xypkQ">
-  <children xsi:type="basic:TrimmedWindow" xmi:id="_6wlLccgZEeSyMNYR5xypkQ" elementId="com.airbus.pocs3.window.main" label="POC S3 Application" width="640" height="480">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_6wlLccgZEeSyMNYR5xypkQ" elementId="pocs3_eap.window.main" label="POC S3 Application" width="640" height="480">
     <children xsi:type="advanced:PerspectiveStack" xmi:id="_PbtzkJO4EeegJPATF737yg" elementId="pocs3_eap.perspectivestack" selectedElement="_Uc6ckJO4EeegJPATF737yg">
       <children xsi:type="advanced:Perspective" xmi:id="_Uc6ckJO4EeegJPATF737yg" elementId="pocs3_eap.perspective.profile" selectedElement="_6wlLlMgZEeSyMNYR5xypkQ" label="Profile perspective">
         <children xsi:type="basic:Part" xmi:id="_6wlLlMgZEeSyMNYR5xypkQ" elementId="PocS3_EAP.sample" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.parts.ProfilePart" label="Profile Part"/>
@@ -30,7 +30,7 @@
         <children xsi:type="menu:HandledMenuItem" xmi:id="_NT-yoJMWEeegJPATF737yg" elementId="com.opcoach.e4app.handleditem.about" label="About" command="_LpBFoJMWEeegJPATF737yg"/>
       </children>
     </mainMenu>
-    <trimBars xmi:id="_6wlLlcgZEeSyMNYR5xypkQ" elementId="com.airbus.pocs3.trimbar.top">
+    <trimBars xmi:id="_6wlLlcgZEeSyMNYR5xypkQ" elementId="pocs3_eap.trimbar.top">
       <children xsi:type="menu:ToolControl" xmi:id="_eHt9oJRrEee9bK1Z4vhX0g" elementId="pocs3_eap.toolcontrol.0" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.parts.HomeControl"/>
       <children xsi:type="menu:ToolBar" xmi:id="_XKdBAJShEee-6_WKtau9Qg" elementId="pocs3_eap.toolbar"/>
       <children xsi:type="menu:ToolControl" xmi:id="_UGcNUJRoEee9bK1Z4vhX0g" elementId="PerspectiveSwitcher" toBeRendered="false" visible="false" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.e4.ui.workbench.addons.perspectiveswitcher.PerspectiveSwitcher"/>
@@ -40,11 +40,11 @@
   <handlers xmi:id="_LgCasJMUEeegJPATF737yg" elementId="org.eclipse.equinox.p2.ui.sdk.install" contributionURI="bundleclass://org.eclipse.equinox.internal.p2.ui.sdk/org.eclipse.equinox.internal.p2.ui.sdk.InstallNewSoftwareHandler" command="_cZnakJNOEeejjawio-XBuQ"/>
   <handlers xmi:id="_UXNT8JS6EeeU1IzZOTsQDw" elementId="org.eclipse.equinox.p2.ui.sdk.installationDetails" contributionURI="bundleclass://org.eclipse.equinox.internal.p2.ui.sdk/org.eclipse.equinox.internal.p2.ui.sdk.InstallNewSoftwareHandler" command="_SPNcEJNOEeejjawio-XBuQ"/>
   <handlers xmi:id="_SOeWsJMWEeegJPATF737yg" elementId="com.opcoach.e4app.handler.aboutCommand" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.parts.AboutHandler" command="_LpBFoJMWEeegJPATF737yg"/>
-  <bindingTables xmi:id="_6wlLfsgZEeSyMNYR5xypkQ" elementId="com.airbus.pocs3.bindingtable" bindingContext="_6wlLecgZEeSyMNYR5xypkQ">
-    <bindings xmi:id="_6wlLf8gZEeSyMNYR5xypkQ" elementId="com.airbus.pocs3.keybinding.m1q" keySequence="M1+Q"/>
-    <bindings xmi:id="_6wlLgsgZEeSyMNYR5xypkQ" elementId="com.airbus.pocs3.keybinding.m1o" keySequence="M1+O"/>
-    <bindings xmi:id="_6wlLhcgZEeSyMNYR5xypkQ" elementId="com.airbus.pocs3.keybinding.m1s" keySequence="M1+S"/>
-    <bindings xmi:id="_6wlLiMgZEeSyMNYR5xypkQ" elementId="com.airbus.pocs3.keybinding.m1a" keySequence="M1+A"/>
+  <bindingTables xmi:id="_6wlLfsgZEeSyMNYR5xypkQ" elementId="pocs3_eap.bindingtable" bindingContext="_6wlLecgZEeSyMNYR5xypkQ">
+    <bindings xmi:id="_6wlLf8gZEeSyMNYR5xypkQ" elementId="pocs3_eap.keybinding.m1q" keySequence="M1+Q"/>
+    <bindings xmi:id="_6wlLgsgZEeSyMNYR5xypkQ" elementId="pocs3_eap.keybinding.m1o" keySequence="M1+O"/>
+    <bindings xmi:id="_6wlLhcgZEeSyMNYR5xypkQ" elementId="pocs3_eap.keybinding.m1s" keySequence="M1+S"/>
+    <bindings xmi:id="_6wlLiMgZEeSyMNYR5xypkQ" elementId="pocs3_eap.keybinding.m1a" keySequence="M1+A"/>
   </bindingTables>
   <rootContext xmi:id="_6wlLecgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.contexts.dialogAndWindow" name="In Dialog and Windows">
     <children xmi:id="_6wlLesgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.contexts.window" name="In Windows"/>

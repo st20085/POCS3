@@ -2,13 +2,13 @@
 <fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmi:id="_2_0DkJPyEeelFMkguDB9EQ">
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_ItmT8JPzEeelFMkguDB9EQ" featurename="children" parentElementId="pocs3_eap.perspectivestack" positionInList="">
     <elements xsi:type="advanced:Perspective" xmi:id="_M6xfAJPzEeelFMkguDB9EQ" elementId="pocs3_l3d.perspective" label="L3D">
-      <children xsi:type="basic:PartSashContainer" xmi:id="_r3DJ8JPzEeelFMkguDB9EQ" elementId="pocs3_l3d.partsashcontainer.0" horizontal="true">
-        <children xsi:type="basic:PartStack" xmi:id="_zdK0gJP4EeelFMkguDB9EQ" elementId="pocs3_l3d.partstack.0" containerData="2000">
+      <children xsi:type="basic:PartSashContainer" xmi:id="_r3DJ8JPzEeelFMkguDB9EQ" elementId="pocs3_l3d.partsashcontainer" horizontal="true">
+        <children xsi:type="basic:PartStack" xmi:id="_zdK0gJP4EeelFMkguDB9EQ" elementId="pocs3_l3d.partstack" containerData="2000">
           <children xsi:type="basic:Part" xmi:id="_2uNugJP4EeelFMkguDB9EQ" elementId="pocs3_l3d.part.units" contributionURI="bundleclass://PocS3_l3d/pocs3_l3d.part.UnitView" label="Units"/>
         </children>
-        <children xsi:type="basic:Part" xmi:id="_CKv1gJP0EeelFMkguDB9EQ" elementId="pocs3_l3d.part.1" containerData="6000" contributionURI="bundleclass://PocS3_l3d/pocs3_l3d.part.L3DView"/>
-        <children xsi:type="basic:PartStack" xmi:id="_fuEzsJP4EeelFMkguDB9EQ" elementId="com.airbus.ds.s3.ibd.ui.partstack.1" containerData="2000">
-          <children xsi:type="basic:Part" xmi:id="_fuEzsZP4EeelFMkguDB9EQ" elementId="com.airbus.ds.s3.ibd.ui.part.myproperties" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.parts.common.PropertyView" label="Properties" iconURI="platform:/plugin/org.eclipse.ui.views/$nl$/icons/full/eview16/prop_ps.png" tooltip="Properties"/>
+        <children xsi:type="basic:Part" xmi:id="_CKv1gJP0EeelFMkguDB9EQ" elementId="pocs3_l3d.part.l3dview" containerData="6000" contributionURI="bundleclass://PocS3_l3d/pocs3_l3d.part.L3DView"/>
+        <children xsi:type="basic:PartStack" xmi:id="_fuEzsJP4EeelFMkguDB9EQ" elementId="pocs3_l3d.partstack" containerData="2000">
+          <children xsi:type="basic:Part" xmi:id="_fuEzsZP4EeelFMkguDB9EQ" elementId="pocs3_l3d.part.properties" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.parts.common.PropertyView" label="Properties" iconURI="platform:/plugin/org.eclipse.ui.views/$nl$/icons/full/eview16/prop_ps.png" tooltip="Properties"/>
         </children>
       </children>
     </elements>
