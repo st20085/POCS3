@@ -7,9 +7,6 @@ package pocs3_eap.parts.internal;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import pocs3_eap.parts.PocS3_Constants;
-import pocs3_service_definitions.IProfile;
-
 import org.eclipse.e4.core.contexts.ContextInjectionFactory;
 import org.eclipse.e4.core.di.annotations.Creatable;
 import org.eclipse.e4.core.di.annotations.Optional;
@@ -21,6 +18,9 @@ import org.eclipse.e4.ui.workbench.UIEvents;
 import org.eclipse.e4.ui.workbench.UIEvents.EventTags;
 import org.eclipse.e4.ui.workbench.modeling.EModelService;
 import org.eclipse.e4.ui.workbench.modeling.EPartService;
+
+import pocs3_eap.parts.PocS3_Constants;
+import pocs3_service_definitions.IProfile;
 
 /**
  *
@@ -79,11 +79,11 @@ public class PocS3EapController {
      * Switch to application board perspective
      */
     public void switchToApplicationBoardPerspective(IProfile profile) {
+        ContextInjectionFactory.inject(profile, this.application.getContext().getActiveLeaf());
 
         // set selectedProfile to Application context
         this.application.getContext().set(IProfile.class, profile);
 
-        ContextInjectionFactory.inject(profile, this.application.getContext().getActiveLeaf());
 
         // go to application board perspective
         this.partService.switchPerspective(PocS3_Constants.APPLICATION_BOARD_PERSPECTIVE_ID);
