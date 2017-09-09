@@ -8,14 +8,13 @@
 
    <launcherArgs>
       <programArgs>-clearPersistedState
--vm
-C:/Users/zxmulsii116/dev/devbox/Java/jdk1.8.0_131/bin/javaw.exe
       </programArgs>
       <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
       </vmArgsMac>
    </launcherArgs>
 
    <windowImages/>
+
 
    <launcher>
       <solaris/>
