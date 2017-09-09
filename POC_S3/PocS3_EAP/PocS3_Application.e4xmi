@@ -32,7 +32,11 @@
     </mainMenu>
     <trimBars xmi:id="_6wlLlcgZEeSyMNYR5xypkQ" elementId="pocs3_eap.trimbar.top">
       <children xsi:type="menu:ToolControl" xmi:id="_eHt9oJRrEee9bK1Z4vhX0g" elementId="pocs3_eap.toolcontrol.0" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.parts.HomeControl"/>
-      <children xsi:type="menu:ToolBar" xmi:id="_XKdBAJShEee-6_WKtau9Qg" elementId="pocs3_eap.toolbar"/>
+      <children xsi:type="menu:ToolBar" xmi:id="_XKdBAJShEee-6_WKtau9Qg" elementId="pocs3_eap.toolbar">
+        <children xsi:type="menu:HandledToolItem" xmi:id="_UDt9sJVeEeeJ5c6RdK_DbA" elementId="com.example.e4.rcp.todo.handledtoolitem.save" label="Save" iconURI="platform:/plugin/PocS3_EAP/icons/save_edit.png">
+          <command href="../com.example.e4.rcp.todo/Application.e4xmi#_vTZDkMZXEeGbkqRLZ7osPQ"/>
+        </children>
+      </children>
       <children xsi:type="menu:ToolControl" xmi:id="_UGcNUJRoEee9bK1Z4vhX0g" elementId="PerspectiveSwitcher" toBeRendered="false" visible="false" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.e4.ui.workbench.addons.perspectiveswitcher.PerspectiveSwitcher"/>
     </trimBars>
   </children>
