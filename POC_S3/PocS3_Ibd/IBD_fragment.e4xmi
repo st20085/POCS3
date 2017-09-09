@@ -31,7 +31,7 @@
     </elements>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_BgFYYJR3Eee-6_WKtau9Qg" featurename="menuContributions" parentElementId="PocS3_EAP">
-    <elements xsi:type="menu:MenuContribution" xmi:id="_RRz8AJSIEee-6_WKtau9Qg" elementId="pocs3_ibd.menucontribution.0" parentId="org.eclipse.ui.main.menu">
+    <elements xsi:type="menu:MenuContribution" xmi:id="_RRz8AJSIEee-6_WKtau9Qg" elementId="pocs3_ibd.menucontribution.0" positionInParent="before=window" parentId="org.eclipse.ui.main.menu">
       <children xsi:type="menu:Menu" xmi:id="_L7DSsJSIEee-6_WKtau9Qg" elementId="pocs3_ibd.menu.ibd" label="IBD">
         <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_7PpcoJSYEee-6_WKtau9Qg" coreExpressionId="ibd_perspective_activated"/>
         <children xsi:type="menu:DirectMenuItem" xmi:id="_STPYQJSSEee-6_WKtau9Qg" elementId="pocs3_ibd.directmenuitem.test" label="Open IBD"/>
