@@ -10,7 +10,7 @@ import java.util.Set;
  *
  */
 public interface IProfileService {
-    public static final String PROFILE_ADDED = "com/airbus/pocS3/definitions/IProfileService/PROFILE_ADDED";
+    public static final String PROFILE_ADDED = "pocs3_service_definitions/IProfileService/PROFILE_ADDED";
     //
     void addProfile(IProfile profile);
 

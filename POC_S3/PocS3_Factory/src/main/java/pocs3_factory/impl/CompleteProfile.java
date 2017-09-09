@@ -16,8 +16,6 @@ import pocs3_service_definitions.IProfileService;
 
 /**
  * The class CompleteProfile allows to
- *
- * @Copyright Airbus 2017
  */
 public class CompleteProfile implements IProfile {
   @Inject
