@@ -17,7 +17,8 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.osgi.framework.Bundle;
+import org.osgi.framework.FrameworkUtil;
 
 import pocs3_eap.parts.internal.PocS3EapController;
 
@@ -41,8 +42,9 @@ public class HomeControl {
             .grab(false, false)
             .create());
         homeButton.setToolTipText("Profile Perspective");
-        final ImageDescriptor imageDescriptor =
-            AbstractUIPlugin.imageDescriptorFromPlugin(PocS3_Constants.POCS3_EAP_PLUGIN_ID, "icons/home_perspective.png");
+
+        Bundle b = FrameworkUtil.getBundle(this.getClass());
+        ImageDescriptor imageDescriptor = ImageDescriptor.createFromURL(b.getEntry("icons/home_perspective.png"));
         resManager = new LocalResourceManager(JFaceResources.getResources(), comp);
         final Image image = resManager.createImage(imageDescriptor);
         homeButton.setImage(image);
