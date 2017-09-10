@@ -2,6 +2,7 @@
 package pocs3_eap.parts;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.inject.Inject;
 
 import org.eclipse.jface.layout.GridDataFactory;
@@ -24,10 +25,14 @@ public class HomeControl {
     @Inject
     private PocS3EapController eapController;
 
+    private ResourceManager resManager;
+
     @PostConstruct
     public void createGui(Composite parent) {
         final Composite comp = new Composite(parent, SWT.NONE);
-        comp.setLayout(new GridLayout());
+        GridLayout layout = new GridLayout();
+        layout.marginWidth = layout.marginHeight = 0;
+        comp.setLayout(layout);
 
         final Button homeButton = new Button(comp, SWT.FLAT);
         // homeButton.setVisible(false);
@@ -37,8 +42,8 @@ public class HomeControl {
             .create());
         homeButton.setToolTipText("Profile Perspective");
         final ImageDescriptor imageDescriptor =
-            AbstractUIPlugin.imageDescriptorFromPlugin(PocS3_Constants.POCS3_EAP_PLUGIN_ID, "icons/home_perspective.jpg");
-        final ResourceManager resManager = new LocalResourceManager(JFaceResources.getResources(), comp);
+            AbstractUIPlugin.imageDescriptorFromPlugin(PocS3_Constants.POCS3_EAP_PLUGIN_ID, "icons/home_perspective.png");
+        resManager = new LocalResourceManager(JFaceResources.getResources(), comp);
         final Image image = resManager.createImage(imageDescriptor);
         homeButton.setImage(image);
         homeButton.addSelectionListener(new SelectionAdapter() {
@@ -49,6 +54,12 @@ public class HomeControl {
         });
 
         this.eapController.switchToProfilePerspective();
+    }
+
+    @PreDestroy
+    private void dispose() {
+      if (resManager != null)
+        resManager.dispose();
     }
 
     // /**

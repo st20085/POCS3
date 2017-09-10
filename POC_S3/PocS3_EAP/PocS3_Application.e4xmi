@@ -20,7 +20,7 @@
           <children xsi:type="menu:DirectMenuItem" xmi:id="_TS6a8pWiEeeGf8Sn35zSnA" elementId="viewsShortlist"/>
         </children>
       </children>
-      <children xsi:type="menu:Menu" xmi:id="_6wlLjsgZEeSyMNYR5xypkQ" elementId="help" label="Help">
+      <children xsi:type="menu:Menu" xmi:id="_6wlLjsgZEeSyMNYR5xypkQ" elementId="help" label="&amp;Help">
         <children xsi:type="menu:HandledMenuItem" xmi:id="_WJip0JWiEeeGf8Sn35zSnA" elementId="org.eclipse.equinox.p2.ui.sdk.install" iconURI="platform:/plugin/org.eclipse.equinox.p2.ui.sdk/icons/obj/iu_obj.gif">
           <persistedState key="IIdentifier" value="org.eclipse.equinox.p2.ui.sdk/org.eclipse.equinox.p2.ui.sdk.install"/>
           <command href="PocS3_Application2.e4xmi#_cZnakJNOEeejjawio-XBuQ"/>
@@ -36,8 +36,8 @@
     <trimBars xmi:id="_6wlLlcgZEeSyMNYR5xypkQ" elementId="pocs3_eap.trimbar.top">
       <children xsi:type="menu:ToolControl" xmi:id="_86BGUJWhEeeGf8Sn35zSnA" elementId="pocs3_eap.toolcontrol.0" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.parts.HomeControl"/>
       <children xsi:type="menu:ToolBar" xmi:id="_6wlLlsgZEeSyMNYR5xypkQ" elementId="pocs3_eap.toolbar">
-        <children xsi:type="menu:HandledToolItem" xmi:id="_6wlLl8gZEeSyMNYR5xypkQ" elementId="basicRCP4.handleditem.trimbar.top.open" iconURI="platform:/plugin/PocS3_EAP/icons/sample.png" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
         <children xsi:type="menu:HandledToolItem" xmi:id="_6wlLmMgZEeSyMNYR5xypkQ" elementId="basicRCP4.handleditem.trimbar.top.save" iconURI="platform:/plugin/PocS3_EAP/icons/save_edit.png" command="_6wlLg8gZEeSyMNYR5xypkQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_6wlLl8gZEeSyMNYR5xypkQ" elementId="basicRCP4.handleditem.trimbar.top.open" visible="false" iconURI="platform:/plugin/PocS3_EAP/icons/sample.png" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
       </children>
     </trimBars>
   </children>
@@ -55,10 +55,10 @@
     <children xmi:id="_6wlLesgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.contexts.window" name="In Windows"/>
     <children xmi:id="_6wlLe8gZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.contexts.dialog" name="In Dialogs"/>
   </rootContext>
-  <commands xmi:id="_6wlLfMgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.file.exit" commandName="quitCommand"/>
-  <commands xmi:id="_6wlLgMgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.file.open" commandName="openCommand"/>
-  <commands xmi:id="_6wlLg8gZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.file.save" commandName="saveCommand"/>
-  <commands xmi:id="_6wlLhsgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.help.aboutAction" commandName="aboutCommand"/>
+  <commands xmi:id="_6wlLfMgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.file.exit" commandName="quit Command"/>
+  <commands xmi:id="_6wlLgMgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.file.open" commandName="open Command"/>
+  <commands xmi:id="_6wlLg8gZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.file.save" commandName="save Command"/>
+  <commands xmi:id="_6wlLhsgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.help.aboutAction" commandName="about Command"/>
   <addons xmi:id="_6wlLcsgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_6wlLc8gZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_6wlLdMgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
