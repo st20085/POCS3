@@ -24,7 +24,7 @@
             </children>
           </children>
           <children xsi:type="basic:PartStack" xmi:id="_hIwtM5PxEeelFMkguDB9EQ" elementId="pocs3_ibd.partstack" containerData="50">
-            <children xsi:type="basic:Part" xmi:id="_hIwtNJPxEeelFMkguDB9EQ" elementId="pocs3_ibd.part.properties" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.parts.common.PropertyView" label="Properties" iconURI="platform:/plugin/org.eclipse.ui.views/$nl$/icons/full/eview16/prop_ps.png" tooltip="Properties"/>
+            <children xsi:type="basic:Part" xmi:id="_hIwtNJPxEeelFMkguDB9EQ" elementId="pocs3_ibd.part.properties" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.parts.common.PropertyView" label="Properties" iconURI="platform:/plugin/PocS3_EAP/icons/properties_view.png" tooltip="Properties"/>
           </children>
         </children>
       </children>
