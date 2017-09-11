@@ -25,6 +25,7 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 
+import pocs3_ibd.part.handler.IBlockDiagramPart;
 import pocs3_ibd_service_definitions.IBlocDiagramService;
 import pocs3_ibd_service_definitions.IBlockDiagram;
 import pocs3_service_definitions.IClipboardListener;
@@ -32,7 +33,7 @@ import pocs3_service_definitions.IClipboardListener;
 /**
  * The class <b>BlockDiagramView</b> allows to
  */
-public class BlockDiagramView implements IClipboardListener {
+public class BlockDiagramView implements IBlockDiagramPart, IClipboardListener {
 
     @Inject
     ESelectionService selectionService;

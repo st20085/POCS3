@@ -15,4 +15,16 @@
          <property name="applicationXMI" value="PocS3_EAP/PocS3_Application.e4xmi"> </property>
       </product>
    </extension>
+   <extension
+         point="org.eclipse.core.expressions.definitions">
+      <definition
+            id="application_board_perspective_activated">
+         <with
+               variable="pocS3.activePerspectiveId">
+            <equals
+                  value="pocs3_eap.perspective.application_board">
+            </equals>
+         </with>
+      </definition>
+   </extension>
 </plugin>

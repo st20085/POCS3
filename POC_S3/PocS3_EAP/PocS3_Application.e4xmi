@@ -42,8 +42,11 @@
         <children xsi:type="menu:HandledMenuItem" xmi:id="_6wlLj8gZEeSyMNYR5xypkQ" elementId="pocs3_eap.handleditem.about" label="About" command="_6wlLhsgZEeSyMNYR5xypkQ"/>
       </children>
     </mainMenu>
-    <trimBars xmi:id="_6wlLlcgZEeSyMNYR5xypkQ" elementId="pocs3_eap.trimbar.top">
-      <children xsi:type="menu:ToolControl" xmi:id="_86BGUJWhEeeGf8Sn35zSnA" elementId="pocs3_eap.toolcontrol.0" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.parts.HomeControl"/>
+    <trimBars xmi:id="_6wlLlcgZEeSyMNYR5xypkQ" elementId="pocs3_eap.trimbar.top" visible="false">
+      <children xsi:type="menu:ToolBar" xmi:id="_Oj1AEJcrEee71IxJMEkzDw" elementId="pocs3_eap.toolbar.0">
+        <children xsi:type="menu:DirectToolItem" xmi:id="_uHHnsJcrEee71IxJMEkzDw" elementId="pocs3_eap.directtoolitem.gotoprofile" label="Go to profile" iconURI="platform:/plugin/PocS3_EAP/icons/home_perspective.png" tooltip="Go to profile" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.handlers.GoToProfilePerspectiveHandler"/>
+        <children xsi:type="menu:DirectToolItem" xmi:id="_Te39wJcrEee71IxJMEkzDw" elementId="pocs3_eap.directtoolitem.gotoapplicationboard" label="Go to application board" iconURI="platform:/plugin/PocS3_EAP/icons/application_board.png" tooltip="Go to application board" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.handlers.GoToApplicationBoardHandler"/>
+      </children>
       <children xsi:type="menu:ToolBar" xmi:id="_6wlLlsgZEeSyMNYR5xypkQ" elementId="pocs3_eap.toolbar">
         <children xsi:type="menu:HandledToolItem" xmi:id="_6wlLmMgZEeSyMNYR5xypkQ" elementId="pocs3_eap.handleditem.trimbar.top.save" label="Save" iconURI="platform:/plugin/PocS3_EAP/icons/save_edit.png" tooltip="Save" command="_6wlLg8gZEeSyMNYR5xypkQ"/>
         <children xsi:type="menu:ToolBarSeparator" xmi:id="_N2ekIJcmEee71IxJMEkzDw" elementId="pocs3_eap.toolbarseparator.0"/>
