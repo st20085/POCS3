@@ -4,6 +4,8 @@
 
 package pocs3_ibd.part;
 
+import java.util.Arrays;
+
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -25,11 +27,12 @@ import org.eclipse.swt.widgets.Composite;
 
 import pocs3_ibd_service_definitions.IBlocDiagramService;
 import pocs3_ibd_service_definitions.IBlockDiagram;
+import pocs3_service_definitions.IClipboardListener;
 
 /**
  * The class <b>BlockDiagramView</b> allows to
  */
-public class BlockDiagramView {
+public class BlockDiagramView implements IClipboardListener {
 
     @Inject
     ESelectionService selectionService;
@@ -118,5 +121,55 @@ public class BlockDiagramView {
     @Inject
     public void receiveSelection(@Optional @Named(IServiceConstants.ACTIVE_SELECTION) Object selectedObject) {
         System.out.println("selectedObject "+selectedObject);
+    }
+
+    /*
+     * @see pocs3_service_definitions.IClipboardListener#canDoCopy()
+     */
+    @Override
+    public boolean canDoCopy() {
+      final IStructuredSelection selection = (IStructuredSelection) BlockDiagramView.this.checkTableViewer.getSelection();
+      return ! selection.isEmpty();
+    }
+
+    /*
+     * @see pocs3_service_definitions.IClipboardListener#doCopy()
+     */
+    @Override
+    public void doCopy() {
+      final IStructuredSelection selection = (IStructuredSelection) BlockDiagramView.this.checkTableViewer.getSelection();
+      System.out.println("copied "+Arrays.toString(selection.toArray()));
+    }
+
+    /*
+     * @see pocs3_service_definitions.IClipboardListener#canDoPaste()
+     */
+    @Override
+    public boolean canDoPaste() {
+      return false;
+    }
+
+    /*
+     * @see pocs3_service_definitions.IClipboardListener#doPaste()
+     */
+    @Override
+    public void doPaste() {}
+
+    /*
+     * @see pocs3_service_definitions.IClipboardListener#canDoCut()
+     */
+    @Override
+    public boolean canDoCut() {
+      final IStructuredSelection selection = (IStructuredSelection) BlockDiagramView.this.checkTableViewer.getSelection();
+      return ! selection.isEmpty();
+    }
+
+    /*
+     * @see pocs3_service_definitions.IClipboardListener#doCut()
+     */
+    @Override
+    public void doCut() {
+      final IStructuredSelection selection = (IStructuredSelection) BlockDiagramView.this.checkTableViewer.getSelection();
+      System.out.println("cutted "+Arrays.toString(selection.toArray()));
     }
 }

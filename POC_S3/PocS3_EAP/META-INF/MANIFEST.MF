@@ -16,5 +16,6 @@ Require-Bundle: javax.inject,
  org.eclipse.e4.core.di.extensions,
  org.eclipse.osgi.services,
  PocS3_ServiceDefinitions,
- PocS3_Factory
+ PocS3_Factory,
+ org.eclipse.e4.core.services
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
