@@ -4,8 +4,16 @@
 
 package pocs3_ibd;
 
-import org.eclipse.e4.core.di.annotations.Execute;
+import javax.inject.Inject;
 
+import org.eclipse.e4.core.di.annotations.Execute;
+import org.eclipse.e4.core.di.annotations.Optional;
+import org.eclipse.e4.ui.di.UIEventTopic;
+import org.eclipse.e4.ui.model.application.ui.advanced.MPerspective;
+import org.eclipse.e4.ui.workbench.UIEvents;
+import org.eclipse.e4.ui.workbench.UIEvents.EventTags;
+
+import pocs3_ibd.internal.IbdController;
 import pocs3_service_definitions.IProfileService;
 
 /**
@@ -13,31 +21,57 @@ import pocs3_service_definitions.IProfileService;
  */
 public class IbdProcessor {
 
+    @Inject
+    IbdController ibdController;
+
     @Execute
     public void execute(IProfileService profileService) {
 //         final IProfile IBD_profile = ProfileFactory.createProfile("IBD profile", Collections.emptyList());
 //         profileService.addProfile(IBD_profile);
     }
 
-//    @Inject
-//    @Optional
-//    public void updateToolbarControls(@UIEventTopic(UIEvents.ElementContainer.TOPIC_SELECTEDELEMENT) HashMap<?, ?> event, EModelService modelService,
-//        MApplication application) {
-//        System.out.println("event "+event);
-//        event.forEach((key, value) -> System.out.println("key="+key+"   " +value));
-////        final Object newValue = (Object) event.getProperty(EventTags.NEW_VALUE);
-//    }
+    /**
+     * Update on event change
+     * @param event
+     */
+    @Inject
+    @Optional
+    public void updateOnEventChange(@UIEventTopic(UIEvents.ElementContainer.TOPIC_SELECTEDELEMENT) org.osgi.service.event.Event event) {
+//        final Object oldValue = event.getProperty(EventTags.OLD_VALUE);
+        final Object newValue = event.getProperty(EventTags.NEW_VALUE);
 
-//    @Inject
-//    @Optional
-//    public void updateToolbarControls(@UIEventTopic(UIEvents.ElementContainer.TOPIC_SELECTEDELEMENT) org.osgi.service.event.Event event) {
-//        System.out.println("event "+event);
-//        final Object newValue = event.getProperty(EventTags.NEW_VALUE);
-//
-//        if (newValue instanceof MPerspective) {
-//            final MPerspective perspective = (MPerspective) newValue;
-//        }
-//    }
+        if (newValue instanceof MPerspective) {
+            final MPerspective perspective = (MPerspective) newValue;
+
+            //
+            this.updateWhenPerspectiveHasChanged(perspective);
+        }
+    }
+
+    /**
+     * Update update when perspective has changed
+     * @param perspective
+     */
+    @Inject
+    @Optional
+    private void updateWhenPerspectiveHasChanged(MPerspective perspective) {
+        // update toolbar
+        this.updateToolbarWhenPerspectiveIsChanged(perspective);
+    }
+
+    /**
+     * Update toolbar when perspective has changed
+     * @param perspective
+     */
+    @Inject
+    @Optional
+    private void updateToolbarWhenPerspectiveIsChanged(MPerspective perspective) {
+        // change Ibd toolbar visibility
+        final boolean ibd_perspective_activated = Ibd_Constants.IBD_PERSPECTIVE_ID.equals(perspective.getElementId());
+        this.ibdController.changeIbdToolbarVisibility(ibd_perspective_activated);
+    }
+
+
 
 //    @Inject
 //    @Optional

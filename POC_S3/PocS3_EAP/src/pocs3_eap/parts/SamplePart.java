@@ -2,13 +2,16 @@ package pocs3_eap.parts;
 
 import java.util.Arrays;
 import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.e4.ui.di.Persist;
 import org.eclipse.e4.ui.model.application.ui.MDirtyable;
+import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
@@ -26,37 +29,60 @@ public class SamplePart {
 	@Inject
 	private MDirtyable dirty;
 
+    @Inject
+    ESelectionService selectionService;
+
 	@PostConstruct
 	public void createComposite(Composite parent) {
 		parent.setLayout(new GridLayout(1, false));
 
-		txtInput = new Text(parent, SWT.BORDER);
-		txtInput.setMessage("Enter text to mark part as dirty");
-		txtInput.addModifyListener(new ModifyListener() {
+		this.txtInput = new Text(parent, SWT.BORDER);
+		this.txtInput.setMessage("Enter text to mark part as dirty");
+		this.txtInput.addModifyListener(new ModifyListener() {
 			@Override
 			public void modifyText(ModifyEvent e) {
-				dirty.setDirty(true);
+				SamplePart.this.dirty.setDirty(true);
 			}
 		});
-		txtInput.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+		this.txtInput.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 
-		tableViewer = new TableViewer(parent);
+		this.tableViewer = new TableViewer(parent);
 
-		tableViewer.setContentProvider(ArrayContentProvider.getInstance());;
-		tableViewer.setInput(createInitialDataModel());
-		tableViewer.getTable().setLayoutData(new GridData(GridData.FILL_BOTH));
+		this.tableViewer.setContentProvider(ArrayContentProvider.getInstance());;
+		this.tableViewer.setInput(this.createInitialDataModel());
+		this.tableViewer.getTable().setLayoutData(new GridData(GridData.FILL_BOTH));
+
+		//
+        this.tableViewer.addSelectionChangedListener(event -> {
+            final IStructuredSelection selection = (IStructuredSelection) event.getSelection();
+
+            System.out.println("setSelection in thread "+Thread.currentThread());
+
+            // set the selection to the service
+            this.setSelection(selection.toArray());
+        });
 	}
 
-	@Focus
-	public void setFocus() {
-		tableViewer.getTable().setFocus();
-	}
+	private void setSelection(Object o) {
+//      this.context.set(IServiceConstants.ACTIVE_SELECTION, o);
+      this.selectionService.setSelection(o);
+  }
+
+    @Focus
+    private void setFocus() {
+        System.out.println("           setFocus");
+        this.tableViewer.getControl().setFocus();
+
+        final IStructuredSelection selection = (IStructuredSelection) this.tableViewer.getSelection();
+        this.setSelection(selection.toArray());
+    }
+
 
 	@Persist
 	public void save() {
-		dirty.setDirty(false);
+		this.dirty.setDirty(false);
 	}
-	
+
 	private List<String> createInitialDataModel() {
 		return Arrays.asList("Sample item 1", "Sample item 2", "Sample item 3", "Sample item 4", "Sample item 5");
 	}

@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: PocS3_IbdFactory
+Bundle-SymbolicName: PocS3_IbdFactory
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: PocS3_IbdServiceDefinitions
+Export-Package: poc_s3_ibd_factory

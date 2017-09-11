@@ -1,7 +1,3 @@
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 package pocs3_eap.parts.common;
 
 import javax.annotation.PostConstruct;
@@ -38,23 +34,23 @@ public class PropertyView {
 
     // temporary
     new Label(parent, SWT.NONE).setText("Name :");
-    nameText = new Text(parent, SWT.NONE);
-    nameText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
-    nameText.addModifyListener(e -> dirty.setDirty(true));
+    this.nameText = new Text(parent, SWT.BORDER);
+    this.nameText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+    this.nameText.addModifyListener(e -> this.dirty.setDirty(true));
 
     new Label(parent, SWT.NONE).setText("Value :");
-    valueText = new Text(parent, SWT.NONE);
-    valueText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
-    valueText.addModifyListener(e -> dirty.setDirty(true));
+    this.valueText = new Text(parent, SWT.BORDER);
+    this.valueText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+    this.valueText.addModifyListener(e -> this.dirty.setDirty(true));
   }
 
   @Focus
   public void setFocus() {
-    nameText.setFocus();
+    this.nameText.setFocus();
   }
 
   @Persist
   public void save() {
-    dirty.setDirty(false);
+    this.dirty.setDirty(false);
   }
 }

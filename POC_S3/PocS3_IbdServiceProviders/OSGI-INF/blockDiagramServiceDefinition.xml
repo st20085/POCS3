@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="PocS3_IbdServiceProviders">
+   <implementation class="pocs3_ibd_service_providers.BlocDiagramService"/>
+   <service>
+      <provide interface="pocs3_ibd_service_definitions.IBlocDiagramService"/>
+   </service>
+</scr:component>

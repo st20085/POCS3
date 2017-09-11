@@ -15,12 +15,21 @@
         <children xsi:type="menu:HandledMenuItem" xmi:id="_6wlLjMgZEeSyMNYR5xypkQ" elementId="basicRCP4.handleditem.save" label="Save" iconURI="platform:/plugin/PocS3_EAP/icons/save_edit.png" command="_6wlLg8gZEeSyMNYR5xypkQ"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_6wlLjcgZEeSyMNYR5xypkQ" elementId="basicRCP4.handleditem.quit" label="Quit" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
       </children>
+      <children xsi:type="menu:Menu" xmi:id="_TnFvIJbqEeeG0OQkavDMng" elementId="edit" label="&amp;Edit">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_cjLgYJbqEeeG0OQkavDMng" elementId="undo" label="Undo" command="_EffPIJbwEeeG0OQkavDMng"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_4smCIJbqEeeG0OQkavDMng" elementId="redo" label="Redo" command="_EnWKoJbwEeeG0OQkavDMng"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_GFpt8JbrEeeG0OQkavDMng" elementId="pocs3_eap.menuseparator.1"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_G3KqcJbrEeeG0OQkavDMng" elementId="cut" label="Cu&amp;t" command="_qKRywJbrEeeG0OQkavDMng"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_HkBJYJbrEeeG0OQkavDMng" elementId="copy" label="&amp;Copy" command="_aQKioJbvEeeG0OQkavDMng"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_MiHloJbsEeeG0OQkavDMng" elementId="paste" label="&amp;Paste" command="_qKRywJbrEeeG0OQkavDMng"/>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_KqmUQJb1EeeG0OQkavDMng" elementId="pocs3_eap.menuseparator.edit.additions" visible="false"/>
+      </children>
       <children xsi:type="menu:Menu" xmi:id="_TS6a8JWiEeeGf8Sn35zSnA" elementId="window" label="&amp;Window">
         <children xsi:type="menu:Menu" xmi:id="_TS6a8ZWiEeeGf8Sn35zSnA" elementId="showView" label="Show &amp;View">
           <children xsi:type="menu:DirectMenuItem" xmi:id="_TS6a8pWiEeeGf8Sn35zSnA" elementId="viewsShortlist"/>
         </children>
       </children>
-      <children xsi:type="menu:Menu" xmi:id="_6wlLjsgZEeSyMNYR5xypkQ" elementId="help" label="&amp;Help">
+      <children xsi:type="menu:Menu" xmi:id="_6wlLjsgZEeSyMNYR5xypkQ" elementId="help" visible="false" label="&amp;Help">
         <children xsi:type="menu:HandledMenuItem" xmi:id="_WJip0JWiEeeGf8Sn35zSnA" elementId="org.eclipse.equinox.p2.ui.sdk.install" iconURI="platform:/plugin/org.eclipse.equinox.p2.ui.sdk/icons/obj/iu_obj.gif">
           <persistedState key="IIdentifier" value="org.eclipse.equinox.p2.ui.sdk/org.eclipse.equinox.p2.ui.sdk.install"/>
           <command href="PocS3_Application2.e4xmi#_cZnakJNOEeejjawio-XBuQ"/>
@@ -59,6 +68,11 @@
   <commands xmi:id="_6wlLgMgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.file.open" commandName="open Command"/>
   <commands xmi:id="_6wlLg8gZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.file.save" commandName="save Command"/>
   <commands xmi:id="_6wlLhsgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.help.aboutAction" commandName="about Command"/>
+  <commands xmi:id="_qKRywJbrEeeG0OQkavDMng" elementId="org.eclipse.ui.edit.cut" commandName="Cut" description="Cut the selection to the clipboard" category="_AhVUUJbsEeeG0OQkavDMng"/>
+  <commands xmi:id="_aQKioJbvEeeG0OQkavDMng" elementId="org.eclipse.ui.edit.copy" commandName="Copy" description="Copy the selection to the clipboard" category="_AhVUUJbsEeeG0OQkavDMng"/>
+  <commands xmi:id="_aT-roJbvEeeG0OQkavDMng" elementId="org.eclipse.ui.edit.paste" commandName="Paste" description="Paste from the clipboard" category="_AhVUUJbsEeeG0OQkavDMng"/>
+  <commands xmi:id="_EffPIJbwEeeG0OQkavDMng" elementId="org.eclipse.ui.edit.undo" commandName="Undo" description="Undo the last operation" category="_AhVUUJbsEeeG0OQkavDMng"/>
+  <commands xmi:id="_EnWKoJbwEeeG0OQkavDMng" elementId="org.eclipse.ui.edit.redo" commandName="Redo" description="Redo the last operation" category="_AhVUUJbsEeeG0OQkavDMng"/>
   <addons xmi:id="_6wlLcsgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_6wlLc8gZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_6wlLdMgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
@@ -66,4 +80,5 @@
   <addons xmi:id="_6wlLdsgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.workbench.handler.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
   <addons xmi:id="_6wlLd8gZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.workbench.contexts.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.ContextProcessingAddon"/>
   <addons xmi:id="_6wlLeMgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.workbench.bindings.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.swt/org.eclipse.e4.ui.workbench.swt.util.BindingProcessingAddon"/>
+  <categories xmi:id="_AhVUUJbsEeeG0OQkavDMng" elementId="org.eclipse.ui.category.edit" name="Edit"/>
 </application:Application>

@@ -11,15 +11,20 @@
 		<module>PocS3_ServiceDefinitions</module>
 		<module>PocS3_Factory</module>
 		<module>PocS3_ServiceProviders</module>
+
  		<module>PocS3_ProfileLoader</module>
-		
-		<module>PocS3_EAP</module>
-		
+
+		<module>PocS3_IbdServiceDefinitions</module>
+		<module>PocS3_IbdFactory</module>
+		<module>PocS3_IbdServiceProviders</module>
 		<module>PocS3_Ibd</module>
+
 		<module>PocS3_l3d</module>
-		
- 		<module>PocS3_features</module>
-		
+
+		<module>PocS3_EAP</module>
+        <module>PocS3_features</module>
+        <module>PocS3_repository</module>
+
 	</modules>
 
 	<properties>
@@ -55,7 +60,7 @@
 				<artifactId>target-platform-configuration</artifactId>
 				<version>${tycho-version}</version>
 				<configuration>
-					<!-- <dependency-resolution> <optionalDependencies>ignore</optionalDependencies> 
+					<!-- <dependency-resolution> <optionalDependencies>ignore</optionalDependencies>
 						</dependency-resolution> -->
 					<environments>
 

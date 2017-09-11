@@ -2,11 +2,11 @@
     <modelVersion>4.0.0</modelVersion>
     
     <parent>
-		<groupId>PocS3</groupId>
-		<artifactId>PocS3-parent</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
-		<relativePath>../pom.xml</relativePath>
-	</parent>
+      <groupId>PocS3</groupId>
+      <artifactId>PocS3-parent</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+      <relativePath>../pom.xml</relativePath>
+    </parent>
     
     <groupId>PocS3</groupId>
     <artifactId>PocS3_EAP</artifactId>

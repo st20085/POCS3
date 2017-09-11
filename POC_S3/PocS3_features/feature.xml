@@ -16,23 +16,6 @@
       [Enter License Description here.]
    </license>
 
-   <requires>
-      <import plugin="javax.inject"/>
-      <import plugin="org.eclipse.core.runtime"/>
-      <import plugin="org.eclipse.swt"/>
-      <import plugin="org.eclipse.e4.ui.model.workbench"/>
-      <import plugin="org.eclipse.jface"/>
-      <import plugin="org.eclipse.e4.ui.services"/>
-      <import plugin="org.eclipse.e4.ui.workbench"/>
-      <import plugin="org.eclipse.e4.core.di"/>
-      <import plugin="org.eclipse.e4.ui.di"/>
-      <import plugin="org.eclipse.e4.core.contexts"/>
-      <import plugin="org.eclipse.equinox.p2.ui.sdk"/>
-      <import plugin="org.eclipse.e4.core.di.extensions"/>
-      <import plugin="org.eclipse.e4.core.services"/>
-      <import plugin="org.eclipse.e4.core.di.annotations"/>
-   </requires>
-
    <plugin
          id="PocS3_EAP"
          download-size="0"
@@ -77,6 +60,27 @@
 
    <plugin
          id="PocS3_ProfileLoader"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="PocS3_IbdFactory"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="PocS3_IbdServiceProviders"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="PocS3_IbdServiceDefinitions"
          download-size="0"
          install-size="0"
          version="0.0.0"
