@@ -66,9 +66,9 @@ public class IbdProcessor {
     @Inject
     @Optional
     private void updateToolbarWhenPerspectiveIsChanged(MPerspective perspective) {
-        // change Ibd toolbar visibility
+        // change Ibd toolbar renderer
         final boolean ibd_perspective_activated = Ibd_Constants.IBD_PERSPECTIVE_ID.equals(perspective.getElementId());
-        this.ibdController.changeIbdToolbarVisibility(ibd_perspective_activated);
+        this.ibdController.changeIbdToolbarRenderer(ibd_perspective_activated);
     }
 
 

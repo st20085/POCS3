@@ -30,14 +30,14 @@ public class IbdController {
 //    private EPartService partService;
 
     /**
-     * Change Ibd toolbar visibility
-     * @param applicationPerspective
+     * Change Ibd toolbar renderer
+     * @param renderer
      */
-    public void changeIbdToolbarVisibility(boolean visible) {
+    public void changeIbdToolbarRenderer(boolean renderer) {
         //
         final MUIElement ibd_toolbar = this.modelService.find(Ibd_Constants.IBD_TOOLBAR_ID, this.application);
         if (ibd_toolbar != null) {
-            ibd_toolbar.setToBeRendered(visible);
+            ibd_toolbar.setToBeRendered(renderer);
         }
     }
 
