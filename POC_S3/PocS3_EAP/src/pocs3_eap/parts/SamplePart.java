@@ -6,6 +6,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.e4.ui.di.Persist;
 import org.eclipse.e4.ui.model.application.ui.MDirtyable;
@@ -32,7 +33,7 @@ public class SamplePart {
 
   @PostConstruct
   public void createComposite(Composite parent) {
-    GridLayout layout = new GridLayout(1, false);
+    final GridLayout layout = new GridLayout(1, false);
     layout.marginWidth = layout.marginHeight = 0;
     parent.setLayout(layout);
 
@@ -79,7 +80,8 @@ public class SamplePart {
   }
 
   @Persist
-  public void save() {
+  public void save(IProgressMonitor progressMonitor) {
+      System.out.println("progressMonitor "+progressMonitor);
     this.dirty.setDirty(false);
   }
 

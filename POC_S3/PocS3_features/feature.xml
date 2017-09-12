@@ -24,13 +24,6 @@
          unpack="false"/>
 
    <plugin
-         id="PocS3_Ibd"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="PocS3_l3d"
          download-size="0"
          install-size="0"
@@ -60,27 +53,6 @@
 
    <plugin
          id="PocS3_ProfileLoader"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="PocS3_IbdFactory"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="PocS3_IbdServiceProviders"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="PocS3_IbdServiceDefinitions"
          download-size="0"
          install-size="0"
          version="0.0.0"

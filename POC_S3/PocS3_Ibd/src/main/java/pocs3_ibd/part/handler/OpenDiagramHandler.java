@@ -28,10 +28,10 @@ public class OpenDiagramHandler {
 
   @CanExecute
   public boolean canExecute(MPart part, Adapter adapter) {
-    Object object = part.getObject();
-    System.out.println("OpenDiagramHandler canExecute on view "+object);
+    final Object object = part.getObject();
+//    System.out.println("OpenDiagramHandler canExecute on view "+object);
 
-    IBlockDiagramPart blockDiagramPart = adapter.adapt(object, IBlockDiagramPart.class);
+    final IBlockDiagramPart blockDiagramPart = adapter.adapt(object, IBlockDiagramPart.class);
     if (blockDiagramPart != null) {
 //      blockDiagramPart.doOpenDiagram();
 

@@ -3,7 +3,7 @@ package pocs3_service_definitions;
 import java.util.List;
 
 /**
- * The interface IProfile allows to
+ * The interface <b>IPocS3Profile</b> allows to.<br>
  */
 public interface IProfile {
 

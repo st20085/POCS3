@@ -4,6 +4,8 @@
 
 package pocs3_eap.parts.internal;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
@@ -13,6 +15,7 @@ import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.core.di.extensions.EventTopic;
 import org.eclipse.e4.ui.model.application.MApplication;
 import org.eclipse.e4.ui.model.application.ui.MUIElement;
+import org.eclipse.e4.ui.model.application.ui.MUILabel;
 import org.eclipse.e4.ui.model.application.ui.advanced.MPerspective;
 import org.eclipse.e4.ui.workbench.UIEvents;
 import org.eclipse.e4.ui.workbench.UIEvents.EventTags;
@@ -50,6 +53,7 @@ public class PocS3EapController {
 
     /**
      * Switch to application perspective
+     *
      * @param applicationPerspective
      */
     public void switchToApplicationPerspective(MPerspective applicationPerspective) {
@@ -84,12 +88,48 @@ public class PocS3EapController {
         // set selectedProfile to Application context
         this.application.getContext().set(IProfile.class, profile);
 
-
         // go to application board perspective
         this.partService.switchPerspective(PocS3_Constants.APPLICATION_BOARD_PERSPECTIVE_ID);
 
         //
         final MUIElement pocS3_TrimbarTop = this.modelService.find(PocS3_Constants.POCS3_TRIMBAR_TOP, this.application);
         pocS3_TrimbarTop.setVisible(true);
+    }
+
+    /**
+     * Set copy tooltip on all ui elements
+     * @param tooltip
+     */
+    public void setCopyTooltip(String tooltip) {
+        this.setTooltip(tooltip, PocS3_Constants.COPY_START_ELEMENT_ID);
+    }
+
+    /**
+     * Set cut tooltip on all ui elements
+     * @param tooltip
+     */
+    public void setCutTooltip(String tooltip) {
+        this.setTooltip(tooltip, PocS3_Constants.CUT_START_ELEMENT_ID);
+    }
+
+    /**
+     * Set paste tooltip on all ui elements
+     * @param tooltip
+     */
+    public void setPasteTooltip(String tooltip) {
+        this.setTooltip(tooltip, PocS3_Constants.PASTE_START_ELEMENT_ID);
+    }
+    /**
+     * Set paste tooltip on all ui elements
+     * @param tooltip
+     */
+    private void setTooltip(String tooltip, String startElementId) {
+        // change all "startElementId*" tooltip
+        final StartElementMatcher startElementMatcher = new StartElementMatcher(startElementId, MUILabel.class, null);
+        final List<MUILabel> findElements = this.modelService.findElements(this.application, MUILabel.class,
+            EModelService.ANYWHERE | EModelService.IN_MAIN_MENU, startElementMatcher);
+        for (final MUILabel uiLabel : findElements) {
+            uiLabel.setTooltip(tooltip);
+        }
     }
 }

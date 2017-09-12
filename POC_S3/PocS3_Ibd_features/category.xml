@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/PocS3_Ibd_features_1.0.0.qualifier.jar" id="PocS3_Ibd_features" version="1.0.0.qualifier">
+      <category name="PocS3_Ibd_features"/>
+   </feature>
+   <category-def name="PocS3_Ibd_features" label="PocS3_Ibd">
+      <description>
+         PocS3_Ibd_features
+      </description>
+   </category-def>
+</site>

@@ -19,6 +19,9 @@
       <plugin id="PocS3_EAP"/>
       <plugin id="PocS3_Factory"/>
       <plugin id="PocS3_Ibd"/>
+      <plugin id="PocS3_IbdFactory"/>
+      <plugin id="PocS3_IbdServiceDefinitions"/>
+      <plugin id="PocS3_IbdServiceProviders"/>
       <plugin id="PocS3_ProfileLoader"/>
       <plugin id="PocS3_ServiceDefinitions"/>
       <plugin id="PocS3_ServiceProviders"/>

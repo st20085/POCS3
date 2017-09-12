@@ -1,7 +1,7 @@
 package pocs3_service_definitions;
 
 /**
- * The class <b>IApplication</b> allows to.<br>
+ * The interface <b>IPocS3Application</b> allows to.<br>
  */
 public interface IApplication {
   /**

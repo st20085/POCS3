@@ -7,7 +7,7 @@ package pocs3_service_definitions;
 import java.util.Set;
 
 /**
- *
+ * The interface <b>IPocS3ProfileService</b> allows to.<br>
  */
 public interface IProfileService {
     public static final String PROFILE_ADDED = "pocs3_service_definitions/IProfileService/PROFILE_ADDED";

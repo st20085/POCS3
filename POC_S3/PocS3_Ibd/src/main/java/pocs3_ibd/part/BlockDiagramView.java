@@ -4,23 +4,20 @@
 
 package pocs3_ibd.part;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import org.eclipse.e4.core.contexts.IEclipseContext;
-import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.Focus;
-import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.FocusEvent;
-import org.eclipse.swt.events.FocusListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
@@ -28,12 +25,12 @@ import org.eclipse.swt.widgets.Composite;
 import pocs3_ibd.part.handler.IBlockDiagramPart;
 import pocs3_ibd_service_definitions.IBlocDiagramService;
 import pocs3_ibd_service_definitions.IBlockDiagram;
-import pocs3_service_definitions.IClipboardListener;
+import pocs3_service_definitions.IEditAction;
 
 /**
  * The class <b>BlockDiagramView</b> allows to
  */
-public class BlockDiagramView implements IBlockDiagramPart, IClipboardListener {
+public class BlockDiagramView implements IBlockDiagramPart, IEditAction {
 
     @Inject
     ESelectionService selectionService;
@@ -46,9 +43,13 @@ public class BlockDiagramView implements IBlockDiagramPart, IClipboardListener {
 
     TableViewer checkTableViewer;
 
+    List<IBlockDiagram> blockDiagramList = new ArrayList<>();
+
+    // fake
+    List<IBlockDiagram> fakeBlockDiagramListClipboard = new ArrayList<>();
+
     @Inject
-    public BlockDiagramView() {
-    }
+    public BlockDiagramView() {}
 
     @PostConstruct
     public void postConstruct(Composite parent) {
@@ -56,121 +57,148 @@ public class BlockDiagramView implements IBlockDiagramPart, IClipboardListener {
         layout.marginWidth = layout.marginHeight = 0;
         parent.setLayout(layout);
 
+        // init
+        this.initBlockDiagramList();
+
         // temporary
-        this.checkTableViewer = new TableViewer(parent, SWT.NONE);
+        this.checkTableViewer = new TableViewer(parent, SWT.NONE | SWT.MULTI);
         this.checkTableViewer.setContentProvider(ArrayContentProvider.getInstance());
-        this.checkTableViewer.setInput(new IBlockDiagram[] {
-            this.blocDiagramService.createNewBlockDiagram("KA return"),
-            this.blocDiagramService.createNewBlockDiagram("Ibd1"),
-            this.blocDiagramService.createNewBlockDiagram("Ibd2")});
+        this.checkTableViewer.setInput(this.blockDiagramList);
         this.checkTableViewer.getControl().setLayoutData(new GridData(GridData.FILL_BOTH));
 
         //
         this.checkTableViewer.addSelectionChangedListener(event -> {
             final IStructuredSelection selection = (IStructuredSelection) event.getSelection();
 
-            System.out.println("setSelection in thread "+Thread.currentThread());
+            System.out.println("setSelection in thread " + Thread.currentThread());
 
             // set the selection to the service
             this.setSelection(selection.toArray());
         });
+    }
 
-        this.checkTableViewer.getTable().addFocusListener(new FocusListener() {
-
-            @Override
-            public void focusLost(FocusEvent e) {
-                System.out.println("clearSeletion in thread "+Thread.currentThread());
-
-//                BlockDiagramView.this.selectionService.setPostSelection(new Object[0]);
-                final Object fake = "fake";
-                BlockDiagramView.this.setSelection(fake);
-
-                System.out.println("selection "+BlockDiagramView.this.getSelection());
-                if (BlockDiagramView.this.getSelection() != fake) {
-                    System.err.println("impossible d'effacer la sélection !!!"+" "+System.identityHashCode(BlockDiagramView.this.selectionService));
-                }
-            }
-
-            @Override
-            public void focusGained(FocusEvent e) {
-                // use implicit @Focus private void setFocus()
-//                final IStructuredSelection selection = (IStructuredSelection) BlockDiagramView.this.checkTableViewer.getSelection();
-//                BlockDiagramView.this.setSelection(selection.toArray());
-            }
-        });
+    /**
+     *
+     */
+    private void initBlockDiagramList() {
+        this.blockDiagramList.add(this.blocDiagramService.createNewBlockDiagram("KA return"));
+        this.blockDiagramList.add(this.blocDiagramService.createNewBlockDiagram("Ibd1"));
+        this.blockDiagramList.add(this.blocDiagramService.createNewBlockDiagram("Ibd2"));
     }
 
     @Focus
     private void setFocus() {
-        System.out.println("           setFocus");
         this.checkTableViewer.getControl().setFocus();
 
+        //
         final IStructuredSelection selection = (IStructuredSelection) BlockDiagramView.this.checkTableViewer.getSelection();
         BlockDiagramView.this.setSelection(selection.toArray());
     }
 
     private void setSelection(Object o) {
-//        this.context.set(IServiceConstants.ACTIVE_SELECTION, o);
         this.selectionService.setSelection(o);
     }
 
-    private Object getSelection() {
-//        return this.context.get(IServiceConstants.ACTIVE_SELECTION);
-        return this.selectionService.getSelection();
-    }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    @Inject
-    public void receiveSelection(@Optional @Named(IServiceConstants.ACTIVE_SELECTION) Object selectedObject) {
-        System.out.println("selectedObject "+selectedObject);
+    /*
+     * @see pocs3_service_definitions.IEditAction#canCopy()
+     */
+    @Override
+    public boolean canCopy() {
+        final IStructuredSelection selection = (IStructuredSelection) BlockDiagramView.this.checkTableViewer.getSelection();
+        return !selection.isEmpty();
     }
 
     /*
-     * @see pocs3_service_definitions.IClipboardListener#canDoCopy()
+     * @see pocs3_service_definitions.IEditAction#copy()
      */
     @Override
-    public boolean canDoCopy() {
-      final IStructuredSelection selection = (IStructuredSelection) BlockDiagramView.this.checkTableViewer.getSelection();
-      return ! selection.isEmpty();
+    public void copy() {
+        final IStructuredSelection selection = (IStructuredSelection) BlockDiagramView.this.checkTableViewer.getSelection();
+        System.out.println("copied " + Arrays.toString(selection.toArray()));
+
+        this.fakeBlockDiagramListClipboard.clear();
+        for (final Object o : selection.toArray()) {
+            this.fakeBlockDiagramListClipboard.add((IBlockDiagram) o);
+        }
+    }
+
+    /**
+     *
+     */
+    @Override
+    public String getCopyTooltip() {
+        final IStructuredSelection selection = (IStructuredSelection) BlockDiagramView.this.checkTableViewer.getSelection();
+        return IEditAction.super.getCopyTooltip() + " " + Arrays.toString(selection.toArray());
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /*
+     * @see pocs3_service_definitions.IEditAction#canPaste()
+     */
+    @Override
+    public boolean canPaste() {
+        return !this.fakeBlockDiagramListClipboard.isEmpty();
+    }
+
+    /**
+    *
+    */
+    @Override
+    public String getPasteTooltip() {
+        return IEditAction.super.getPasteTooltip() + " " + this.fakeBlockDiagramListClipboard;
     }
 
     /*
-     * @see pocs3_service_definitions.IClipboardListener#doCopy()
+     * @see pocs3_service_definitions.IEditAction#paste()
      */
     @Override
-    public void doCopy() {
-      final IStructuredSelection selection = (IStructuredSelection) BlockDiagramView.this.checkTableViewer.getSelection();
-      System.out.println("copied "+Arrays.toString(selection.toArray()));
+    public void paste() {
+
+        // TODO faire un undoRedo operation
+        this.blockDiagramList.addAll(this.fakeBlockDiagramListClipboard);
+        this.fakeBlockDiagramListClipboard.clear();
+        this.checkTableViewer.refresh();
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /*
+     * @see pocs3_service_definitions.IEditAction#canCut()
+     */
+    @Override
+    public boolean canCut() {
+        final IStructuredSelection selection = (IStructuredSelection) BlockDiagramView.this.checkTableViewer.getSelection();
+        return !selection.isEmpty();
     }
 
     /*
-     * @see pocs3_service_definitions.IClipboardListener#canDoPaste()
+     * @see pocs3_service_definitions.IEditAction#cut()
      */
     @Override
-    public boolean canDoPaste() {
-      return false;
+    public void cut() {
+        final IStructuredSelection selection = (IStructuredSelection) BlockDiagramView.this.checkTableViewer.getSelection();
+        System.out.println("cutted " + Arrays.toString(selection.toArray()));
+
+        this.fakeBlockDiagramListClipboard.clear();
+        for (final Object o : selection.toArray()) {
+            this.fakeBlockDiagramListClipboard.add((IBlockDiagram) o);
+        }
+
+        // TODO faire un undoRedo operation
+        this.blockDiagramList.removeAll(this.fakeBlockDiagramListClipboard);
+        this.checkTableViewer.refresh();
     }
 
-    /*
-     * @see pocs3_service_definitions.IClipboardListener#doPaste()
+    /**
+     *
      */
     @Override
-    public void doPaste() {}
-
-    /*
-     * @see pocs3_service_definitions.IClipboardListener#canDoCut()
-     */
-    @Override
-    public boolean canDoCut() {
-      final IStructuredSelection selection = (IStructuredSelection) BlockDiagramView.this.checkTableViewer.getSelection();
-      return ! selection.isEmpty();
+    public String getCutTooltip() {
+        final IStructuredSelection selection = (IStructuredSelection) BlockDiagramView.this.checkTableViewer.getSelection();
+        return IEditAction.super.getCutTooltip() + " " + Arrays.toString(selection.toArray());
     }
 
-    /*
-     * @see pocs3_service_definitions.IClipboardListener#doCut()
-     */
-    @Override
-    public void doCut() {
-      final IStructuredSelection selection = (IStructuredSelection) BlockDiagramView.this.checkTableViewer.getSelection();
-      System.out.println("cutted "+Arrays.toString(selection.toArray()));
-    }
 }

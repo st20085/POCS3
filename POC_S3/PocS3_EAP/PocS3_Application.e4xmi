@@ -20,8 +20,8 @@
         <children xsi:type="menu:HandledMenuItem" xmi:id="_4smCIJbqEeeG0OQkavDMng" elementId="redo" label="Redo" iconURI="platform:/plugin/PocS3_EAP/icons/redo_edit.png" command="_EnWKoJbwEeeG0OQkavDMng"/>
         <children xsi:type="menu:MenuSeparator" xmi:id="_GFpt8JbrEeeG0OQkavDMng" elementId="pocs3_eap.menuseparator.1"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_G3KqcJbrEeeG0OQkavDMng" elementId="cut" label="Cu&amp;t" iconURI="platform:/plugin/PocS3_EAP/icons/cut_edit.png" command="_qKRywJbrEeeG0OQkavDMng"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_HkBJYJbrEeeG0OQkavDMng" elementId="copy" label="&amp;Copy" iconURI="platform:/plugin/PocS3_EAP/icons/copy_edit.png" command="_aQKioJbvEeeG0OQkavDMng"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_MiHloJbsEeeG0OQkavDMng" elementId="paste" label="&amp;Paste" iconURI="platform:/plugin/PocS3_EAP/icons/paste_edit.png" command="_qKRywJbrEeeG0OQkavDMng"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_HkBJYJbrEeeG0OQkavDMng" elementId="copy.menu" label="&amp;Copy" iconURI="platform:/plugin/PocS3_EAP/icons/copy_edit.png" tooltip="" command="_aQKioJbvEeeG0OQkavDMng"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_MiHloJbsEeeG0OQkavDMng" elementId="paste" label="&amp;Paste" iconURI="platform:/plugin/PocS3_EAP/icons/paste_edit.png" command="_aT-roJbvEeeG0OQkavDMng"/>
         <children xsi:type="menu:MenuSeparator" xmi:id="_KqmUQJb1EeeG0OQkavDMng" elementId="pocs3_eap.menuseparator.edit.additions" visible="false"/>
       </children>
       <children xsi:type="menu:Menu" xmi:id="_TS6a8JWiEeeGf8Sn35zSnA" elementId="window" label="&amp;Window">
@@ -53,9 +53,12 @@
         <children xsi:type="menu:HandledToolItem" xmi:id="_6wlLl8gZEeSyMNYR5xypkQ" elementId="pocs3_eap.handleditem.trimbar.top.open" visible="false" iconURI="platform:/plugin/PocS3_EAP/icons/sample.png" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_ZdV5kJcmEee71IxJMEkzDw" elementId="pocs3_eap.toolbar.edit">
-        <children xsi:type="menu:HandledToolItem" xmi:id="_7nFbgJclEee71IxJMEkzDw" elementId="pocs3_eap.handleditem.trimbar.top.cut" label="Cut" iconURI="platform:/plugin/PocS3_EAP/icons/cut_edit.png" tooltip="Cut" command="_qKRywJbrEeeG0OQkavDMng"/>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_ErcX8JcmEee71IxJMEkzDw" elementId="pocs3_eap.handleditem.trimbar.top.copy" label="Copy" iconURI="platform:/plugin/PocS3_EAP/icons/copy_edit.png" tooltip="Copy" command="_aQKioJbvEeeG0OQkavDMng"/>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_E311MJcmEee71IxJMEkzDw" elementId="pocs3_eap.handleditem.trimbar.top.paste" label="Paste" iconURI="platform:/plugin/PocS3_EAP/icons/paste_edit.png" tooltip="Paste" command="_aT-roJbvEeeG0OQkavDMng"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_zEt88JeVEeeG0OQkavDMng" elementId="undo.toolbar" label="Undo" iconURI="platform:/plugin/PocS3_EAP/icons/undo_edit.png" tooltip="Undo" command="_EffPIJbwEeeG0OQkavDMng"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_4fm4UJeVEeeG0OQkavDMng" elementId="redo.toolbar" label="Redo" iconURI="platform:/plugin/PocS3_EAP/icons/redo_edit.png" tooltip="Redo" command="_EnWKoJbwEeeG0OQkavDMng"/>
+        <children xsi:type="menu:ToolBarSeparator" xmi:id="_8uqSsJeVEeeG0OQkavDMng" elementId="pocs3_eap.toolbarseparator.1"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_7nFbgJclEee71IxJMEkzDw" elementId="cut.toolbar" label="Cu&amp;t" iconURI="platform:/plugin/PocS3_EAP/icons/cut_edit.png" tooltip="Cut" command="_qKRywJbrEeeG0OQkavDMng"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_ErcX8JcmEee71IxJMEkzDw" elementId="copy.toolbar" label="&amp;Copy" iconURI="platform:/plugin/PocS3_EAP/icons/copy_edit.png" tooltip="Copy" command="_aQKioJbvEeeG0OQkavDMng"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_E311MJcmEee71IxJMEkzDw" elementId="paste.toolbar" label="&amp;Paste" iconURI="platform:/plugin/PocS3_EAP/icons/paste_edit.png" tooltip="Paste" command="_aT-roJbvEeeG0OQkavDMng"/>
       </children>
     </trimBars>
   </children>
@@ -66,14 +69,18 @@
   <handlers xmi:id="_n7t3YJcVEee71IxJMEkzDw" elementId="pocs3_eap.handler.copyCommand" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.handlers.CopyHandler" command="_aQKioJbvEeeG0OQkavDMng"/>
   <handlers xmi:id="_ugW9MJciEee71IxJMEkzDw" elementId="pocs3_eap.handler.pasteCommand" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.handlers.PasteHandler" command="_aT-roJbvEeeG0OQkavDMng"/>
   <handlers xmi:id="_usbDQJciEee71IxJMEkzDw" elementId="pocs3_eap.handler.cutCommand" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.handlers.CutHandler" command="_qKRywJbrEeeG0OQkavDMng"/>
+  <handlers xmi:id="_DL_eUJedEeeG0OQkavDMng" elementId="pocs3_eap.handler.undoCommand" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.handlers.UndoHandler" command="_EffPIJbwEeeG0OQkavDMng"/>
+  <handlers xmi:id="_Gt5e0JedEeeG0OQkavDMng" elementId="pocs3_eap.handler.redoCommand" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.handlers.RedoHandler" command="_EnWKoJbwEeeG0OQkavDMng"/>
   <bindingTables xmi:id="_6wlLfsgZEeSyMNYR5xypkQ" elementId="pocs3_eap.bindingtable" bindingContext="_6wlLecgZEeSyMNYR5xypkQ">
     <bindings xmi:id="_6wlLf8gZEeSyMNYR5xypkQ" elementId="pocs3_eap.keybinding.m1q" keySequence="M1+Q" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
     <bindings xmi:id="_6wlLgsgZEeSyMNYR5xypkQ" elementId="pocs3_eap.keybinding.m1o" keySequence="M1+O" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
     <bindings xmi:id="_6wlLhcgZEeSyMNYR5xypkQ" elementId="pocs3_eap.keybinding.m1s" keySequence="M1+S" command="_6wlLg8gZEeSyMNYR5xypkQ"/>
     <bindings xmi:id="_6wlLiMgZEeSyMNYR5xypkQ" elementId="pocs3_eap.keybinding.m1a" keySequence="M1+A" command="_6wlLhsgZEeSyMNYR5xypkQ"/>
-    <bindings xmi:id="_Yxg-EJcVEee71IxJMEkzDw" elementId="pocs3_eap.keybinding.m1q" keySequence="M1+C" command="_aQKioJbvEeeG0OQkavDMng"/>
-    <bindings xmi:id="_bQNOEJcVEee71IxJMEkzDw" elementId="pocs3_eap.keybinding.m1q" keySequence="M1+V" command="_aT-roJbvEeeG0OQkavDMng"/>
-    <bindings xmi:id="_e8Pa8JcVEee71IxJMEkzDw" elementId="pocs3_eap.keybinding.m1q" keySequence="M1+X" command="_qKRywJbrEeeG0OQkavDMng"/>
+    <bindings xmi:id="_Yxg-EJcVEee71IxJMEkzDw" elementId="pocs3_eap.keybinding.m1c" keySequence="M1+C" command="_aQKioJbvEeeG0OQkavDMng"/>
+    <bindings xmi:id="_bQNOEJcVEee71IxJMEkzDw" elementId="pocs3_eap.keybinding.m1v" keySequence="M1+V" command="_aT-roJbvEeeG0OQkavDMng"/>
+    <bindings xmi:id="_e8Pa8JcVEee71IxJMEkzDw" elementId="pocs3_eap.keybinding.m1x" keySequence="M1+X" command="_qKRywJbrEeeG0OQkavDMng"/>
+    <bindings xmi:id="_sPMA0JebEeeG0OQkavDMng" elementId="pocs3_eap.keybinding.m1z" keySequence="M1+Z" command="_EffPIJbwEeeG0OQkavDMng"/>
+    <bindings xmi:id="_xykJ0JebEeeG0OQkavDMng" elementId="pocs3_eap.keybinding.m1y" keySequence="M1+Y" command="_EnWKoJbwEeeG0OQkavDMng"/>
   </bindingTables>
   <rootContext xmi:id="_6wlLecgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.contexts.dialogAndWindow" name="In Dialog and Windows">
     <children xmi:id="_6wlLesgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.contexts.window" name="In Windows"/>
