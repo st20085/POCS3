@@ -40,6 +40,8 @@ public class CopyHandler {
 //    }
   }
 
+//  ((EclipseContext) originatingContext).pushComputation(this);
+
   @CanExecute
   private static boolean canExecute(@Named(IServiceConstants.ACTIVE_PART) MPart part, Adapter adapter, PocS3EapController pocS3EapController) {
     final Object object = part.getObject();
