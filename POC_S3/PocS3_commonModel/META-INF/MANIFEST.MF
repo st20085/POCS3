@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: PocS3_commonModel
+Bundle-SymbolicName: PocS3_commonModel;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: pocs3_common_model
+Require-Bundle: org.eclipse.e4.ui.workbench,
+ org.eclipse.e4.core.di.annotations,
+ org.eclipse.e4.core.contexts,
+ org.eclipse.e4.core.di

@@ -58,4 +58,18 @@
          version="0.0.0"
          unpack="false"/>
 
+   <plugin
+         id="PocS3_L3DModel"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="PocS3_commonModel"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
 </feature>

@@ -1,61 +1,44 @@
 
 package pocs3_ibd.part.handler;
 
-import java.util.Arrays;
-
-import javax.inject.Inject;
-
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.core.services.adapter.Adapter;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
-import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
+import org.eclipse.jface.dialogs.InputDialog;
+import org.eclipse.swt.widgets.Shell;
 
-import pocs3_ibd_service_definitions.IBlockDiagram;
+import pocs3_ibdmodel.action.IBlockDiagramAction;
 
 /**
  * The class <b>CreateDiagramHandler</b> allows to create new diagram
  */
 public class CreateDiagramHandler {
 
-  @Inject
-  ESelectionService selectionService;
-
-  @Execute
-  public void execute() {
-    System.out.println("CREATE DIAGRAM");
-  }
-
   @CanExecute
   public boolean canExecute(MPart part, Adapter adapter) {
-    Object object = part.getObject();
+    final Object object = part.getObject();
 //    System.out.println("CreateDiagramHandler canExecute on view "+object);
 
-    IBlockDiagramPart blockDiagramPart = adapter.adapt(object, IBlockDiagramPart.class);
-    if (blockDiagramPart != null) {
-//      blockDiagramPart.doCreateDiagram();) {
-      final Object selection = this.selectionService.getSelection();
-
-      if (selection == null) {
-        return false;
-      }
-
-      //
-      if (selection instanceof IBlockDiagram) {
-        return true;
-      }
-
-      //
-      if (selection instanceof Object[]) {
-        final Object[] array = (Object[]) selection;
-        if (array.length != 0 && Arrays.stream(array).allMatch(IBlockDiagram.class::isInstance)) {
-//          System.out.println("canExecute " + Arrays.toString(array));
-          return true;
-        }
-      }
+    final IBlockDiagramAction blockDiagramAction = adapter.adapt(object, IBlockDiagramAction.class);
+    if (blockDiagramAction != null && blockDiagramAction.canCreateBlockDiagrams()) {
+      return true;
     }
 
     return false;
   }
 
+  @Execute
+  public void execute(MPart part, Adapter adapter, Shell shell) {
+      final Object object = part.getObject();
+//    System.out.println("CREATE DIAGRAM");
+    final IBlockDiagramAction blockDiagramAction = adapter.adapt(object, IBlockDiagramAction.class);
+    if (blockDiagramAction != null) {
+        final InputDialog inputDialog = new InputDialog(shell, "Example", "Enter a block diagram name", "Bloc diagram n°"+System.currentTimeMillis()%100, null);
+        if (inputDialog.open() == InputDialog.OK) {
+            final String blockDiagramName = inputDialog.getValue();
+            blockDiagramAction.createBlockDiagram(blockDiagramName);
+        }
+    }
+  }
 }

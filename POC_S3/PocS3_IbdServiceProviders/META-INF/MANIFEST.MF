@@ -11,6 +11,7 @@ Require-Bundle: javax.inject,
  org.eclipse.e4.core.di.annotations,
  org.eclipse.e4.ui.workbench,
  PocS3_IbdServiceDefinitions,
- PocS3_IbdFactory
+ PocS3_IbdFactory,
+ PocS3_IbdModel
 Service-Component: OSGI-INF/blockDiagramServiceDefinition.xml
 Bundle-ActivationPolicy: lazy

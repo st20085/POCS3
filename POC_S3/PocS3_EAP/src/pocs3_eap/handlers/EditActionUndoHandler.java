@@ -20,7 +20,7 @@ import org.eclipse.e4.ui.workbench.modeling.EPartService;
 /**
  * The class <b>UndoHandler</b> allows to save .<br>
  */
-public class UndoHandler {
+public class EditActionUndoHandler {
 
     @Execute
     private static void execute(/*IWorkbenchOperationSupport workbenchOperationSupport, */@Named(IServiceConstants.ACTIVE_PART) MPart part, Adapter adapter, MApplication application, IEclipseContext context) {

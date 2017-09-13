@@ -14,7 +14,7 @@ import org.eclipse.e4.ui.services.IServiceConstants;
 /**
  * The class <b>RedoHandler</b> allows to save .<br>
  */
-public class RedoHandler {
+public class EditActionRedoHandler {
     @Execute
     private static void execute(@Named(IServiceConstants.ACTIVE_PART) MPart part, Adapter adapter) {
 

@@ -43,11 +43,11 @@
       </children>
     </mainMenu>
     <trimBars xmi:id="_6wlLlcgZEeSyMNYR5xypkQ" elementId="pocs3_eap.trimbar.top" visible="false">
-      <children xsi:type="menu:ToolBar" xmi:id="_Oj1AEJcrEee71IxJMEkzDw" elementId="pocs3_eap.toolbar.0">
+      <children xsi:type="menu:ToolBar" xmi:id="_Oj1AEJcrEee71IxJMEkzDw" elementId="pocs3_eap.toolbar.change_perspective">
         <children xsi:type="menu:DirectToolItem" xmi:id="_uHHnsJcrEee71IxJMEkzDw" elementId="pocs3_eap.directtoolitem.gotoprofile" label="Go to profile" iconURI="platform:/plugin/PocS3_EAP/icons/home_perspective.png" tooltip="Go to profile" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.handlers.GoToProfilePerspectiveHandler"/>
         <children xsi:type="menu:DirectToolItem" xmi:id="_Te39wJcrEee71IxJMEkzDw" elementId="pocs3_eap.directtoolitem.gotoapplicationboard" label="Go to application board" iconURI="platform:/plugin/PocS3_EAP/icons/application_board.png" tooltip="Go to application board" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.handlers.GoToApplicationBoardHandler"/>
       </children>
-      <children xsi:type="menu:ToolBar" xmi:id="_6wlLlsgZEeSyMNYR5xypkQ" elementId="pocs3_eap.toolbar">
+      <children xsi:type="menu:ToolBar" xmi:id="_6wlLlsgZEeSyMNYR5xypkQ" elementId="pocs3_eap.toolbar.save">
         <children xsi:type="menu:HandledToolItem" xmi:id="_6wlLmMgZEeSyMNYR5xypkQ" elementId="pocs3_eap.handleditem.trimbar.top.save" label="Save" iconURI="platform:/plugin/PocS3_EAP/icons/save_edit.png" tooltip="Save" command="_6wlLg8gZEeSyMNYR5xypkQ"/>
         <children xsi:type="menu:ToolBarSeparator" xmi:id="_N2ekIJcmEee71IxJMEkzDw" elementId="pocs3_eap.toolbarseparator.0"/>
         <children xsi:type="menu:HandledToolItem" xmi:id="_6wlLl8gZEeSyMNYR5xypkQ" elementId="pocs3_eap.handleditem.trimbar.top.open" visible="false" iconURI="platform:/plugin/PocS3_EAP/icons/sample.png" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
@@ -66,10 +66,6 @@
   <handlers xmi:id="_6wlLgcgZEeSyMNYR5xypkQ" elementId="pocs3_eap.handler.openCommand" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.handlers.OpenHandler" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
   <handlers xmi:id="_6wlLhMgZEeSyMNYR5xypkQ" elementId="pocs3_eap.handler.saveCommand" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.handlers.SaveHandler" command="_6wlLg8gZEeSyMNYR5xypkQ"/>
   <handlers xmi:id="_6wlLh8gZEeSyMNYR5xypkQ" elementId="pocs3_eap.handler.aboutCommand" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.handlers.AboutHandler" command="_6wlLhsgZEeSyMNYR5xypkQ"/>
-  <handlers xmi:id="_ugW9MJciEee71IxJMEkzDw" elementId="pocs3_eap.handler.pasteCommand" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.handlers.PasteHandler" command="_aT-roJbvEeeG0OQkavDMng"/>
-  <handlers xmi:id="_usbDQJciEee71IxJMEkzDw" elementId="pocs3_eap.handler.cutCommand" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.handlers.CutHandler" command="_qKRywJbrEeeG0OQkavDMng"/>
-  <handlers xmi:id="_DL_eUJedEeeG0OQkavDMng" elementId="pocs3_eap.handler.undoCommand" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.handlers.UndoHandler" command="_EffPIJbwEeeG0OQkavDMng"/>
-  <handlers xmi:id="_Gt5e0JedEeeG0OQkavDMng" elementId="pocs3_eap.handler.redoCommand" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.handlers.RedoHandler" command="_EnWKoJbwEeeG0OQkavDMng"/>
   <bindingTables xmi:id="_6wlLfsgZEeSyMNYR5xypkQ" elementId="pocs3_eap.bindingtable" bindingContext="_6wlLecgZEeSyMNYR5xypkQ">
     <bindings xmi:id="_6wlLf8gZEeSyMNYR5xypkQ" elementId="pocs3_eap.keybinding.m1q" keySequence="M1+Q" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
     <bindings xmi:id="_6wlLgsgZEeSyMNYR5xypkQ" elementId="pocs3_eap.keybinding.m1o" keySequence="M1+O" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
@@ -101,7 +97,5 @@
   <addons xmi:id="_6wlLdsgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.workbench.handler.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
   <addons xmi:id="_6wlLd8gZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.workbench.contexts.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.ContextProcessingAddon"/>
   <addons xmi:id="_6wlLeMgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.workbench.bindings.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.swt/org.eclipse.e4.ui.workbench.swt.util.BindingProcessingAddon"/>
-  <addons xmi:id="_8mLdwJflEee71IxJMEkzDw" elementId="pocs3_eap.addon.SWTLastFocusedControlAddon" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.addons.SWTLastFocusedControlAddon"/>
-  <addons xmi:id="_UUnMgJfnEee71IxJMEkzDw" elementId="pocs3_eap.addon.0" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.dndaddon.DnDAddon"/>
   <categories xmi:id="_AhVUUJbsEeeG0OQkavDMng" elementId="org.eclipse.ui.category.edit" name="Edit"/>
 </application:Application>

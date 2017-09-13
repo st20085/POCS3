@@ -2,58 +2,83 @@
 <fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmlns:ui="http://www.eclipse.org/ui/2010/UIModel/application/ui" xmi:id="_dyyCIJPsEeelFMkguDB9EQ">
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_FcRfYJPuEeelFMkguDB9EQ" featurename="children" parentElementId="pocs3_eap.perspectivestack">
     <elements xsi:type="advanced:Perspective" xmi:id="_nTB-cJPuEeelFMkguDB9EQ" elementId="pocs3_ibd.perspective" selectedElement="_0V1GYJPuEeelFMkguDB9EQ" label="IBD">
-      <children xsi:type="basic:PartSashContainer" xmi:id="_0V1GYJPuEeelFMkguDB9EQ" elementId="pocs3_ibd.partsashcontainer.0" horizontal="true">
-        <children xsi:type="basic:PartSashContainer" xmi:id="_6QO9YJPwEeelFMkguDB9EQ" elementId="pocs3_ibd.partsashcontainer.1" containerData="2500">
-          <children xsi:type="basic:PartStack" xmi:id="_6QO9YZPwEeelFMkguDB9EQ" elementId="pocs3_ibd.partstack.left" containerData="">
-            <children xsi:type="basic:Part" xmi:id="_6QO9YpPwEeelFMkguDB9EQ" elementId="pocs3_ibd.part.diagrams" contributionURI="bundleclass://PocS3_Ibd/pocs3_ibd.part.BlockDiagramView" label="Diagrams"/>
+      <children xsi:type="basic:PartSashContainer" xmi:id="_0V1GYJPuEeelFMkguDB9EQ" elementId="pocs3_ibd.partsashcontainer.0" selectedElement="_6QO9YJPwEeelFMkguDB9EQ" horizontal="true">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_6QO9YJPwEeelFMkguDB9EQ" elementId="pocs3_ibd.partsashcontainer.diagram" containerData="2500" selectedElement="_6QO9YZPwEeelFMkguDB9EQ">
+          <children xsi:type="basic:PartStack" xmi:id="_6QO9YZPwEeelFMkguDB9EQ" elementId="pocs3_ibd.partstack.top" containerData="" selectedElement="_6QO9YpPwEeelFMkguDB9EQ">
+            <children xsi:type="basic:Part" xmi:id="_6QO9YpPwEeelFMkguDB9EQ" elementId="pocs3_ibd.part.diagrams" contributionURI="bundleclass://PocS3_Ibd/pocs3_ibd.part.BlockDiagramView" label="Diagrams">
+              <handlers xmi:id="_Wj89AJhXEeeG0OQkavDMng" elementId="pocs3_ibd.handler.copy" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.handlers.EditActionCopyHandler" command="_d9Hi8JhXEeeG0OQkavDMng"/>
+              <handlers xmi:id="_m0qEAJhaEeeG0OQkavDMng" elementId="pocs3_ibd.handler.cut" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.handlers.EditActionCutHandler" command="_H_8EgJhYEeeG0OQkavDMng"/>
+              <handlers xmi:id="_qmbFcJhaEeeG0OQkavDMng" elementId="pocs3_ibd.handler.paste" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.handlers.EditActionPasteHandler" command="_JhmrkJhYEeeG0OQkavDMng"/>
+            </children>
           </children>
-          <children xsi:type="basic:PartStack" xmi:id="_6QO9a5PwEeelFMkguDB9EQ" elementId="pocs3_ibd.partstack.2">
+          <children xsi:type="basic:PartStack" xmi:id="_6QO9a5PwEeelFMkguDB9EQ" elementId="pocs3_ibd.partstack.bottom">
             <children xsi:type="basic:Part" xmi:id="_6QO9bJPwEeelFMkguDB9EQ" elementId="pocs3_ibd.part.check" contributionURI="bundleclass://PocS3_Ibd/pocs3_ibd.part.CheckView" label="Check"/>
           </children>
         </children>
-        <children xsi:type="basic:PartStack" xmi:id="_VRSv8JPxEeelFMkguDB9EQ" elementId="pocs3_ibd.partstack.right" containerData="5000">
+        <children xsi:type="basic:PartStack" xmi:id="_VRSv8JPxEeelFMkguDB9EQ" elementId="pocs3_ibd.partstack.center" containerData="5000">
           <tags>IbdEditor</tags>
           <tags>NoAutoCollapse</tags>
-          <children xsi:type="basic:Part" xmi:id="_jC66kJWjEeeGf8Sn35zSnA" elementId="pocs3_ibd.part.samplepart" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.parts.SamplePart" label="Sample part"/>
-          <children xsi:type="basic:Part" xmi:id="_uKRCcJWjEeeGf8Sn35zSnA" elementId="pocs3_ibd.part.samplepart" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.parts.SamplePart" label="Sample part2"/>
+          <children xsi:type="basic:Part" xmi:id="_jC66kJWjEeeGf8Sn35zSnA" elementId="pocs3_ibd.part.samplepart" contributionURI="bundleclass://PocS3_Ibd/pocs3_ibd.part.SamplePart" label="Sample part"/>
+          <children xsi:type="basic:Part" xmi:id="_uKRCcJWjEeeGf8Sn35zSnA" elementId="pocs3_ibd.part.samplepart" contributionURI="bundleclass://PocS3_Ibd/pocs3_ibd.part.SamplePart" label="Sample part2"/>
         </children>
-        <children xsi:type="basic:PartSashContainer" xmi:id="_hIwtMJPxEeelFMkguDB9EQ" elementId="pocs3_ibd.partsashcontainer" containerData="2500">
-          <children xsi:type="basic:PartStack" xmi:id="_hIwtMZPxEeelFMkguDB9EQ" elementId="pocs3_ibd.partstack" containerData="50">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_hIwtMJPxEeelFMkguDB9EQ" elementId="pocs3_ibd.partsashcontainer.right" containerData="2500" selectedElement="_hIwtMZPxEeelFMkguDB9EQ">
+          <children xsi:type="basic:PartStack" xmi:id="_hIwtMZPxEeelFMkguDB9EQ" elementId="pocs3_ibd.partstack.applicationmodule" containerData="50">
             <children xsi:type="basic:Part" xmi:id="_hIwtMpPxEeelFMkguDB9EQ" elementId="pocs3_ibd.part.applicationmodules" containerData="" contributionURI="bundleclass://PocS3_Ibd/pocs3_ibd.part.ApplicationModuleView" label="Application Modules" iconURI="">
               <persistedState key="MODULE_DIR" value="Modules_ibd"/>
             </children>
           </children>
-          <children xsi:type="basic:PartStack" xmi:id="_hIwtM5PxEeelFMkguDB9EQ" elementId="pocs3_ibd.partstack" containerData="50">
+          <children xsi:type="basic:PartStack" xmi:id="_hIwtM5PxEeelFMkguDB9EQ" elementId="pocs3_ibd.partstack.properties" containerData="50">
             <children xsi:type="basic:Part" xmi:id="_hIwtNJPxEeelFMkguDB9EQ" elementId="pocs3_ibd.part.properties" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.parts.common.PropertyView" label="Properties" iconURI="platform:/plugin/PocS3_EAP/icons/properties_view.png" tooltip="Properties"/>
           </children>
         </children>
       </children>
-      <handlers xmi:id="_cXqZoJb6EeeG0OQkavDMng" elementId="pocs3_ibd.create_diagram.handler" contributionURI="bundleclass://PocS3_Ibd/pocs3_ibd.part.handler.CreateDiagramHandler" command="_ioW7oJb6EeeG0OQkavDMng"/>
       <handlers xmi:id="_3uWK0JbiEeeG0OQkavDMng" elementId="pocs3_ibd.open_diagram.handler" contributionURI="bundleclass://PocS3_Ibd/pocs3_ibd.part.handler.OpenDiagramHandler" command="_umNhoJbiEeeG0OQkavDMng"/>
+      <handlers xmi:id="_cXqZoJb6EeeG0OQkavDMng" elementId="pocs3_ibd.create_diagram.handler" contributionURI="bundleclass://PocS3_Ibd/pocs3_ibd.part.handler.CreateDiagramHandler" command="_ioW7oJb6EeeG0OQkavDMng"/>
     </elements>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_BgFYYJR3Eee-6_WKtau9Qg" featurename="menuContributions" parentElementId="PocS3_EAP">
     <elements xsi:type="menu:MenuContribution" xmi:id="_RRz8AJSIEee-6_WKtau9Qg" elementId="pocs3_ibd.menucontribution.0" positionInParent="before=window" parentId="org.eclipse.ui.main.menu">
       <children xsi:type="menu:Menu" xmi:id="_L7DSsJSIEee-6_WKtau9Qg" elementId="pocs3_ibd.menu.ibd" label="IBD">
         <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_7PpcoJSYEee-6_WKtau9Qg" coreExpressionId="ibd_perspective_activated"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_l6Uj4Jh0EeeCReHZpG9w4w" elementId="pocs3_ibd.handledmenuitem.opendiagram" label="Create diagram" iconURI="platform:/plugin/PocS3_Ibd/icons/new_bloc_diagram.png" command="_ioW7oJb6EeeG0OQkavDMng"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_i40tcJbiEeeG0OQkavDMng" elementId="pocs3_ibd.handledmenuitem.opendiagram" label="Open diagram" iconURI="platform:/plugin/PocS3_Ibd/icons/bloc_diagram.png" command="_umNhoJbiEeeG0OQkavDMng"/>
-        <children xsi:type="menu:DirectMenuItem" xmi:id="_STPYQJSSEee-6_WKtau9Qg" elementId="pocs3_ibd.directmenuitem.test" label="New diagram" iconURI="platform:/plugin/PocS3_Ibd/icons/new_bloc_diagram.png" contributionURI="bundleclass://PocS3_Ibd/pocs3_ibd.part.handler.CreateDiagramHandler"/>
       </children>
     </elements>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_oyYh0JbiEeeG0OQkavDMng" featurename="commands" parentElementId="PocS3_EAP">
     <elements xsi:type="commands:Command" xmi:id="_ioW7oJb6EeeG0OQkavDMng" elementId="pocs3_ibd.create_diagram.command" commandName="Create diagram" description="Create diagram" category="_p7lRoJb6EeeG0OQkavDMng"/>
     <elements xsi:type="commands:Command" xmi:id="_umNhoJbiEeeG0OQkavDMng" elementId="pocs3_ibd.open_diagram.command" commandName="Open diagram" description="Open diagram" category="_p7lRoJb6EeeG0OQkavDMng"/>
+    <elements xsi:type="commands:Command" xmi:id="_d9Hi8JhXEeeG0OQkavDMng" elementId="org.eclipse.ui.edit.copy" commandName="Copy" description="Copy the selection to the clipboard">
+      <category href="../basicRCP4/Application.e4xmi#_Nb3AcJfxEee71IxJMEkzDw"/>
+    </elements>
+    <elements xsi:type="commands:Command" xmi:id="_H_8EgJhYEeeG0OQkavDMng" elementId="org.eclipse.ui.edit.cut" commandName="Cut" description="Cut the selection to the clipboard">
+      <category href="../PocS3_EAP/PocS3_Application.e4xmi#_AhVUUJbsEeeG0OQkavDMng"/>
+    </elements>
+    <elements xsi:type="commands:Command" xmi:id="_JhmrkJhYEeeG0OQkavDMng" elementId="org.eclipse.ui.edit.paste" commandName="Paste" description="Paste from the clipboard">
+      <category href="../PocS3_EAP/PocS3_Application.e4xmi#_AhVUUJbsEeeG0OQkavDMng"/>
+    </elements>
+    <elements xsi:type="commands:Command" xmi:id="_K3uxAJhYEeeG0OQkavDMng" elementId="org.eclipse.ui.edit.undo" commandName="Undo" description="Undo the last operation">
+      <category href="../PocS3_EAP/PocS3_Application.e4xmi#_AhVUUJbsEeeG0OQkavDMng"/>
+    </elements>
+    <elements xsi:type="commands:Command" xmi:id="_MgjwAJhYEeeG0OQkavDMng" elementId="org.eclipse.ui.edit.redo" commandName="Redo" description="Redo the last operation">
+      <category href="../PocS3_EAP/PocS3_Application.e4xmi#_AhVUUJbsEeeG0OQkavDMng"/>
+    </elements>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_oE6o8JSfEee-6_WKtau9Qg" featurename="trimContributions" parentElementId="PocS3_EAP">
     <elements xsi:type="menu:TrimContribution" xmi:id="_0owSEJShEee-6_WKtau9Qg" elementId="pocs3_ibd.trimcontribution" parentId="pocs3_eap.trimbar.top">
       <children xsi:type="menu:ToolBar" xmi:id="_yi4bcJb2EeeG0OQkavDMng" elementId="pocs3_ibd.toolbar">
         <children xsi:type="menu:HandledToolItem" xmi:id="_aYjooJb6EeeG0OQkavDMng" elementId="pocs3_ibd.handledtoolitem.creatediagram" label="Create diagram" iconURI="platform:/plugin/PocS3_Ibd/icons/new_bloc_diagram.png" command="_ioW7oJb6EeeG0OQkavDMng"/>
         <children xsi:type="menu:HandledToolItem" xmi:id="_7vHhgJb2EeeG0OQkavDMng" elementId="pocs3_ibd.handledtoolitem.opendiagram" label="Open diagram" iconURI="platform:/plugin/PocS3_Ibd/icons/bloc_diagram.png" command="_umNhoJbiEeeG0OQkavDMng"/>
+        <children xsi:type="menu:DirectToolItem" xmi:id="_j5cWoJiHEeeCReHZpG9w4w" elementId="pocs3_ibd.directtoolitem.0" iconURI="platform:/plugin/PocS3_Ibd/icons/new_bloc_diagram.png" tooltip="Create diagram" contributionURI="bundleclass://PocS3_Ibd/pocs3_ibd.part.handler.CreateDiagramHandler"/>
       </children>
     </elements>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_mNmkAJb6EeeG0OQkavDMng" featurename="categories" parentElementId="PocS3_EAP">
     <elements xsi:type="commands:Category" xmi:id="_p7lRoJb6EeeG0OQkavDMng" elementId="pocs3_ibd.category" name="IBD category" description="IBD category"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_fpd-8Jh2EeeCReHZpG9w4w" featurename="bindingTables" parentElementId="PocS3_EAP">
+    <elements xsi:type="commands:BindingTable" xmi:id="_o5pw4Jh2EeeCReHZpG9w4w" elementId="pocs3_ibd.bindingtable.create_diagram">
+      <bindings xmi:id="_sghJ4Jh2EeeCReHZpG9w4w" elementId="pocs3_ibd.keybinding.create_diagram" keySequence="M1+N" command="_ioW7oJb6EeeG0OQkavDMng"/>
+    </elements>
   </fragments>
 </fragment:ModelFragments>

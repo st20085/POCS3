@@ -26,11 +26,12 @@ public class IbdController {
     @Inject
     private EModelService modelService;
 
-//    @Inject
-//    private EPartService partService;
+    // @Inject
+    // private EPartService partService;
 
     /**
      * Change Ibd toolbar renderer
+     *
      * @param renderer
      */
     public void changeIbdToolbarRenderer(boolean renderer) {
@@ -38,7 +39,10 @@ public class IbdController {
         final MUIElement ibd_toolbar = this.modelService.find(Ibd_Constants.IBD_TOOLBAR_ID, this.application);
         if (ibd_toolbar != null) {
             ibd_toolbar.setToBeRendered(renderer);
+        } else {
+            System.err.println("Cannot found ibd_toolbar");
         }
     }
+
 
 }

@@ -2,7 +2,7 @@ package pocs3_ibd_service_providers;
 
 import poc_s3_ibd_factory.BlockDiagramFactory;
 import pocs3_ibd_service_definitions.IBlocDiagramService;
-import pocs3_ibd_service_definitions.IBlockDiagram;
+import pocs3_ibdmodel.IBlockDiagram;
 
 /**
  *

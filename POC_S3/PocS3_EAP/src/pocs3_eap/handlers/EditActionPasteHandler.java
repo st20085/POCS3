@@ -14,7 +14,7 @@ import pocs3_service_definitions.IEditAction;
 /**
  * The class <b>PasteHandler</b> allows to save .<br>
  */
-public class PasteHandler {
+public class EditActionPasteHandler {
   @Execute
   private static void execute(@Named(IServiceConstants.ACTIVE_PART) MPart part, Adapter adapter) {
     final Object object = part.getObject();

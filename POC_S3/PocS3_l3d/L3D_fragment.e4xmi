@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="ASCII"?>
-<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmi:id="_2_0DkJPyEeelFMkguDB9EQ">
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_2_0DkJPyEeelFMkguDB9EQ">
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_ItmT8JPzEeelFMkguDB9EQ" featurename="children" parentElementId="pocs3_eap.perspectivestack" positionInList="">
     <elements xsi:type="advanced:Perspective" xmi:id="_M6xfAJPzEeelFMkguDB9EQ" elementId="pocs3_l3d.perspective" label="L3D">
-      <children xsi:type="basic:PartSashContainer" xmi:id="_r3DJ8JPzEeelFMkguDB9EQ" elementId="pocs3_l3d.partsashcontainer" horizontal="true">
-        <children xsi:type="basic:PartStack" xmi:id="_zdK0gJP4EeelFMkguDB9EQ" elementId="pocs3_l3d.partstack" containerData="2000">
-          <children xsi:type="basic:Part" xmi:id="_2uNugJP4EeelFMkguDB9EQ" elementId="pocs3_l3d.part.units" contributionURI="bundleclass://PocS3_l3d/pocs3_l3d.part.UnitView" label="Units"/>
+      <children xsi:type="basic:PartSashContainer" xmi:id="_r3DJ8JPzEeelFMkguDB9EQ" elementId="pocs3_l3d.partsashcontainer" selectedElement="_CKv1gJP0EeelFMkguDB9EQ" horizontal="true">
+        <children xsi:type="basic:PartStack" xmi:id="_zdK0gJP4EeelFMkguDB9EQ" elementId="pocs3_l3d.partstack.units" containerData="2000">
+          <children xsi:type="basic:Part" xmi:id="_2uNugJP4EeelFMkguDB9EQ" elementId="pocs3_l3d.part.units" contributionURI="bundleclass://PocS3_l3d/pocs3_l3d.part.UnitView" label="Units">
+            <toolbar xmi:id="_c3GJsJiREeeCReHZpG9w4w" elementId="pocs3_l3d.toolbar.1">
+              <children xsi:type="menu:DirectToolItem" xmi:id="_Zc_aUJiREeeCReHZpG9w4w" elementId="pocs3_l3d.directtoolitem.0" iconURI="platform:/plugin/PocS3_Ibd/icons/new_bloc_diagram.png" tooltip="Create diagram" contributionURI="bundleclass://PocS3_Ibd/pocs3_ibd.part.handler.CreateDiagramHandler"/>
+            </toolbar>
+          </children>
         </children>
-        <children xsi:type="basic:Part" xmi:id="_CKv1gJP0EeelFMkguDB9EQ" elementId="pocs3_l3d.part.l3dview" containerData="6000" contributionURI="bundleclass://PocS3_l3d/pocs3_l3d.part.L3DView"/>
-        <children xsi:type="basic:PartStack" xmi:id="_fuEzsJP4EeelFMkguDB9EQ" elementId="pocs3_l3d.partstack" containerData="2000">
+        <children xsi:type="basic:Part" xmi:id="_CKv1gJP0EeelFMkguDB9EQ" elementId="pocs3_l3d.part.l3dview" containerData="6000" contributionURI="bundleclass://PocS3_l3d/pocs3_l3d.part.L3DView" label="L3DView"/>
+        <children xsi:type="basic:PartStack" xmi:id="_fuEzsJP4EeelFMkguDB9EQ" elementId="pocs3_l3d.partstack.properties" containerData="2000">
           <children xsi:type="basic:Part" xmi:id="_fuEzsZP4EeelFMkguDB9EQ" elementId="pocs3_l3d.part.properties" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.parts.common.PropertyView" label="Properties" iconURI="platform:/plugin/PocS3_EAP/icons/properties_view.png" tooltip="Properties"/>
         </children>
+      </children>
+    </elements>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_PRaT8JiNEeeCReHZpG9w4w" featurename="trimContributions" parentElementId="PocS3_EAP">
+    <elements xsi:type="menu:TrimContribution" xmi:id="_PRaT8ZiNEeeCReHZpG9w4w" elementId="pocs3_l3d.trimcontribution" parentId="pocs3_eap.trimbar.top">
+      <children xsi:type="menu:ToolBar" xmi:id="_PRaT8piNEeeCReHZpG9w4w" elementId="pocs3_l3d.toolbar">
+        <children xsi:type="menu:DirectToolItem" xmi:id="_PRaT9ZiNEeeCReHZpG9w4w" elementId="pocs3_l3d.directtoolitem.0" iconURI="platform:/plugin/PocS3_Ibd/icons/new_bloc_diagram.png" tooltip="Create diagram" contributionURI="bundleclass://PocS3_Ibd/pocs3_ibd.part.handler.CreateDiagramHandler"/>
       </children>
     </elements>
   </fragments>

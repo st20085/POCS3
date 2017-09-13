@@ -1,7 +1,7 @@
 package poc_s3_ibd_factory;
 
 import poc_s3_ibd_factory.internal.BlockDiagram;
-import pocs3_ibd_service_definitions.IBlockDiagram;
+import pocs3_ibdmodel.IBlockDiagram;
 
 /**
  *

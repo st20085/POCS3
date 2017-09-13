@@ -7,6 +7,7 @@ package pocs3_ibd.part;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
+import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.SWT;
@@ -14,10 +15,13 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 
+import pocs3_ibdcontroller.BlockDiagramController;
+import pocs3_ibdmodel.action.IBlockDiagramAction;
+
 /**
  * The class <b>ApplicationModuleView</b> allows to
  */
-public class ApplicationModuleView {
+public class ApplicationModuleView implements IAdaptable {
     @Inject
     public ApplicationModuleView() {
     }
@@ -34,4 +38,19 @@ public class ApplicationModuleView {
         checkTableViewer.setInput(new String[] {"Mod1", "Mod2", "Mod3"});
         checkTableViewer.getControl().setLayoutData(new GridData(GridData.FILL_BOTH));
     }
+
+    @Inject
+    BlockDiagramController blockDiagramController;
+
+    @Override
+    public <T> T getAdapter(Class<T> adapter) {
+//        if (IEditAction.class.equals(adapter)) {
+//            return adapter.cast(this.blockDiagramEditController);
+//        }
+        if (IBlockDiagramAction.class.equals(adapter)) {
+            return adapter.cast(this.blockDiagramController);
+        }
+        return null;
+    }
+
 }

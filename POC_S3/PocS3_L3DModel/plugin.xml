@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         id="PocS3_l3d.model.processor"
+         point="org.eclipse.e4.workbench.model">
+      <processor
+            class="pocs3_l3d_model.processor.L3DModelProcessor"
+            beforefragment="false">
+      </processor>
+   </extension>
+
+</plugin>

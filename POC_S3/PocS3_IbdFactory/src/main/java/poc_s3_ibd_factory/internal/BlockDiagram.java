@@ -1,9 +1,9 @@
 package poc_s3_ibd_factory.internal;
 
-import pocs3_ibd_service_definitions.IBlockDiagram;
+import pocs3_ibdmodel.IBlockDiagram;
 
 /**
- *
+ * The class BlockDiagram define default implementation of IBlockDiagram
  */
 public class BlockDiagram implements IBlockDiagram {
     private String name;

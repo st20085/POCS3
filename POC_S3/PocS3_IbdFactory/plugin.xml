@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+<extension
+         id="ibd model processor"
+         name="IBD model processor"
+         point="org.eclipse.e4.workbench.model">
+      <processor
+            beforefragment="false"
+            class="poc_s3_ibd_factory.processor.IbdModelProcessor">
+      </processor>
+   </extension>
+</plugin>

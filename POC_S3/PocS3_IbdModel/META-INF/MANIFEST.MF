@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: PocS3_IbdModel
+Bundle-SymbolicName: PocS3_IbdModel
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: pocs3_ibdmodel,
+ pocs3_ibdmodel.action,
+ pocs3_ibdmodel.event
+Require-Bundle: PocS3_IbdModel,
+ PocS3_commonModel,
+ org.eclipse.e4.core.contexts,
+ org.eclipse.e4.core.di.annotations,
+ javax.inject
