@@ -29,13 +29,12 @@ public class CreateDiagramHandler {
   @CanExecute
   public boolean canExecute(MPart part, Adapter adapter) {
     Object object = part.getObject();
-    System.out.println("OpenDiagramHandler canExecute on view "+object);
+//    System.out.println("CreateDiagramHandler canExecute on view "+object);
 
     IBlockDiagramPart blockDiagramPart = adapter.adapt(object, IBlockDiagramPart.class);
     if (blockDiagramPart != null) {
 //      blockDiagramPart.doCreateDiagram();) {
       final Object selection = this.selectionService.getSelection();
-      System.out.println("canExecute for " + selection);
 
       if (selection == null) {
         return false;
@@ -50,7 +49,7 @@ public class CreateDiagramHandler {
       if (selection instanceof Object[]) {
         final Object[] array = (Object[]) selection;
         if (array.length != 0 && Arrays.stream(array).allMatch(IBlockDiagram.class::isInstance)) {
-          System.out.println("canExecute " + Arrays.toString(array));
+//          System.out.println("canExecute " + Arrays.toString(array));
           return true;
         }
       }

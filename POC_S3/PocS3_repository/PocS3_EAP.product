@@ -26,13 +26,14 @@
       <windows include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8</windows>
    </vm>
 
+
    <plugins>
    </plugins>
 
    <features>
-      <feature id="org.eclipse.e4.rcp" version="1.5.3.v20170228-0512"/>
-      <feature id="org.eclipse.emf.ecore" version="2.12.0.v20160420-0247"/>
-      <feature id="org.eclipse.emf.common" version="2.12.0.v20160420-0247"/>
+      <feature id="org.eclipse.e4.rcp"/>
+      <feature id="org.eclipse.emf.ecore"/>
+      <feature id="org.eclipse.emf.common"/>
       <feature id="PocS3_features"/>
       <feature id="PocS3_Ibd_features"/>
    </features>

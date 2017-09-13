@@ -36,7 +36,7 @@ public class OpenDiagramHandler {
 //      blockDiagramPart.doOpenDiagram();
 
       final Object selection = this.selectionService.getSelection();
-      System.out.println("canExecute for " + selection);
+//      System.out.println("canExecute for " + selection);
 
       if (selection == null) {
         return false;
@@ -51,7 +51,7 @@ public class OpenDiagramHandler {
       if (selection instanceof Object[]) {
         final Object[] array = (Object[]) selection;
         if (array.length != 0 && Arrays.stream(array).allMatch(IBlockDiagram.class::isInstance)) {
-          System.out.println("canExecute " + Arrays.toString(array));
+//          System.out.println("canExecute " + Arrays.toString(array));
           return true;
         }
       }

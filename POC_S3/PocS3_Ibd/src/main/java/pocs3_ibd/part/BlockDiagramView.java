@@ -70,8 +70,6 @@ public class BlockDiagramView implements IBlockDiagramPart, IEditAction {
         this.checkTableViewer.addSelectionChangedListener(event -> {
             final IStructuredSelection selection = (IStructuredSelection) event.getSelection();
 
-            System.out.println("setSelection in thread " + Thread.currentThread());
-
             // set the selection to the service
             this.setSelection(selection.toArray());
         });
@@ -91,8 +89,8 @@ public class BlockDiagramView implements IBlockDiagramPart, IEditAction {
         this.checkTableViewer.getControl().setFocus();
 
         //
-        final IStructuredSelection selection = (IStructuredSelection) BlockDiagramView.this.checkTableViewer.getSelection();
-        BlockDiagramView.this.setSelection(selection.toArray());
+//        final IStructuredSelection selection = (IStructuredSelection) BlockDiagramView.this.checkTableViewer.getSelection();
+//        BlockDiagramView.this.setSelection(selection.toArray());
     }
 
     private void setSelection(Object o) {

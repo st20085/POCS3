@@ -8,7 +8,9 @@ import org.eclipse.e4.core.services.adapter.Adapter;
 import org.eclipse.e4.ui.model.application.MApplication;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.services.IServiceConstants;
+import org.eclipse.swt.widgets.Control;
 
+import pocs3_eap.addons.SWTLastFocusedControlAddon;
 import pocs3_eap.parts.internal.PocS3EapController;
 import pocs3_service_definitions.IEditAction;
 
@@ -46,6 +48,9 @@ public class CopyHandler {
   private static boolean canExecute(@Named(IServiceConstants.ACTIVE_PART) MPart part, Adapter adapter, PocS3EapController pocS3EapController) {
     final Object object = part.getObject();
     System.out.println("CopyHandler canExecute on view "+object);
+
+    Control last_focused_control = (Control) part.getTransientData().get(SWTLastFocusedControlAddon.LAST_FOCUSED_CONTROL);
+    System.out.println("last_focused_control "+last_focused_control);
 
     final IEditAction editAction = adapter.adapt(object, IEditAction.class);
     if (editAction != null && editAction.canCopy()) {

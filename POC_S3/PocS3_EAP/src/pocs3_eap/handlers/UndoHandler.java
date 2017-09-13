@@ -23,7 +23,7 @@ import org.eclipse.e4.ui.workbench.modeling.EPartService;
 public class UndoHandler {
 
     @Execute
-    private static void execute(@Named(IServiceConstants.ACTIVE_PART) MPart part, Adapter adapter, MApplication application, IEclipseContext context) {
+    private static void execute(/*IWorkbenchOperationSupport workbenchOperationSupport, */@Named(IServiceConstants.ACTIVE_PART) MPart part, Adapter adapter, MApplication application, IEclipseContext context) {
 
         try {
             final ObjectUndoContext objectUndoContext = new ObjectUndoContext(application);
@@ -32,7 +32,7 @@ public class UndoHandler {
 //                undoableOperation.canExecute();
                 OperationHistoryFactory.getOperationHistory().undo(objectUndoContext, null, null);
             } else {
-                System.err.println("TODO");
+//                System.err.println("TODO");
             }
         } catch (final ExecutionException e) {
             // TODO Auto-generated catch block
@@ -44,7 +44,7 @@ public class UndoHandler {
     private static boolean canExecute(@Optional EPartService partService, @Named(IServiceConstants.ACTIVE_PART) MPart part, MApplication application) {
         final ObjectUndoContext objectUndoContext = new ObjectUndoContext(application);
 
-        System.out.println("@@@UndoHandler " + OperationHistoryFactory.getOperationHistory().canUndo(objectUndoContext));
+//        System.out.println("@@@UndoHandler " + OperationHistoryFactory.getOperationHistory().canUndo(objectUndoContext));
         return OperationHistoryFactory.getOperationHistory().canUndo(objectUndoContext);
     }
 }
