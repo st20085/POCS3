@@ -66,8 +66,6 @@ public class SamplePart {
         // this.tableViewer.addSelectionChangedListener(event -> {
         // final IStructuredSelection selection = (IStructuredSelection) event.getSelection();
         //
-        // System.out.println("setSelection in thread " + Thread.currentThread());
-        //
         // // set the selection to the service
         // this.setSelection(selection.toArray());
         // });

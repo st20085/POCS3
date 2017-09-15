@@ -12,7 +12,7 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 
-import pocs3_l3dmodel.IL3dModel;
+import pocs3_l3d_model.IL3dModel;
 
 /**
  * The class <b>L3DView</b> allows to

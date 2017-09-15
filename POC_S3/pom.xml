@@ -29,6 +29,7 @@
         <!-- L3D -->
         <module>PocS3_l3d</module>
         <module>PocS3_L3DModel</module>
+        <module>PocS3_L3D_features</module>
 
         <module>PocS3_repository</module>
 

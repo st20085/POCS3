@@ -35,6 +35,9 @@ public class StartElementMatcher implements Selector {
 	@Override
 	public boolean select(MApplicationElement element) {
 //	    System.out.println("element.getElementId() "+element.getElementId());
+	    if (element == null || element.getElementId() == null) {
+            return false;
+        }
 		if (this.id != null && !element.getElementId().startsWith(this.id)) {
 			return false;
 		}

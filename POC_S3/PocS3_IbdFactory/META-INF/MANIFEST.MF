@@ -12,4 +12,3 @@ Require-Bundle: PocS3_IbdServiceDefinitions,
  org.eclipse.e4.core.di,
  org.eclipse.e4.core.services,
  PocS3_commonModel
-Export-Package: poc_s3_ibd_factory

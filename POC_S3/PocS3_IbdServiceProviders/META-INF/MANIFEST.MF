@@ -13,5 +13,3 @@ Require-Bundle: javax.inject,
  PocS3_IbdServiceDefinitions,
  PocS3_IbdFactory,
  PocS3_IbdModel
-Service-Component: OSGI-INF/blockDiagramServiceDefinition.xml
-Bundle-ActivationPolicy: lazy

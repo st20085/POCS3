@@ -5,11 +5,11 @@ import java.util.Collections;
 
 import javax.inject.Inject;
 
-import pocs3_ibd_service_definitions.IBlocDiagramService;
-import pocs3_ibdmodel.IBlockDiagram;
+import pocs3_common_model.event.BlockDiagramModelListener;
 import pocs3_ibdmodel.IbdModel;
 import pocs3_ibdmodel.action.IBlockDiagramAction;
-import pocs3_ibdmodel.event.IbdModelListener;
+import pocs3_service_definitions.IBlocDiagramService;
+import pocs3_service_definitions.IBlockDiagram;
 
 /**
  * The class BlockDiagramController control the creation of block diagram in IbdModel
@@ -30,28 +30,28 @@ public class BlockDiagramController implements IBlockDiagramAction {
     public void createBlockDiagram(String blockDiagramName) {
         final IBlockDiagram blockDiagram = this.blocDiagramService.createNewBlockDiagram(blockDiagramName);
 
-        this.ibdModel.addBlockDiagrams(Collections.singletonList(blockDiagram));
+        this.ibdModel.getBlocDiagramModel().addBlockDiagrams(Collections.singletonList(blockDiagram));
     }
 
     /**
      * @return
      */
     public Object getBlockDiagrams() {
-        return this.ibdModel.getBlockDiagrams();
+        return this.ibdModel.getBlocDiagramModel().getBlockDiagrams();
+    }
+
+    /**
+     * @param commonModelListener
+     */
+    public void addIbdModelListener(BlockDiagramModelListener commonModelListener) {
+        this.ibdModel.getBlocDiagramModel().addCommonModelListener(commonModelListener);
     }
 
     /**
      * @param ibdModelListener
      */
-    public void addIbdModelListener(IbdModelListener ibdModelListener) {
-        this.ibdModel.addIbdModelListener(ibdModelListener);
-    }
-
-    /**
-     * @param ibdModelListener
-     */
-    public void removeIbdModelListener(IbdModelListener ibdModelListener) {
-        this.ibdModel.removeIbdModelListener(ibdModelListener);
+    public void removeIbdModelListener(BlockDiagramModelListener ibdModelListener) {
+        this.ibdModel.getBlocDiagramModel().removeCommonModelListener(ibdModelListener);
     }
 
 }

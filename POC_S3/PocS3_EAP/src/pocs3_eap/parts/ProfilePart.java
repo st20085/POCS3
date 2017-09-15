@@ -6,11 +6,6 @@ import java.util.Set;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
-import pocs3_eap.layout.CenterRowLayout;
-import pocs3_eap.parts.internal.PocS3EapController;
-import pocs3_service_definitions.IProfile;
-import pocs3_service_definitions.IProfileService;
-
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.e4.ui.di.UIEventTopic;
@@ -24,6 +19,11 @@ import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 
+import pocs3_eap.layout.CenterRowLayout;
+import pocs3_eap.parts.internal.PocS3EapController;
+import pocs3_service_definitions.IProfile;
+import pocs3_service_definitions.IProfileService;
+
 /**
  *
  */
@@ -33,6 +33,8 @@ public class ProfilePart {
 
     private Combo combo;
     private IProfile[] profiles;
+
+    private Button selectProfileButton;
 
     @PostConstruct
     public void createComposite(Composite parent, IProfileService profileService) {
@@ -65,9 +67,9 @@ public class ProfilePart {
         // public void widgetDefaultSelected(SelectionEvent e) {}
         // });
 
-        final Button selectProfileButton = new Button(content, SWT.FLAT);
-        selectProfileButton.setText("Select profile");
-        selectProfileButton.addSelectionListener(new SelectionListener() {
+        this.selectProfileButton = new Button(content, SWT.FLAT);
+        this.selectProfileButton.setText("Select profile");
+        this.selectProfileButton.addSelectionListener(new SelectionListener() {
 
             @Override
             public void widgetSelected(SelectionEvent e) {
@@ -82,12 +84,12 @@ public class ProfilePart {
         });
         final GridData gridData = new GridData(SWT.CENTER, SWT.CENTER, false, false, 2, 1);
         gridData.verticalIndent = 50;
-        selectProfileButton.setLayoutData(gridData);
+        this.selectProfileButton.setLayoutData(gridData);
     }
 
     @Focus
     public void onFocus() {
-        this.combo.setFocus();
+        this.selectProfileButton.setFocus();
     }
 
     @Inject

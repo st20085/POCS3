@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/PocS3_L3D_features_1.0.0.qualifier.jar" id="PocS3_L3D_features" version="1.0.0.qualifier">
+      <category name="PocS3_L3D_features"/>
+   </feature>
+   <category-def name="PocS3_L3D_features" label="PocS3_L3D">
+      <description>
+         PocS3_L3D_features
+      </description>
+   </category-def>
+</site>

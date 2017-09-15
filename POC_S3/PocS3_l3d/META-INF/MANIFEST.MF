@@ -1,6 +1,7 @@
 Manifest-Version: 1.0
-Bundle-SymbolicName: PocS3_l3d;singleton:=true
+Bundle-ManifestVersion: 2
 Bundle-Name: PocS3_l3d
+Bundle-SymbolicName: PocS3_l3d;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.eclipse.e4.ui.services,
  org.eclipse.e4.core.contexts,
@@ -15,11 +16,8 @@ Require-Bundle: org.eclipse.e4.ui.services,
  PocS3_Factory,
  PocS3_ServiceDefinitions,
  org.eclipse.e4.ui.di,
- PocS3_Ibd,
- PocS3_IbdServiceDefinitions,
- PocS3_IbdModel,
  PocS3_L3DModel,
- PocS3_commonModel
-Bundle-ManifestVersion: 2
+ PocS3_commonModel,
+ org.eclipse.e4.core.services
+Import-Package: javax.inject;version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-

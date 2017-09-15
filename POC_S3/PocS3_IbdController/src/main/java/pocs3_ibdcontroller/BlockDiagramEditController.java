@@ -10,9 +10,9 @@ import org.eclipse.swt.dnd.TextTransfer;
 import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.dnd.TransferData;
 
-import pocs3_ibd_service_definitions.transfer.BlockDiagramTransfer;
-import pocs3_ibdmodel.IBlockDiagram;
+import pocs3_eap.transfer.BlockDiagramTransfer;
 import pocs3_ibdmodel.IbdModel;
+import pocs3_service_definitions.IBlockDiagram;
 import pocs3_service_definitions.IEditAction;
 
 /**
@@ -75,7 +75,7 @@ public class BlockDiagramEditController implements IEditAction {
         this.copy();
 
         // TODO faire un undoRedo operation
-        this.ibdModel.removeBlockDiagrams(Arrays.asList(this.selectedBlockDiagrams));
+        this.ibdModel.getBlocDiagramModel().removeBlockDiagrams(Arrays.asList(this.selectedBlockDiagrams));
     }
 
     /**
@@ -142,7 +142,7 @@ public class BlockDiagramEditController implements IEditAction {
         final IBlockDiagram[] blockDiagrams = this.getBlockDiagramFromClipboard();
 
         // TODO faire un undoRedo operation
-        this.ibdModel.addBlockDiagrams(Arrays.asList(blockDiagrams));
+        this.ibdModel.getBlocDiagramModel().addBlockDiagrams(Arrays.asList(blockDiagrams));
     }
 
     /**

@@ -11,6 +11,11 @@ Require-Bundle: javax.inject,
  org.eclipse.e4.core.di.annotations,
  org.eclipse.e4.ui.workbench,
  PocS3_ServiceDefinitions,
- PocS3_Factory
-Service-Component: OSGI-INF/profileServiceDefinition.xml
+ PocS3_Factory,
+ org.eclipse.osgi.services,
+ org.eclipse.osgi
+Service-Component: OSGI-INF/profileServiceDefinition.xml,
+ OSGI-INF/blockDiagramServiceDefinition.xml,
+ OSGI-INF/elementServiceDefinition.xml,
+ OSGI-INF/TodoServiceContextFunction.xml
 Bundle-ActivationPolicy: lazy

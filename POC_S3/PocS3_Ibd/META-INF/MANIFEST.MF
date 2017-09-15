@@ -3,6 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: PocS3_Ibd
 Bundle-SymbolicName: PocS3_Ibd;singleton:=true
 Bundle-Version: 1.0.0.qualifier
+Export-Package: pocs3_ibd.part
 Require-Bundle: org.eclipse.e4.ui.services,
  org.eclipse.e4.core.contexts,
  org.eclipse.e4.ui.model.workbench,
@@ -24,6 +25,5 @@ Require-Bundle: org.eclipse.e4.ui.services,
  org.eclipse.equinox.registry,
  PocS3_commonModel,
  PocS3_IbdController
-Import-Package: javax.inject;version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: pocs3_ibd.part
+Import-Package: javax.inject;version="1.0.0"

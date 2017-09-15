@@ -8,6 +8,7 @@ import org.eclipse.e4.core.services.adapter.Adapter;
 import org.eclipse.e4.ui.model.application.MApplication;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.services.IServiceConstants;
+import org.eclipse.e4.ui.workbench.IWorkbench;
 
 import pocs3_eap.parts.internal.PocS3EapController;
 import pocs3_service_definitions.IEditAction;
@@ -34,7 +35,7 @@ public class EditActionCopyHandler {
   }
 
   @Execute
-  private static void execute(@Named(IServiceConstants.ACTIVE_PART) MPart part, Adapter adapter, MApplication application) {
+  private static void execute(@Named(IServiceConstants.ACTIVE_PART) MPart part, Adapter adapter, MApplication application, IWorkbench w) {
     final Object object = part.getObject();
 
     final IEditAction editAction = adapter.adapt(object, IEditAction.class);

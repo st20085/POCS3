@@ -8,5 +8,7 @@ Require-Bundle: PocS3_IbdServiceDefinitions,
  PocS3_IbdModel,
  javax.inject,
  org.eclipse.swt,
- PocS3_ServiceDefinitions
+ PocS3_ServiceDefinitions,
+ PocS3_commonModel,
+ PocS3_EAP
 Export-Package: pocs3_ibdcontroller

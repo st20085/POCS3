@@ -22,12 +22,12 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 
+import pocs3_common_model.event.BlockDiagramModelEvent;
+import pocs3_common_model.event.BlockDiagramModelListener;
 import pocs3_ibd.internal.BlockDiagramEditController;
 import pocs3_ibdcontroller.BlockDiagramController;
-import pocs3_ibdmodel.IBlockDiagram;
 import pocs3_ibdmodel.action.IBlockDiagramAction;
-import pocs3_ibdmodel.event.IbdModelEvent;
-import pocs3_ibdmodel.event.IbdModelListener;
+import pocs3_service_definitions.IBlockDiagram;
 import pocs3_service_definitions.IEditAction;
 
 /**
@@ -53,7 +53,7 @@ public class BlockDiagramView implements IAdaptable {
     @Inject
     BlockDiagramController blockDiagramController;
 
-    IbdModelListener ibdModelListener;
+    BlockDiagramModelListener ibdModelListener;
 
     @Inject
     public BlockDiagramView() {}
@@ -82,9 +82,9 @@ public class BlockDiagramView implements IAdaptable {
         });
 
         // add listener to refresh treeViewer
-        this.ibdModelListener = new IbdModelListener() {
+        this.ibdModelListener = new BlockDiagramModelListener() {
             @Override
-            public void modelChanged(IbdModelEvent ibdModelEvent) {
+            public void modelChanged(BlockDiagramModelEvent ibdModelEvent) {
                 // refresh treeViewer
                 BlockDiagramView.this.blockDiagramTableViewer.setInput(BlockDiagramView.this.blockDiagramController.getBlockDiagrams());
 

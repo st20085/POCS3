@@ -4,8 +4,6 @@
 
 package pocs3_l3d.part;
 
-import java.util.Collections;
-
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
@@ -16,15 +14,10 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 
-import pocs3_ibd_service_definitions.IBlocDiagramService;
-import pocs3_ibdmodel.IBlockDiagram;
-import pocs3_ibdmodel.IbdModel;
-import pocs3_ibdmodel.action.IBlockDiagramAction;
-
 /**
  * The class <b>UnitView</b> allows to
  */
-public class UnitView implements IBlockDiagramAction {
+public class UnitView  {
     @Inject
     public UnitView() {
     }
@@ -41,25 +34,4 @@ public class UnitView implements IBlockDiagramAction {
         checkTableViewer.setInput(new String[] {"Unit1", "Unit2", "Unit3"});
         checkTableViewer.getControl().setLayoutData(new GridData(GridData.FILL_BOTH));
     }
-
-
-    // TEMPORAIRE
-    @Inject
-    IBlocDiagramService blocDiagramService;
-
-    @Inject
-    IbdModel ibdModel;
-
-    @Override
-    public boolean canCreateBlockDiagrams() {
-        return true;
-    }
-
-    @Override
-    public void createBlockDiagram(String blockDiagramName) {
-        final IBlockDiagram blockDiagram = this.blocDiagramService.createNewBlockDiagram(blockDiagramName);
-
-        this.ibdModel.addBlockDiagrams(Collections.singletonList(blockDiagram));
-    }
-
 }

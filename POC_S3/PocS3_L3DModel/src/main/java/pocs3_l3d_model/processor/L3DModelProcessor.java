@@ -4,8 +4,8 @@ import org.eclipse.e4.core.contexts.ContextInjectionFactory;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.Execute;
 
+import pocs3_l3d_model.IL3dModel;
 import pocs3_l3d_model.impl.L3dModelImpl;
-import pocs3_l3dmodel.IL3dModel;
 
 /**
  *

@@ -51,19 +51,6 @@ public class PocS3EapController {
         }
     }
 
-    /**
-     * Switch to application perspective
-     *
-     * @param applicationPerspective
-     */
-    public void switchToApplicationPerspective(MPerspective applicationPerspective) {
-        this.partService.switchPerspective(applicationPerspective);
-
-        //
-        final MUIElement pocS3_TrimbarTop = this.modelService.find(PocS3_Constants.POCS3_TRIMBAR_TOP, this.application);
-        pocS3_TrimbarTop.setVisible(true);
-    }
-
     /*
      * Switch to profile perspective
      */
@@ -94,6 +81,43 @@ public class PocS3EapController {
         //
         final MUIElement pocS3_TrimbarTop = this.modelService.find(PocS3_Constants.POCS3_TRIMBAR_TOP, this.application);
         pocS3_TrimbarTop.setVisible(true);
+
+        //
+        final MUIElement pocS3_save_toolbar = this.modelService.find(PocS3_Constants.POCS3_SAVE_TOOLBAR, this.application);
+        pocS3_save_toolbar.setToBeRendered(false);
+
+        //
+        final MUIElement pocS3_edit_toolbar = this.modelService.find(PocS3_Constants.POCS3_EDIT_TOOLBAR, this.application);
+        pocS3_edit_toolbar.setToBeRendered(false);
+
+        //
+        final MUIElement pocs3_go_to_application_board = this.modelService.find(PocS3_Constants.POCS3_GO_TO_APPLICATION_BOARD, this.application);
+        pocs3_go_to_application_board.setVisible(false);
+    }
+
+    /**
+     * Switch to application perspective
+     *
+     * @param applicationPerspective
+     */
+    public void switchToApplicationPerspective(MPerspective applicationPerspective) {
+        this.partService.switchPerspective(applicationPerspective);
+
+        //
+        final MUIElement pocS3_TrimbarTop = this.modelService.find(PocS3_Constants.POCS3_TRIMBAR_TOP, this.application);
+        pocS3_TrimbarTop.setVisible(true);
+
+        //
+        final MUIElement pocS3_save_toolbar = this.modelService.find(PocS3_Constants.POCS3_SAVE_TOOLBAR, this.application);
+        pocS3_save_toolbar.setToBeRendered(true);
+
+        //
+        final MUIElement pocS3_edit_toolbar = this.modelService.find(PocS3_Constants.POCS3_EDIT_TOOLBAR, this.application);
+        pocS3_edit_toolbar.setToBeRendered(true);
+
+        //
+        final MUIElement pocs3_go_to_application_board = this.modelService.find(PocS3_Constants.POCS3_GO_TO_APPLICATION_BOARD, this.application);
+        pocs3_go_to_application_board.setVisible(true);
     }
 
     /**

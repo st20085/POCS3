@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="pocS3 element Service">
+   <implementation class="pocs3_service_providers.ElementService"/>
+   <service>
+      <provide interface="pocs3_service_definitions.IElementService"/>
+   </service>
+</scr:component>

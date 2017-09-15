@@ -1,45 +1,21 @@
 package pocs3_ibdmodel;
 
-import java.util.List;
-
-import pocs3_common_model.ICommonModel;
-import pocs3_ibdmodel.event.IbdModelListener;
+import pocs3_common_model.IBlockDiagramModel;
+import pocs3_common_model.ICommonElementModel;
 
 /**
  *
  */
 public interface IbdModel {
-    public static enum IBD_MODEL_EVENT_TYPE {IBDMODEL_BLOCK_DIAGRAM_ADDED, IBDMODEL_BLOCK_DIAGRAM_REMOVED};
 
     /**
-     * Return the common model
+     * Return the block diagram model
      */
-    ICommonModel getCommonModel();
+    IBlockDiagramModel getBlocDiagramModel();
 
     /**
-     * @return
+     * Return the common element model
      */
-    List<IBlockDiagram> getBlockDiagrams();
+    ICommonElementModel getCommonElementModel();
 
-    /**
-     * @param asList
-     */
-    void removeBlockDiagrams(List<IBlockDiagram> asList);
-
-    /**
-     * @param asList
-     */
-    void addBlockDiagrams(List<IBlockDiagram> asList);
-
-    /**
-     *
-     * @param listener
-     */
-    void addIbdModelListener(IbdModelListener listener);
-
-    /**
-     *
-     * @param listener
-     */
-    void removeIbdModelListener(IbdModelListener listener);
 }

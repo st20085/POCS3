@@ -27,4 +27,12 @@
          </with>
       </definition>
    </extension>
+  <extension
+     id="PocS3_EAP.processor"
+     point="org.eclipse.e4.workbench.model">
+  <processor
+        class="pocs3_eap.processor.EapProcessor"
+        beforefragment="false">
+  </processor>
+   </extension>
 </plugin>

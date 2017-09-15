@@ -3,7 +3,7 @@
   <children xsi:type="basic:TrimmedWindow" xmi:id="_6wlLccgZEeSyMNYR5xypkQ" elementId="pocs3_eap.window.main" label="POC S3 Application" width="720" height="480">
     <children xsi:type="advanced:PerspectiveStack" xmi:id="_ocKiEJWhEeeGf8Sn35zSnA" elementId="pocs3_eap.perspectivestack" selectedElement="_ocKiEZWhEeeGf8Sn35zSnA">
       <children xsi:type="advanced:Perspective" xmi:id="_ocKiEZWhEeeGf8Sn35zSnA" elementId="pocs3_eap.perspective.profile" selectedElement="_ocKiEpWhEeeGf8Sn35zSnA" label="Profile perspective">
-        <children xsi:type="basic:Part" xmi:id="_ocKiEpWhEeeGf8Sn35zSnA" elementId="PocS3_EAP.sample" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.parts.ProfilePart" label="Profile Part"/>
+        <children xsi:type="basic:Part" xmi:id="_ocKiEpWhEeeGf8Sn35zSnA" elementId="PocS3_EAP.profile" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.parts.ProfilePart" label="Profile Part"/>
       </children>
       <children xsi:type="advanced:Perspective" xmi:id="_ocKiE5WhEeeGf8Sn35zSnA" elementId="pocs3_eap.perspective.application_board" selectedElement="_ocKiFJWhEeeGf8Sn35zSnA" label="Application board perspective">
         <children xsi:type="basic:Part" xmi:id="_ocKiFJWhEeeGf8Sn35zSnA" elementId="pocs3_eap.part.applicationboard" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.parts.ApplicationBoardPart" label="Application Board"/>

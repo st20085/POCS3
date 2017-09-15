@@ -16,6 +16,10 @@ public interface PocS3_Constants {
 
     //
     public static final String POCS3_TRIMBAR_TOP = "pocs3_eap.trimbar.top";
+    public static final String POCS3_SAVE_TOOLBAR = "pocs3_eap.toolbar.save";
+    public static final String POCS3_EDIT_TOOLBAR = "pocs3_eap.toolbar.edit";
+
+    public static final String POCS3_GO_TO_APPLICATION_BOARD = "pocs3_eap.directtoolitem.gotoapplicationboard";
 
 
     public static final String POCS3_ACTIVE_PERSPECTIVE_VARIABLE = "pocS3.activePerspectiveId";
