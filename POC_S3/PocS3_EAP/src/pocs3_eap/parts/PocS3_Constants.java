@@ -28,5 +28,7 @@ public interface PocS3_Constants {
     public static final String COPY_START_ELEMENT_ID = "copy";
     public static final String CUT_START_ELEMENT_ID = "cut";
     public static final String PASTE_START_ELEMENT_ID = "paste";
+    public static final String UNDO_START_ELEMENT_ID = "undo";
+    public static final String REDO_START_ELEMENT_ID = "redo";
 
 }

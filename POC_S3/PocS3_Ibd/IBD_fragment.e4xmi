@@ -24,7 +24,7 @@
           <tags>NoAutoCollapse</tags>
           <children xsi:type="basic:Part" xmi:id="_I6xLwJoeEeeCReHZpG9w4w" elementId="pocs3_ibd.part.element" contributionURI="bundleclass://PocS3_Ibd/pocs3_ibd.part.ElementPart" label="Elements" iconURI="platform:/plugin/PocS3_Ibd/icons/element.png">
             <toolbar xmi:id="_u5qS8JogEeeCReHZpG9w4w" elementId="pocs3_ibd.toolbar.1">
-              <children xsi:type="menu:DirectToolItem" xmi:id="_v8HOcJogEeeCReHZpG9w4w" elementId="pocs3_ibd.directtoolitem.1" iconURI="platform:/plugin/PocS3_Ibd/icons/element.png" contributionURI="bundleclass://PocS3_Ibd/pocs3_ibd.part.handler.CreateElementHandler"/>
+              <children xsi:type="menu:DirectToolItem" xmi:id="_v8HOcJogEeeCReHZpG9w4w" elementId="pocs3_ibd.directtoolitem.1" iconURI="platform:/plugin/PocS3_Ibd/icons/element.png" tooltip="Create element" contributionURI="bundleclass://PocS3_Ibd/pocs3_ibd.part.handler.CreateElementHandler"/>
             </toolbar>
           </children>
         </children>

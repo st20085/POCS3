@@ -2,6 +2,10 @@ package pocs3_eap.processor;
 
 import javax.inject.Inject;
 
+import org.eclipse.core.commands.operations.DefaultOperationHistory;
+import org.eclipse.core.commands.operations.IOperationHistory;
+import org.eclipse.e4.core.contexts.IEclipseContext;
+import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.UIEventTopic;
 import org.eclipse.e4.ui.model.application.ui.advanced.MPerspective;
@@ -12,6 +16,18 @@ import org.eclipse.e4.ui.workbench.UIEvents.EventTags;
  *
  */
 public class EapProcessor {
+
+    @Execute
+    public void execute(IEclipseContext context) {
+        //
+        final IOperationHistory history = new DefaultOperationHistory();
+        history.setLimit(IOperationHistory.GLOBAL_UNDO_CONTEXT, 2); // temporaire
+        context.set(IOperationHistory.class, history);
+
+        //
+
+    }
+
     /**
      * Update on event change
      *

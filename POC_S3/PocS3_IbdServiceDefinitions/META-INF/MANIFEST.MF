@@ -4,9 +4,3 @@ Bundle-Name: PocS3_IbdServiceDefinitions
 Bundle-SymbolicName: PocS3_IbdServiceDefinitions
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Require-Bundle: org.eclipse.swt,
- org.eclipse.e4.ui.workbench,
- org.eclipse.e4.core.contexts,
- PocS3_IbdModel;bundle-version="1.0.0",
- PocS3_commonModel,
- PocS3_ServiceDefinitions

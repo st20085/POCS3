@@ -1,3 +1,4 @@
+
 package pocs3_ibdcontroller;
 
 import java.util.Arrays;
@@ -5,6 +6,13 @@ import java.util.stream.Collectors;
 
 import javax.inject.Inject;
 
+import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.core.commands.operations.IOperationHistory;
+import org.eclipse.core.commands.operations.IUndoableOperation;
+import org.eclipse.core.commands.operations.ObjectUndoContext;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.e4.core.contexts.ContextInjectionFactory;
+import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.swt.dnd.Clipboard;
 import org.eclipse.swt.dnd.TextTransfer;
 import org.eclipse.swt.dnd.Transfer;
@@ -20,9 +28,20 @@ import pocs3_service_definitions.IEditAction;
  */
 public class BlockDiagramEditController implements IEditAction {
     @Inject
+    IEclipseContext eclipseContext;
+
+    @Inject
     IbdModel ibdModel;
 
+    @Inject
+    IOperationHistory operationHistory;
+
+    @Inject
+    IProgressMonitor monitor;
+
     private IBlockDiagram[] selectedBlockDiagrams;
+
+    ObjectUndoContext undoContext = new ObjectUndoContext(this);
 
     /**
      * @param selectedBlockDiagrams
@@ -72,10 +91,32 @@ public class BlockDiagramEditController implements IEditAction {
      */
     @Override
     public void cut() {
+        // Copy in clipboard
         this.copy();
 
         // TODO faire un undoRedo operation
-        this.ibdModel.getBlocDiagramModel().removeBlockDiagrams(Arrays.asList(this.selectedBlockDiagrams));
+        // this.ibdModel.getBlocDiagramModel().removeBlockDiagrams(Arrays.asList(this.selectedBlockDiagrams));
+
+        this.operationHistory.setLimit(this.undoContext, 2); // temporaire
+
+        //
+        final IEclipseContext cutContext = this.eclipseContext.createChild("BlockDiagramEditController cut context");
+        cutContext.set(CutBlocDiagramUndoableOperation.BLOCK_DIAGRAM_LIST_NAMED_CONTEXT, Arrays.asList(this.selectedBlockDiagrams));
+
+        // create Cut undoRedo operation
+        final CutBlocDiagramUndoableOperation cutOperation = ContextInjectionFactory.make(CutBlocDiagramUndoableOperation.class, cutContext);
+        cutOperation.setLabel(this.getCutTooltip());
+
+        //
+        cutOperation.addContext(this.undoContext);
+
+        // execute and add to operationHistory
+        if (cutOperation.execute(this.monitor, null).isOK()) {
+            this.operationHistory.add(cutOperation);
+        }
+
+        // final TriggeredOperations triggeredOperations = new TriggeredOperations(cutOperation, this.operationHistory);
+
     }
 
     /**
@@ -144,6 +185,106 @@ public class BlockDiagramEditController implements IEditAction {
         // TODO faire un undoRedo operation
         this.ibdModel.getBlocDiagramModel().addBlockDiagrams(Arrays.asList(blockDiagrams));
     }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /*
+     * @see pocs3_service_definitions.IEditAction#canUndo()
+     */
+    @Override
+    public boolean canUndo() {
+        final IOperationHistory operationHistory = this.eclipseContext.get(IOperationHistory.class);
+        if (operationHistory == null) {
+            return false;
+        }
+
+        return operationHistory.canUndo(this.undoContext);
+    }
+
+    @Override
+    public String getUndoTooltip() {
+        final String defaultUndoTooltip = IEditAction.super.getUndoTooltip();
+
+        final IOperationHistory operationHistory = this.eclipseContext.get(IOperationHistory.class);
+        if (operationHistory == null) {
+            return defaultUndoTooltip;
+        }
+
+        final IUndoableOperation undoOperation = operationHistory.getUndoOperation(this.undoContext);
+        if (undoOperation == null) {
+            return defaultUndoTooltip;
+        }
+
+        return defaultUndoTooltip + " : " + undoOperation.getLabel();
+    }
+
+    @Override
+    public void undo() {
+        final IOperationHistory operationHistory = this.eclipseContext.get(IOperationHistory.class);
+        if (operationHistory == null) {
+            return;
+        }
+
+        final IProgressMonitor monitor = this.eclipseContext.get(IProgressMonitor.class);
+
+        try {
+            operationHistory.undo(this.undoContext, monitor, null);
+        } catch (final ExecutionException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /*
+     * @see pocs3_service_definitions.IEditAction#canRedo()
+     */
+    @Override
+    public boolean canRedo() {
+        final IOperationHistory operationHistory = this.eclipseContext.get(IOperationHistory.class);
+        if (operationHistory == null) {
+            return false;
+        }
+
+        return operationHistory.canRedo(this.undoContext);
+    }
+
+    @Override
+    public String getRedoTooltip() {
+        final String defaultRedoTooltip = IEditAction.super.getRedoTooltip();
+
+        final IOperationHistory operationHistory = this.eclipseContext.get(IOperationHistory.class);
+        if (operationHistory == null) {
+            return defaultRedoTooltip;
+        }
+
+        final IUndoableOperation redoOperation = operationHistory.getRedoOperation(this.undoContext);
+        if (redoOperation == null) {
+            return defaultRedoTooltip;
+        }
+
+        return defaultRedoTooltip + " : " + redoOperation.getLabel();
+    }
+
+    @Override
+    public void redo() {
+        final IOperationHistory operationHistory = this.eclipseContext.get(IOperationHistory.class);
+        if (operationHistory == null) {
+            return;
+        }
+
+        final IProgressMonitor monitor = this.eclipseContext.get(IProgressMonitor.class);
+
+        try {
+            operationHistory.redo(this.undoContext, monitor, null);
+        } catch (final ExecutionException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /**
      * Get Block diagrams from clipboard

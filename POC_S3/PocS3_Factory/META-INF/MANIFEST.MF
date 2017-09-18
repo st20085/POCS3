@@ -8,5 +8,4 @@ Export-Package: pocs3_factory
 Require-Bundle: PocS3_ServiceDefinitions,
  javax.inject,
  org.eclipse.e4.ui.workbench,
- org.eclipse.e4.ui.model.workbench,
- PocS3_commonModel
+ org.eclipse.e4.ui.model.workbench

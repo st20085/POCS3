@@ -66,6 +66,8 @@
   <handlers xmi:id="_6wlLgcgZEeSyMNYR5xypkQ" elementId="pocs3_eap.handler.openCommand" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.handlers.OpenHandler" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
   <handlers xmi:id="_6wlLhMgZEeSyMNYR5xypkQ" elementId="pocs3_eap.handler.saveCommand" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.handlers.SaveHandler" command="_6wlLg8gZEeSyMNYR5xypkQ"/>
   <handlers xmi:id="_6wlLh8gZEeSyMNYR5xypkQ" elementId="pocs3_eap.handler.aboutCommand" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.handlers.AboutHandler" command="_6wlLhsgZEeSyMNYR5xypkQ"/>
+  <handlers xmi:id="_Izh2wJxMEeee6oWYgADWDg" elementId="pocs3_eap.handler.undoCommand" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.handlers.EditActionUndoHandler" command="_EffPIJbwEeeG0OQkavDMng"/>
+  <handlers xmi:id="_NWo1kJxMEeee6oWYgADWDg" elementId="pocs3_eap.handler.redoCommand" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.handlers.EditActionRedoHandler" command="_EnWKoJbwEeeG0OQkavDMng"/>
   <bindingTables xmi:id="_6wlLfsgZEeSyMNYR5xypkQ" elementId="pocs3_eap.bindingtable" bindingContext="_6wlLecgZEeSyMNYR5xypkQ">
     <bindings xmi:id="_6wlLf8gZEeSyMNYR5xypkQ" elementId="pocs3_eap.keybinding.m1q" keySequence="M1+Q" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
     <bindings xmi:id="_6wlLgsgZEeSyMNYR5xypkQ" elementId="pocs3_eap.keybinding.m1o" keySequence="M1+O" command="_6wlLgMgZEeSyMNYR5xypkQ"/>

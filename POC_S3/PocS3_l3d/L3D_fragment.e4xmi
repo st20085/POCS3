@@ -7,7 +7,7 @@
           <children xsi:type="basic:Part" xmi:id="_pGflAJohEeeCReHZpG9w4w" elementId="pocs3_l3d.part.elements" contributionURI="bundleclass://PocS3_l3d/pocs3_l3d.part.ElementPart" label="Elements" iconURI="platform:/plugin/PocS3_l3d/icons/element.png">
             <handlers xmi:id="_oKaP4JokEeeCReHZpG9w4w" elementId="pocs3_l3d.handler.cut" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.handlers.EditActionCutHandler" command="_7PpbYJokEeeCReHZpG9w4w"/>
             <toolbar xmi:id="_K7eicJoiEeeCReHZpG9w4w" elementId="pocs3_l3d.toolbar.0">
-              <children xsi:type="menu:DirectToolItem" xmi:id="_PCdl8JoiEeeCReHZpG9w4w" elementId="pocs3_l3d.directtoolitem.createelement" label="Create element" iconURI="platform:/plugin/PocS3_l3d/icons/element.png" contributionURI="bundleclass://PocS3_l3d/pocs3_l3d.handlers.CreateElementHandler"/>
+              <children xsi:type="menu:DirectToolItem" xmi:id="_PCdl8JoiEeeCReHZpG9w4w" elementId="pocs3_l3d.directtoolitem.createelement" label="Create element" iconURI="platform:/plugin/PocS3_l3d/icons/element.png" tooltip="Create element" contributionURI="bundleclass://PocS3_l3d/pocs3_l3d.handlers.CreateElementHandler"/>
             </toolbar>
           </children>
           <children xsi:type="basic:Part" xmi:id="_2uNugJP4EeelFMkguDB9EQ" elementId="pocs3_l3d.part.units" contributionURI="bundleclass://PocS3_l3d/pocs3_l3d.part.UnitView" label="Units"/>

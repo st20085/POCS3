@@ -4,11 +4,12 @@ Bundle-Name: PocS3_IbdController
 Bundle-SymbolicName: PocS3_IbdController
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Require-Bundle: PocS3_IbdServiceDefinitions,
- PocS3_IbdModel,
- javax.inject,
- org.eclipse.swt,
- PocS3_ServiceDefinitions,
+Require-Bundle: PocS3_IbdModel,
  PocS3_commonModel,
- PocS3_EAP
+ PocS3_EAP,
+ org.eclipse.e4.core.contexts,
+ org.eclipse.core.commands,
+ org.eclipse.core.runtime,
+ org.eclipse.swt,
+ org.eclipse.e4.core.di
 Export-Package: pocs3_ibdcontroller

@@ -115,7 +115,7 @@ public interface IEditAction {
      * Return the Redo tooltip
      */
     public default String getRedoTooltip() {
-        return DEFAULT_UNDO_TOOLTIP;
+        return DEFAULT_REDO_TOOLTIP;
     }
 
     /**

@@ -16,7 +16,9 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 
 import pocs3_ibdcontroller.BlockDiagramController;
+import pocs3_ibdcontroller.BlockDiagramEditController;
 import pocs3_ibdmodel.action.IBlockDiagramAction;
+import pocs3_service_definitions.IEditAction;
 
 /**
  * The class <b>ApplicationModuleView</b> allows to
@@ -42,6 +44,9 @@ public class ApplicationModuleView implements IAdaptable {
     @Inject
     BlockDiagramController blockDiagramController;
 
+    @Inject
+    BlockDiagramEditController blockDiagramEditController;
+
     @Override
     public <T> T getAdapter(Class<T> adapter) {
 //        if (IEditAction.class.equals(adapter)) {
@@ -49,6 +54,9 @@ public class ApplicationModuleView implements IAdaptable {
 //        }
         if (IBlockDiagramAction.class.equals(adapter)) {
             return adapter.cast(this.blockDiagramController);
+        }
+        if (IEditAction.class.equals(adapter)) {
+            return adapter.cast(this.blockDiagramEditController);
         }
         return null;
     }

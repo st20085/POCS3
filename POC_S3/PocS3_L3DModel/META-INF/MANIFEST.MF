@@ -7,7 +7,8 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: PocS3_commonModel,
  javax.inject,
  org.eclipse.e4.core.contexts,
- org.eclipse.e4.core.di.annotations,
  org.eclipse.e4.core.di,
- org.eclipse.e4.ui.workbench
+ org.eclipse.e4.ui.model.workbench,
+ org.eclipse.e4.ui.workbench,
+ org.eclipse.emf.ecore
 Export-Package: pocs3_l3d_model

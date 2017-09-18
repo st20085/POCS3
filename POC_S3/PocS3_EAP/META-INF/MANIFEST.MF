@@ -6,8 +6,7 @@ Bundle-Version: 1.0.0.qualifier
 Export-Package: pocs3_eap.handlers,
  pocs3_eap.parts,
  pocs3_eap.transfer
-Require-Bundle: javax.inject,
- org.eclipse.core.runtime;bundle-version="0.0.0",
+Require-Bundle: org.eclipse.core.runtime;bundle-version="0.0.0",
  org.eclipse.e4.ui.model.workbench;bundle-version="0.0.0",
  org.eclipse.jface;bundle-version="0.0.0",
  org.eclipse.e4.ui.services;bundle-version="0.0.0",
@@ -18,7 +17,5 @@ Require-Bundle: javax.inject,
  org.eclipse.e4.core.di.extensions,
  org.eclipse.osgi.services,
  org.eclipse.e4.core.services,
- PocS3_commonModel,
- PocS3_Factory,
  PocS3_ServiceDefinitions;visibility:=reexport
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

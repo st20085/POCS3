@@ -143,6 +143,23 @@ public class PocS3EapController {
     public void setPasteTooltip(String tooltip) {
         this.setTooltip(tooltip, PocS3_Constants.PASTE_START_ELEMENT_ID);
     }
+
+    /**
+     * Set undo tooltip on all ui elements
+     * @param tooltip
+     */
+    public void setUndoTooltip(String tooltip) {
+        this.setTooltip(tooltip, PocS3_Constants.UNDO_START_ELEMENT_ID);
+    }
+
+    /**
+     * Set redo tooltip on all ui elements
+     * @param tooltip
+     */
+    public void setRedoTooltip(String tooltip) {
+        this.setTooltip(tooltip, PocS3_Constants.REDO_START_ELEMENT_ID);
+    }
+
     /**
      * Set paste tooltip on all ui elements
      * @param tooltip

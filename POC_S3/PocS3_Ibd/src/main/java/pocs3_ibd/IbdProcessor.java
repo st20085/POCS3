@@ -6,7 +6,6 @@ package pocs3_ibd;
 
 import javax.inject.Inject;
 
-import org.eclipse.e4.core.contexts.ContextInjectionFactory;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.core.di.annotations.Optional;
@@ -15,9 +14,7 @@ import org.eclipse.e4.ui.model.application.ui.advanced.MPerspective;
 import org.eclipse.e4.ui.workbench.UIEvents;
 import org.eclipse.e4.ui.workbench.UIEvents.EventTags;
 
-import pocs3_ibd.internal.BlockDiagramEditController;
 import pocs3_ibd.internal.IbdController;
-import pocs3_ibdcontroller.BlockDiagramController;
 
 /**
  *
@@ -30,11 +27,11 @@ public class IbdProcessor {
     @Execute
     public void execute(IEclipseContext context) {
 
-        final BlockDiagramController blockDiagramController = ContextInjectionFactory.make(BlockDiagramController.class, context);
-        context.set(BlockDiagramController.class, blockDiagramController);
-
-        final BlockDiagramEditController blockDiagramEditController = ContextInjectionFactory.make(BlockDiagramEditController.class, context);
-        context.set(BlockDiagramEditController.class, blockDiagramEditController);
+//        final BlockDiagramController blockDiagramController = ContextInjectionFactory.make(BlockDiagramController.class, context);
+//        context.set(BlockDiagramController.class, blockDiagramController);
+//
+//        final BlockDiagramEditController blockDiagramEditController = ContextInjectionFactory.make(BlockDiagramEditController.class, context);
+//        context.set(BlockDiagramEditController.class, blockDiagramEditController);
     }
 
     /**

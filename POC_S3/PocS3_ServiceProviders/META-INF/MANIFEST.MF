@@ -4,16 +4,11 @@ Bundle-Name: PocS3_ServiceProviders
 Bundle-SymbolicName: PocS3_ServiceProviders
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Require-Bundle: javax.inject,
- org.eclipse.e4.core.contexts,
+Require-Bundle: org.eclipse.e4.core.contexts,
  org.eclipse.e4.core.services,
- org.eclipse.e4.core.di,
- org.eclipse.e4.core.di.annotations,
  org.eclipse.e4.ui.workbench,
  PocS3_ServiceDefinitions,
- PocS3_Factory,
- org.eclipse.osgi.services,
- org.eclipse.osgi
+ PocS3_Factory
 Service-Component: OSGI-INF/profileServiceDefinition.xml,
  OSGI-INF/blockDiagramServiceDefinition.xml,
  OSGI-INF/elementServiceDefinition.xml,

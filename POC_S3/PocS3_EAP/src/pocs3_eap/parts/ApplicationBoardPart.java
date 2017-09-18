@@ -61,13 +61,13 @@ public class ApplicationBoardPart {
       return;
     }
 
-    List<MPerspective> perspectiveList = this.modelService.findElements(this.application, null, MPerspective.class, null);
+    final List<MPerspective> perspectiveList = this.modelService.findElements(this.application, null, MPerspective.class, null);
 
     // recreate switch perspective buttons
     for (final IApplication application : profile.getApplications()) {
       // find perspective
 
-      java.util.Optional<MPerspective> opt = perspectiveList.stream().filter(perspective -> application.getName().equals(perspective.getLabel())).findFirst();
+      final java.util.Optional<MPerspective> opt = perspectiveList.stream().filter(perspective -> application.getName().equals(perspective.getLabel())).findFirst();
       if (opt.isPresent()) {
         final MPerspective perspective = opt.get();
         this.createSwitchPerspectiveButton(parent, application, perspective);
@@ -133,8 +133,11 @@ public class ApplicationBoardPart {
   }
 
   @Focus
-  public void onFocus() {
-
+  public void onFocus(Composite parent) {
+      final Control[] children = parent.getChildren();
+      if (children != null && children.length > 0) {
+        children[0].setFocus();
+    }
   }
 
 }
