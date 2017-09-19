@@ -105,17 +105,15 @@ public class BlockDiagramEditController implements IEditAction {
         // TODO faire un undoRedo operation
         // this.ibdModel.getBlocDiagramModel().removeBlockDiagrams(Arrays.asList(this.selectedBlockDiagrams));
 
-        this.operationHistory.setLimit(this.undoContext, 2); // temporaire
+        this.operationHistory.setLimit(this.undoContext, 16); // temporaire
 
-        //
+        // inject selectedBlockDiagrams in context
         final IEclipseContext cutContext = this.eclipseContext.createChild("BlockDiagramEditController cut context");
         cutContext.set(CutBlocDiagramUndoableOperation.BLOCK_DIAGRAM_LIST_NAMED_CONTEXT, Arrays.asList(this.selectedBlockDiagrams));
 
         // create Cut undoRedo operation
         final CutBlocDiagramUndoableOperation cutOperation = ContextInjectionFactory.make(CutBlocDiagramUndoableOperation.class, cutContext);
         cutOperation.setLabel(this.getCutTooltip());
-
-        //
         cutOperation.addContext(this.undoContext);
 
         // execute and add to operationHistory
@@ -125,9 +123,6 @@ public class BlockDiagramEditController implements IEditAction {
             // refresh UI
             this.eventBroker.send(UIEvents.REQUEST_ENABLEMENT_UPDATE_TOPIC, UIEvents.ALL_ELEMENT_ID);
         }
-
-        // final TriggeredOperations triggeredOperations = new TriggeredOperations(cutOperation, this.operationHistory);
-
     }
 
     /**

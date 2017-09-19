@@ -21,7 +21,7 @@ public class EapProcessor {
     public void execute(IEclipseContext context) {
         //
         final IOperationHistory history = new DefaultOperationHistory();
-        history.setLimit(IOperationHistory.GLOBAL_UNDO_CONTEXT, 2); // temporaire
+        history.setLimit(IOperationHistory.GLOBAL_UNDO_CONTEXT, 16); // temporaire
         context.set(IOperationHistory.class, history);
 
         //
