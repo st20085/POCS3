@@ -13,6 +13,8 @@ import org.eclipse.core.commands.operations.ObjectUndoContext;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.e4.core.contexts.ContextInjectionFactory;
 import org.eclipse.e4.core.contexts.IEclipseContext;
+import org.eclipse.e4.core.services.events.IEventBroker;
+import org.eclipse.e4.ui.workbench.UIEvents;
 import org.eclipse.swt.dnd.Clipboard;
 import org.eclipse.swt.dnd.TextTransfer;
 import org.eclipse.swt.dnd.Transfer;
@@ -39,6 +41,9 @@ public class BlockDiagramEditController implements IEditAction {
     @Inject
     IProgressMonitor monitor;
 
+    @Inject
+    IEventBroker eventBroker;
+
     private IBlockDiagram[] selectedBlockDiagrams;
 
     ObjectUndoContext undoContext = new ObjectUndoContext(this);
@@ -64,6 +69,9 @@ public class BlockDiagramEditController implements IEditAction {
     @Override
     public void copy() {
         this.copySelectedBlocDiagramsToClipboard(this.selectedBlockDiagrams);
+
+        // refresh UI
+        this.eventBroker.send(UIEvents.REQUEST_ENABLEMENT_UPDATE_TOPIC, UIEvents.ALL_ELEMENT_ID);
     }
 
     /**
@@ -113,6 +121,9 @@ public class BlockDiagramEditController implements IEditAction {
         // execute and add to operationHistory
         if (cutOperation.execute(this.monitor, null).isOK()) {
             this.operationHistory.add(cutOperation);
+
+            // refresh UI
+            this.eventBroker.send(UIEvents.REQUEST_ENABLEMENT_UPDATE_TOPIC, UIEvents.ALL_ELEMENT_ID);
         }
 
         // final TriggeredOperations triggeredOperations = new TriggeredOperations(cutOperation, this.operationHistory);
@@ -228,7 +239,10 @@ public class BlockDiagramEditController implements IEditAction {
         final IProgressMonitor monitor = this.eclipseContext.get(IProgressMonitor.class);
 
         try {
-            operationHistory.undo(this.undoContext, monitor, null);
+            if (operationHistory.undo(this.undoContext, monitor, null).isOK()) {
+              // refresh UI
+              this.eventBroker.send(UIEvents.REQUEST_ENABLEMENT_UPDATE_TOPIC, UIEvents.ALL_ELEMENT_ID);
+            }
         } catch (final ExecutionException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -277,7 +291,12 @@ public class BlockDiagramEditController implements IEditAction {
         final IProgressMonitor monitor = this.eclipseContext.get(IProgressMonitor.class);
 
         try {
-            operationHistory.redo(this.undoContext, monitor, null);
+            if (operationHistory.redo(this.undoContext, monitor, null).isOK()) {
+
+              // refresh UI
+              this.eventBroker.send(UIEvents.REQUEST_ENABLEMENT_UPDATE_TOPIC, UIEvents.ALL_ELEMENT_ID);
+
+            }
         } catch (final ExecutionException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
