@@ -16,5 +16,6 @@ Require-Bundle: org.eclipse.e4.core.contexts,
  PocS3_EAP,
  PocS3_IbdModel,
  PocS3_commonModel,
- PocS3_IbdController
+ PocS3_IbdController,
+ org.eclipse.emf.ecore
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

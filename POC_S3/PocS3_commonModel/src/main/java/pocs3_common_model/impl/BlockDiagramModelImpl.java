@@ -45,12 +45,12 @@ public class BlockDiagramModelImpl implements IBlockDiagramModel {
     }
 
     @Override
-    public void addCommonModelListener(BlockDiagramModelListener commonModelListener) {
-        this.listeners.add(commonModelListener);
+    public void addBlockDiagramModelListener(BlockDiagramModelListener blockDiagramModelListener) {
+        this.listeners.add(blockDiagramModelListener);
     }
 
     @Override
-    public void removeCommonModelListener(BlockDiagramModelListener commonModelListener) {
-        this.listeners.remove(commonModelListener);
+    public void removeBlockDiagramModelListener(BlockDiagramModelListener blockDiagramModelListener) {
+        this.listeners.remove(blockDiagramModelListener);
     }
 }

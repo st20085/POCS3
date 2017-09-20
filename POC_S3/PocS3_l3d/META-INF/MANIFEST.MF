@@ -13,6 +13,7 @@ Require-Bundle: org.eclipse.e4.ui.model.workbench,
  org.eclipse.e4.ui.di,
  PocS3_L3DModel,
  PocS3_commonModel,
- org.eclipse.e4.core.services
-Import-Package: javax.inject;version="1.0.0"
+ org.eclipse.e4.core.services,
+ org.eclipse.e4.core.contexts,
+ org.eclipse.emf.ecore
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

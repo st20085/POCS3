@@ -29,4 +29,8 @@
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_46GgUJokEeeCReHZpG9w4w" featurename="commands" parentElementId="PocS3_EAP">
     <elements xsi:type="commands:Command" xmi:id="_7PpbYJokEeeCReHZpG9w4w" elementId="org.eclipse.ui.edit.cut" commandName="Cut" description="Cut the selection to the clipboard"/>
   </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_b64VcJ3pEeeYK8Vl4IFuPw" featurename="children" parentElementId="pocs3_ibd.toolbar">
+    <elements xsi:type="menu:ToolBarSeparator" xmi:id="_zy3IIJ3yEeeYK8Vl4IFuPw" elementId="pocs3_l3d.toolbarseparator.0"/>
+    <elements xsi:type="menu:DirectToolItem" xmi:id="_rN52wJ3tEeeYK8Vl4IFuPw" elementId="pocs3_l3d.directtoolitem.openl3deditor" label="Open L3d Editor" iconURI="platform:/plugin/PocS3_l3d/icons/satellite_icon.png" tooltip="Open L3d Editor" contributionURI="bundleclass://PocS3_l3d/pocs3_l3d.handlers.OpenL3dHandler"/>
+  </fragments>
 </fragment:ModelFragments>

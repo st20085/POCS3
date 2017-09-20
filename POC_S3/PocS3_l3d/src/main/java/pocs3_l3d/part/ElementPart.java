@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Collections;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.inject.Inject;
 
 import org.eclipse.e4.ui.di.Focus;
@@ -40,6 +41,14 @@ public class ElementPart implements IElementAction, IEditAction {
     @Inject
     ESelectionService selectionService;
 
+    //
+    CommonElementModelListener commonElementModelListener = new CommonElementModelListener() {
+        @Override
+        public void modelChanged(CommonElementModelEvent commonElementModelEvent) {
+            ElementPart.this.tableViewer.refresh();
+        }
+    };
+
     @PostConstruct
     public void createComposite(Composite parent) {
         final GridLayout layout = new GridLayout(1, false);
@@ -62,12 +71,7 @@ public class ElementPart implements IElementAction, IEditAction {
         });
 
         // refresh table when element model changes
-        this.l3dModel.getCommonElementModel().addCommonElementModelListener(new CommonElementModelListener() {
-            @Override
-            public void modelChanged(CommonElementModelEvent commonElementModelEvent) {
-                ElementPart.this.tableViewer.refresh();
-            }
-        });
+        this.l3dModel.getCommonElementModel().addCommonElementModelListener(this.commonElementModelListener);
     }
 
     @Focus
@@ -77,6 +81,11 @@ public class ElementPart implements IElementAction, IEditAction {
 
         // final IStructuredSelection selection = (IStructuredSelection) this.tableViewer.getSelection();
         // this.setSelection(selection.toArray());
+    }
+
+    @PreDestroy
+    private void dispose() {
+        this.l3dModel.getCommonElementModel().removeCommonElementModelListener(this.commonElementModelListener);
     }
 
     ////////////////////////////////////////////////////////////// IElementAction ////////////////////////////////////////////////////////////////////////

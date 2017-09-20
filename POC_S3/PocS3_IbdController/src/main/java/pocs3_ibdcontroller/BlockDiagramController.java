@@ -41,17 +41,17 @@ public class BlockDiagramController implements IBlockDiagramAction {
     }
 
     /**
-     * @param commonModelListener
+     * @param blockDiagramModelListener
      */
-    public void addIbdModelListener(BlockDiagramModelListener commonModelListener) {
-        this.ibdModel.getBlocDiagramModel().addCommonModelListener(commonModelListener);
+    public void addIbdModelListener(BlockDiagramModelListener blockDiagramModelListener) {
+        this.ibdModel.getBlocDiagramModel().addBlockDiagramModelListener(blockDiagramModelListener);
     }
 
     /**
-     * @param ibdModelListener
+     * @param blockDiagramModelListener
      */
-    public void removeIbdModelListener(BlockDiagramModelListener ibdModelListener) {
-        this.ibdModel.getBlocDiagramModel().removeCommonModelListener(ibdModelListener);
+    public void removeIbdModelListener(BlockDiagramModelListener blockDiagramModelListener) {
+        this.ibdModel.getBlocDiagramModel().removeBlockDiagramModelListener(blockDiagramModelListener);
     }
 
 }

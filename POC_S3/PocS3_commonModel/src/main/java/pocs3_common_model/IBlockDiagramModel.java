@@ -8,28 +8,26 @@ import pocs3_service_definitions.IBlockDiagram;
 /**
  *
  */
-public interface IBlockDiagramModel {
+public interface IBlockDiagramModel extends IROBlockDiagramModel {
     public static enum BLOCK_DIAGRAM_MODEL_EVENT_TYPE {BLOCK_DIAGRAM_ADDED, BLOCK_DIAGRAM_REMOVED};
 
-    List<IBlockDiagram> getBlockDiagrams();
+    /**
+     * @param blockDiagrams
+     */
+    void removeBlockDiagrams(List<IBlockDiagram> blockDiagrams);
 
     /**
-     * @param asList
+     * @param blockDiagrams
      */
-    void removeBlockDiagrams(List<IBlockDiagram> asList);
+    void addBlockDiagrams(List<IBlockDiagram> blockDiagrams);
 
     /**
-     * @param asList
+     * @param blockDiagramModelListener
      */
-    void addBlockDiagrams(List<IBlockDiagram> asList);
+    void addBlockDiagramModelListener(BlockDiagramModelListener blockDiagramModelListener);
 
     /**
      * @param commonModelListener
      */
-    void addCommonModelListener(BlockDiagramModelListener commonModelListener);
-
-    /**
-     * @param commonModelListener
-     */
-    void removeCommonModelListener(BlockDiagramModelListener commonModelListener);
+    void removeBlockDiagramModelListener(BlockDiagramModelListener blockDiagramModelListener);
 }

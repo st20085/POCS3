@@ -2,8 +2,8 @@ package poc_s3_ibd_factory.internal;
 
 import javax.inject.Inject;
 
-import pocs3_common_model.ICommonElementModel;
 import pocs3_common_model.IBlockDiagramModel;
+import pocs3_common_model.ICommonElementModel;
 import pocs3_ibdmodel.IbdModel;
 
 /**
@@ -12,14 +12,14 @@ import pocs3_ibdmodel.IbdModel;
 public class IbdModelImpl implements IbdModel {
 
     @Inject
-    IBlockDiagramModel commonModel;
+    IBlockDiagramModel blockDiagramModel;
 
     @Inject
     ICommonElementModel commonElementModel;
 
     @Override
     public IBlockDiagramModel getBlocDiagramModel() {
-        return this.commonModel;
+        return this.blockDiagramModel;
     }
 
     @Override

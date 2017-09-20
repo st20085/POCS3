@@ -38,6 +38,7 @@ public class IbdController {
         //
         final MUIElement ibd_toolbar = this.modelService.find(Ibd_Constants.IBD_TOOLBAR_ID, this.application);
         if (ibd_toolbar != null) {
+//            System.err.println("TEMPORAIRE active ibd_toolbar");
             ibd_toolbar.setToBeRendered(renderer);
         } else {
             System.err.println("Cannot found ibd_toolbar");
