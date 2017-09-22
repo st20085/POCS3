@@ -19,7 +19,7 @@
             <children xsi:type="basic:Part" xmi:id="_6QO9bJPwEeelFMkguDB9EQ" elementId="pocs3_ibd.part.check" contributionURI="bundleclass://PocS3_Ibd/pocs3_ibd.part.CheckView" label="Check"/>
           </children>
         </children>
-        <children xsi:type="basic:PartStack" xmi:id="_VRSv8JPxEeelFMkguDB9EQ" elementId="pocs3_ibd.partstack.center" containerData="5000">
+        <children xsi:type="basic:PartStack" xmi:id="_VRSv8JPxEeelFMkguDB9EQ" elementId="pocs3_ibd.partstack.center" containerData="4500">
           <tags>IbdEditor</tags>
           <tags>NoAutoCollapse</tags>
           <children xsi:type="basic:Part" xmi:id="_I6xLwJoeEeeCReHZpG9w4w" elementId="pocs3_ibd.part.element" contributionURI="bundleclass://PocS3_Ibd/pocs3_ibd.part.ElementPart" label="Elements" iconURI="platform:/plugin/PocS3_Ibd/icons/element.png">
@@ -28,10 +28,16 @@
             </toolbar>
           </children>
         </children>
-        <children xsi:type="basic:PartSashContainer" xmi:id="_hIwtMJPxEeelFMkguDB9EQ" elementId="pocs3_ibd.partsashcontainer.right" containerData="2500" selectedElement="_hIwtMZPxEeelFMkguDB9EQ">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_hIwtMJPxEeelFMkguDB9EQ" elementId="pocs3_ibd.partsashcontainer.right" containerData="3000" selectedElement="_hIwtMZPxEeelFMkguDB9EQ">
           <children xsi:type="basic:PartStack" xmi:id="_hIwtMZPxEeelFMkguDB9EQ" elementId="pocs3_ibd.partstack.applicationmodule" containerData="50">
-            <children xsi:type="basic:Part" xmi:id="_hIwtMpPxEeelFMkguDB9EQ" elementId="pocs3_ibd.part.applicationmodules" containerData="" contributionURI="bundleclass://PocS3_Ibd/pocs3_ibd.part.ApplicationModuleView" label="Application Modules" iconURI="">
+            <children xsi:type="basic:Part" xmi:id="_hIwtMpPxEeelFMkguDB9EQ" elementId="pocs3_ibd.part.applicationmodules" containerData="" contributionURI="bundleclass://PocS3_Ibd/pocs3_ibd.part.ApplicationModuleView" label="Application Modules" iconURI="platform:/plugin/PocS3_Ibd/icons/vbs_file.png">
               <persistedState key="MODULE_DIR" value="Modules_ibd"/>
+              <handlers xmi:id="_B0LeUJ_WEee1gOD-jEuQfg" elementId="pocs3_ibd.applicationmodules.handler.undo" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.handlers.EditingDomainProviderUndoHandler" command="_K3uxAJhYEeeG0OQkavDMng"/>
+              <handlers xmi:id="_J_yN0J_WEee1gOD-jEuQfg" elementId="pocs3_ibd.applicationmodules.handler.redo" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.handlers.EditingDomainProviderRedoHandler" command="_MgjwAJhYEeeG0OQkavDMng"/>
+              <handlers xmi:id="_4SRi4J_YEee1gOD-jEuQfg" elementId="pocs3_ibd.applicationmodules.handler.cut" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.handlers.EditActionCutHandler" command="_H_8EgJhYEeeG0OQkavDMng"/>
+              <toolbar xmi:id="_77O1UJ_SEee1gOD-jEuQfg" elementId="pocs3_ibd.toolbar.2">
+                <children xsi:type="menu:DirectToolItem" xmi:id="_9PnOUJ_SEee1gOD-jEuQfg" elementId="pocs3_ibd.directtoolitem.create_application_module" iconURI="platform:/plugin/PocS3_Ibd/icons/vbs_file.png" tooltip="Create application module" contributionURI="bundleclass://PocS3_Ibd/pocs3_ibd.part.application_module.CreateApplicationModuleHandler"/>
+              </toolbar>
             </children>
           </children>
           <children xsi:type="basic:PartStack" xmi:id="_hIwtM5PxEeelFMkguDB9EQ" elementId="pocs3_ibd.partstack.properties" containerData="50">

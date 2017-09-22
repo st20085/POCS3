@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/PocS3_EMF/src" modelPluginID="PocS3_EMF" modelName="Pocs3_emf"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>pocs3_emf.ecore</foreignModel>
+  <genPackages prefix="Pocs3_emf" disposableProviderFactory="true" ecorePackage="pocs3_emf.ecore#/">
+    <genClasses ecoreClass="pocs3_emf.ecore#//ThermalUnit">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pocs3_emf.ecore#//ThermalUnit/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pocs3_emf.ecore#//ThermalUnit/blockUnit"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pocs3_emf.ecore#//ThermalUnit/common"/>
+    </genClasses>
+    <genClasses ecoreClass="pocs3_emf.ecore#//BlockUnit">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pocs3_emf.ecore#//BlockUnit/name"/>
+      <genOperations ecoreOperation="pocs3_emf.ecore#//BlockUnit/generate"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="pocs3_emf.ecore#//IUnit">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pocs3_emf.ecore#//IUnit/id"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Pocs3_common" ecorePackage="pocs3_common.ecore#/">
+    <genClasses ecoreClass="pocs3_common.ecore#//Common"/>
+  </genPackages>
+</genmodel:GenModel>

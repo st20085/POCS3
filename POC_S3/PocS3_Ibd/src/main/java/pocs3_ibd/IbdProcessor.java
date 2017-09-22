@@ -71,10 +71,11 @@ public class IbdProcessor {
         }
     }
 
-//    /**
-//     * Update on event change
-//     * @param event
-//     */
+    /**
+     * (@UIEventTopic(UIEvents.UILifeCycle.PERSPECTIVE_OPENED
+     * Update on event change
+     * @param event
+     */
 //    @Inject
 //    @Optional
 //    public void updateOnEventChange(@UIEventTopic(UIEvents.ElementContainer.TOPIC_SELECTEDELEMENT) org.osgi.service.event.Event event) {

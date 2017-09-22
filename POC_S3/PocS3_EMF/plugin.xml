@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated pocs3_emf -->
+      <package
+            uri="http://www.example.org/pocs3_emf"
+            class="pocs3_emf.Pocs3_emfPackage"
+            genModel="model/pocs3_emf.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated pocs3_emf -->
+      <package
+            uri="http://www.example.org/pocs3_common"
+            class="pocs3_common.Pocs3_commonPackage"
+            genModel="model/pocs3_emf.genmodel"/>
+   </extension>
+
+</plugin>
