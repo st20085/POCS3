@@ -18,6 +18,7 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.e4.core.services.events.IEventBroker;
 import org.eclipse.e4.ui.di.Persist;
 import org.eclipse.e4.ui.model.application.ui.MDirtyable;
+import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.workbench.UIEvents;
 import org.eclipse.emf.common.command.BasicCommandStack;
 import org.eclipse.emf.common.command.CommandStackListener;
@@ -45,6 +46,8 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.ui.forms.widgets.FormToolkit;
+import org.eclipse.ui.forms.widgets.Section;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.FrameworkUtil;
 
@@ -61,6 +64,9 @@ import pocs3_service_definitions.IEditAction;
 public class ApplicationModuleView implements IEditingDomainProvider, IEditAction {
   @Inject
   MDirtyable dirtyable;
+
+  @Inject
+  MPart part;
 
   TableViewer applicationModuleTableViewer;
 
@@ -96,8 +102,30 @@ public class ApplicationModuleView implements IEditingDomainProvider, IEditActio
     layout.marginWidth = layout.marginHeight = 0;
     parent.setLayout(layout);
 
+    // //
+    // Section section = new Section(parent, Section.TITLE_BAR | Section.TWISTIE | Section.EXPANDED);
+    // section.setText("Title");
+    // section.setLayoutData(new GridData(GridData.FILL_BOTH));
     //
-    createApplicationModuleTableViewer(parent);
+    // Label label = new Label(section, SWT.WRAP);
+    // label.setText("This is the description that goes below the title");
+    // section.setDescriptionControl(label);
+    // section.setClient(...);
+
+     FormToolkit toolkit = new FormToolkit(parent.getDisplay());
+     Section section = toolkit.createSection(parent, Section.TITLE_BAR | Section.TWISTIE | Section.EXPANDED);
+     section.setText("Title");
+     section.setLayoutData(new GridData(GridData.FILL_BOTH));
+
+//    Section section = createSection(parent, Section.TITLE_BAR | Section.TWISTIE | Section.EXPANDED);
+//    section.setText("Title");
+//    section.setLayoutData(new GridData(GridData.FILL_BOTH));
+
+//    section.setDescriptionControl(toolkit.createLabel(section, "Description", SWT.WRAP));
+
+    //
+    createApplicationModuleTableViewer(section);
+    section.setClient(applicationModuleTableViewer.getControl());
   }
 
   /**
@@ -134,7 +162,7 @@ public class ApplicationModuleView implements IEditingDomainProvider, IEditActio
     commandStack.addCommandStackListener(new CommandStackListener() {
       @Override
       public void commandStackChanged(EventObject event) {
-        boolean saveNeeded = ((BasicCommandStack)editingDomain.getCommandStack()).isSaveNeeded();
+        boolean saveNeeded = ((BasicCommandStack) editingDomain.getCommandStack()).isSaveNeeded();
         dirtyable.setDirty(saveNeeded);
       }
     });
@@ -143,25 +171,25 @@ public class ApplicationModuleView implements IEditingDomainProvider, IEditActio
     editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack);
   }
 
-//  @Inject
-//  BlockDiagramController blockDiagramController;
-//
-//  @Inject
-//  BlockDiagramEditController blockDiagramEditController;
-//
-//  @Override
-//  public <T> T getAdapter(Class<T> adapter) {
-//    // if (IEditAction.class.equals(adapter)) {
-//    // return adapter.cast(this.blockDiagramEditController);
-//    // }
-//    if (IBlockDiagramAction.class.equals(adapter)) {
-//      return adapter.cast(this.blockDiagramController);
-//    }
-//    if (IEditAction.class.equals(adapter)) {
-//      return adapter.cast(this.blockDiagramEditController);
-//    }
-//    return null;
-//  }
+  // @Inject
+  // BlockDiagramController blockDiagramController;
+  //
+  // @Inject
+  // BlockDiagramEditController blockDiagramEditController;
+  //
+  // @Override
+  // public <T> T getAdapter(Class<T> adapter) {
+  // // if (IEditAction.class.equals(adapter)) {
+  // // return adapter.cast(this.blockDiagramEditController);
+  // // }
+  // if (IBlockDiagramAction.class.equals(adapter)) {
+  // return adapter.cast(this.blockDiagramController);
+  // }
+  // if (IEditAction.class.equals(adapter)) {
+  // return adapter.cast(this.blockDiagramEditController);
+  // }
+  // return null;
+  // }
 
   /**
    * Save ApplicationModuleContainer
@@ -172,7 +200,7 @@ public class ApplicationModuleView implements IEditingDomainProvider, IEditActio
 
     Map<String, Object> extnMap = resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap();
     extnMap.put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl()); // default extension to save
-//    extnMap.put("application_modules", new YourXMIResourceFactoryImpl()); // yourImplementation, see AESCipherXMIFactoryImpl
+    // extnMap.put("application_modules", new YourXMIResourceFactoryImpl()); // yourImplementation, see AESCipherXMIFactoryImpl
 
     Bundle ibdBundle = FrameworkUtil.getBundle(getClass());
     IPath sharedLocation = Platform.getStateLocation(ibdBundle);
@@ -201,7 +229,7 @@ public class ApplicationModuleView implements IEditingDomainProvider, IEditActio
 
     Map<String, Object> extnMap = resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap();
     extnMap.put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl()); // default extension to save
-//    extnMap.put("application_modules", new YourXMIResourceFactoryImpl()); // yourImplementation, see AESCipherXMIFactoryImpl
+    // extnMap.put("application_modules", new YourXMIResourceFactoryImpl()); // yourImplementation, see AESCipherXMIFactoryImpl
 
     try {
       Bundle ibdBundle = FrameworkUtil.getBundle(getClass());
@@ -210,19 +238,18 @@ public class ApplicationModuleView implements IEditingDomainProvider, IEditActio
 
       Resource resource = resourceSet.getResource(URI.createFileURI(pocs3File.getPath()), true);
       applicationModuleContainer = (ApplicationModuleContainer) resource.getContents().get(0);
-    } catch(Exception e) {
+    } catch (Exception e) {
 
       // create new ApplicationModuleContainer
       applicationModuleContainer = POCS3_EMF_FACTORY.createApplicationModuleContainer();
 
-//      // create default
-//      ApplicationModule applicationModule = POCS3_EMF_FACTORY.createApplicationModule();
-//      applicationModule.setName("'application module 1'");
-//      applicationModuleContainer.getApplicationModules().add(applicationModule);
+      // // create default
+      // ApplicationModule applicationModule = POCS3_EMF_FACTORY.createApplicationModule();
+      // applicationModule.setName("'application module 1'");
+      // applicationModuleContainer.getApplicationModules().add(applicationModule);
 
     }
   }
-
 
   /*
    * @see org.eclipse.emf.edit.domain.IEditingDomainProvider#getEditingDomain()
@@ -238,10 +265,10 @@ public class ApplicationModuleView implements IEditingDomainProvider, IEditActio
   public void createNewApplicationModule(String applicationModuleName) {
     ApplicationModule applicationModule = POCS3_EMF_FACTORY.createApplicationModule();
     applicationModule.setName(applicationModuleName);
-//    applicationModuleContainer.getApplicationModules().add(applicationModule);
+    // applicationModuleContainer.getApplicationModules().add(applicationModule);
 
     AddCommand addCommand = (AddCommand) AddCommand.create(editingDomain, applicationModuleContainer, Pocs3_emfPackage.Literals.APPLICATION_MODULE_CONTAINER__APPLICATION_MODULES, applicationModule);
-    addCommand.setLabel(addCommand.getLabel() + " application module "+applicationModule.getName());
+    addCommand.setLabel(addCommand.getLabel() + " application module " + applicationModule.getName());
     getEditingDomain().getCommandStack().execute(addCommand);
   }
 
@@ -252,7 +279,7 @@ public class ApplicationModuleView implements IEditingDomainProvider, IEditActio
    */
   @Override
   public boolean canCut() {
-    return ! applicationModuleTableViewer.getSelection().isEmpty();
+    return !applicationModuleTableViewer.getSelection().isEmpty();
   }
 
   /*
@@ -261,7 +288,7 @@ public class ApplicationModuleView implements IEditingDomainProvider, IEditActio
   @Override
   public String getCutTooltip() {
     ApplicationModule applicationModule = (ApplicationModule) ((IStructuredSelection) applicationModuleTableViewer.getSelection()).getFirstElement();
-    return IEditAction.super.getCutTooltip() + " application module "+applicationModule.getName();
+    return IEditAction.super.getCutTooltip() + " application module " + applicationModule.getName();
   }
 
   /*
@@ -274,6 +301,5 @@ public class ApplicationModuleView implements IEditingDomainProvider, IEditActio
     removeCommand.setLabel(getCutTooltip());
     getEditingDomain().getCommandStack().execute(removeCommand);
   }
-
 
 }

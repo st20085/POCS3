@@ -36,7 +36,7 @@
               <handlers xmi:id="_J_yN0J_WEee1gOD-jEuQfg" elementId="pocs3_ibd.applicationmodules.handler.redo" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.handlers.EditingDomainProviderRedoHandler" command="_MgjwAJhYEeeG0OQkavDMng"/>
               <handlers xmi:id="_4SRi4J_YEee1gOD-jEuQfg" elementId="pocs3_ibd.applicationmodules.handler.cut" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.handlers.EditActionCutHandler" command="_H_8EgJhYEeeG0OQkavDMng"/>
               <toolbar xmi:id="_77O1UJ_SEee1gOD-jEuQfg" elementId="pocs3_ibd.toolbar.2">
-                <children xsi:type="menu:DirectToolItem" xmi:id="_9PnOUJ_SEee1gOD-jEuQfg" elementId="pocs3_ibd.directtoolitem.create_application_module" iconURI="platform:/plugin/PocS3_Ibd/icons/vbs_file.png" tooltip="Create application module" contributionURI="bundleclass://PocS3_Ibd/pocs3_ibd.part.application_module.CreateApplicationModuleHandler"/>
+                <children xsi:type="menu:DirectToolItem" xmi:id="_9PnOUJ_SEee1gOD-jEuQfg" elementId="pocs3_ibd.directtoolitem.create_application_module" iconURI="platform:/plugin/PocS3_Ibd/icons/object-add.png" tooltip="Create application module" contributionURI="bundleclass://PocS3_Ibd/pocs3_ibd.part.application_module.CreateApplicationModuleHandler"/>
               </toolbar>
             </children>
           </children>
