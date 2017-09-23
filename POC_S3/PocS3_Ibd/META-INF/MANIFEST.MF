@@ -20,6 +20,7 @@ Require-Bundle: org.eclipse.e4.core.contexts,
  org.eclipse.emf.ecore,
  PocS3_EMF,
  org.eclipse.emf.edit,
- org.eclipse.emf.edit.ui
+ org.eclipse.emf.edit.ui,
+ org.eclipse.emf.ecore.xmi
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: javax.inject;version="1.0.0"

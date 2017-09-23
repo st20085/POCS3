@@ -4,17 +4,29 @@
 
 package pocs3_ibd.part;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.EventObject;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.e4.core.services.events.IEventBroker;
 import org.eclipse.e4.ui.di.Persist;
 import org.eclipse.e4.ui.model.application.ui.MDirtyable;
 import org.eclipse.e4.ui.workbench.UIEvents;
 import org.eclipse.emf.common.command.BasicCommandStack;
 import org.eclipse.emf.common.command.CommandStackListener;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.xmi.XMLResource;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
@@ -33,6 +45,8 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.osgi.framework.Bundle;
+import org.osgi.framework.FrameworkUtil;
 
 import pocs3_emf.ApplicationModule;
 import pocs3_emf.ApplicationModuleContainer;
@@ -64,46 +78,35 @@ public class ApplicationModuleView implements IEditingDomainProvider, IEditActio
 
   @PostConstruct
   public void postConstruct(Composite parent) {
+    // init
+    loadApplicationModuleContainer();
+
+    //
+    createEdtingDomain();
+
+    //
+    createContents(parent);
+  }
+
+  /**
+   * @param parent
+   */
+  private void createContents(Composite parent) {
     final GridLayout layout = new GridLayout(1, false);
     layout.marginWidth = layout.marginHeight = 0;
     parent.setLayout(layout);
 
-    // temporary
+    //
+    createApplicationModuleTableViewer(parent);
+  }
+
+  /**
+   * @param parent
+   */
+  private void createApplicationModuleTableViewer(Composite parent) {
+    //
     applicationModuleTableViewer = new TableViewer(parent, SWT.NONE);
-//    checkTableViewer.setContentProvider(ArrayContentProvider.getInstance());
     applicationModuleTableViewer.getControl().setLayoutData(new GridData(GridData.FILL_BOTH));
-
-    // init
-    applicationModuleContainer = POCS3_EMF_FACTORY.createApplicationModuleContainer();
-
-    // create default
-    ApplicationModule applicationModule = POCS3_EMF_FACTORY.createApplicationModule();
-    applicationModule.setName("'application module 1'");
-    applicationModuleContainer.getApplicationModules().add(applicationModule);
-
-    //
-    ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory(); // new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
-    adapterFactory.addAdapterFactory(new Pocs3_emfAdapterFactory());
-    adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-    adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
-
-    //
-    BasicCommandStack commandStack = new BasicCommandStack();
-    commandStack.addCommandStackListener(new CommandStackListener() {
-      @Override
-      public void commandStackChanged(EventObject event) {
-        dirtyable.setDirty(true);
-        // Display.getDefault().asyncExec(new Runnable() {
-        // @Override
-        // public void run() {
-        // firePropertyChange(PROP_DIRTY);
-        // }
-        // });
-      }
-    });
-
-    editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack);
-
     applicationModuleTableViewer.setContentProvider(new AdapterFactoryContentProvider(editingDomain.getAdapterFactory()));
     applicationModuleTableViewer.setLabelProvider(new AdapterFactoryLabelProvider(editingDomain.getAdapterFactory()));
     applicationModuleTableViewer.setInput(applicationModuleContainer);
@@ -115,8 +118,29 @@ public class ApplicationModuleView implements IEditingDomainProvider, IEditActio
         eventBroker.send(UIEvents.REQUEST_ENABLEMENT_UPDATE_TOPIC, UIEvents.ALL_ELEMENT_ID);
       }
     });
+  }
 
-//    checkTableViewer.setInput(applicationModuleContainer.getApplicationModules());
+  /**
+   *
+   */
+  private void createEdtingDomain() {
+    ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory(); // new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
+    adapterFactory.addAdapterFactory(new Pocs3_emfAdapterFactory());
+    adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
+    adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
+
+    //
+    BasicCommandStack commandStack = new BasicCommandStack();
+    commandStack.addCommandStackListener(new CommandStackListener() {
+      @Override
+      public void commandStackChanged(EventObject event) {
+        boolean saveNeeded = ((BasicCommandStack)editingDomain.getCommandStack()).isSaveNeeded();
+        dirtyable.setDirty(saveNeeded);
+      }
+    });
+
+    //
+    editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack);
   }
 
 //  @Inject
@@ -139,10 +163,66 @@ public class ApplicationModuleView implements IEditingDomainProvider, IEditActio
 //    return null;
 //  }
 
+  /**
+   * Save ApplicationModuleContainer
+   */
   @Persist
-  public void save() {
-    dirtyable.setDirty(false);
+  void saveApplicationModuleContainer() {
+    ResourceSet resourceSet = new ResourceSetImpl();
+
+    Map<String, Object> extnMap = resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap();
+    extnMap.put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl()); // default extension to save
+//    extnMap.put("application_modules", new YourXMIResourceFactoryImpl()); // yourImplementation, see AESCipherXMIFactoryImpl
+
+    Bundle ibdBundle = FrameworkUtil.getBundle(getClass());
+    IPath sharedLocation = Platform.getStateLocation(ibdBundle);
+    File pocs3File = sharedLocation.append("pocs3.xmi").toFile();
+
+    Resource resource = resourceSet.createResource(URI.createFileURI(pocs3File.getPath()));
+    resource.getContents().add(applicationModuleContainer);
+
+    Map<Object, Object> options = new HashMap<>();
+    options.put(XMLResource.OPTION_ENCODING, "UTF-8");
+
+    try {
+      resource.save(options);
+
+      editingDomain.getCommandStack().flush();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
+
+  /**
+   * Load ApplicationModuleContainer
+   */
+  void loadApplicationModuleContainer() {
+    ResourceSet resourceSet = new ResourceSetImpl();
+
+    Map<String, Object> extnMap = resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap();
+    extnMap.put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl()); // default extension to save
+//    extnMap.put("application_modules", new YourXMIResourceFactoryImpl()); // yourImplementation, see AESCipherXMIFactoryImpl
+
+    try {
+      Bundle ibdBundle = FrameworkUtil.getBundle(getClass());
+      IPath sharedLocation = Platform.getStateLocation(ibdBundle);
+      File pocs3File = sharedLocation.append("pocs3.xmi").toFile();
+
+      Resource resource = resourceSet.getResource(URI.createFileURI(pocs3File.getPath()), true);
+      applicationModuleContainer = (ApplicationModuleContainer) resource.getContents().get(0);
+    } catch(Exception e) {
+
+      // create new ApplicationModuleContainer
+      applicationModuleContainer = POCS3_EMF_FACTORY.createApplicationModuleContainer();
+
+//      // create default
+//      ApplicationModule applicationModule = POCS3_EMF_FACTORY.createApplicationModule();
+//      applicationModule.setName("'application module 1'");
+//      applicationModuleContainer.getApplicationModules().add(applicationModule);
+
+    }
+  }
+
 
   /*
    * @see org.eclipse.emf.edit.domain.IEditingDomainProvider#getEditingDomain()

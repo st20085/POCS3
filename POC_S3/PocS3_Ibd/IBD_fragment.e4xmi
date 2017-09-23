@@ -3,7 +3,7 @@
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_FcRfYJPuEeelFMkguDB9EQ" featurename="children" parentElementId="pocs3_eap.perspectivestack">
     <elements xsi:type="advanced:Perspective" xmi:id="_nTB-cJPuEeelFMkguDB9EQ" elementId="pocs3_ibd.perspective" selectedElement="_0V1GYJPuEeelFMkguDB9EQ" label="IBD">
       <children xsi:type="basic:PartSashContainer" xmi:id="_0V1GYJPuEeelFMkguDB9EQ" elementId="pocs3_ibd.partsashcontainer.0" selectedElement="_6QO9YJPwEeelFMkguDB9EQ" horizontal="true">
-        <children xsi:type="basic:PartSashContainer" xmi:id="_6QO9YJPwEeelFMkguDB9EQ" elementId="pocs3_ibd.partsashcontainer.diagram" containerData="2500" selectedElement="_6QO9YZPwEeelFMkguDB9EQ">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_6QO9YJPwEeelFMkguDB9EQ" elementId="pocs3_ibd.partsashcontainer.diagram" containerData="2000" selectedElement="_6QO9YZPwEeelFMkguDB9EQ">
           <children xsi:type="basic:PartStack" xmi:id="_6QO9YZPwEeelFMkguDB9EQ" elementId="pocs3_ibd.partstack.top" containerData="" selectedElement="_6QO9YpPwEeelFMkguDB9EQ">
             <children xsi:type="basic:Part" xmi:id="_6QO9YpPwEeelFMkguDB9EQ" elementId="pocs3_ibd.part.diagrams" contributionURI="bundleclass://PocS3_Ibd/pocs3_ibd.part.BlockDiagramView" label="Diagrams">
               <handlers xmi:id="_Wj89AJhXEeeG0OQkavDMng" elementId="pocs3_ibd.handler.copy" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.handlers.EditActionCopyHandler" command="_d9Hi8JhXEeeG0OQkavDMng"/>
@@ -28,8 +28,8 @@
             </toolbar>
           </children>
         </children>
-        <children xsi:type="basic:PartSashContainer" xmi:id="_hIwtMJPxEeelFMkguDB9EQ" elementId="pocs3_ibd.partsashcontainer.right" containerData="3000" selectedElement="_hIwtMZPxEeelFMkguDB9EQ">
-          <children xsi:type="basic:PartStack" xmi:id="_hIwtMZPxEeelFMkguDB9EQ" elementId="pocs3_ibd.partstack.applicationmodule" containerData="50">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_hIwtMJPxEeelFMkguDB9EQ" elementId="pocs3_ibd.partsashcontainer.right" containerData="4000" selectedElement="_hIwtMZPxEeelFMkguDB9EQ">
+          <children xsi:type="basic:PartStack" xmi:id="_hIwtMZPxEeelFMkguDB9EQ" elementId="pocs3_ibd.partstack.applicationmodule" containerData="">
             <children xsi:type="basic:Part" xmi:id="_hIwtMpPxEeelFMkguDB9EQ" elementId="pocs3_ibd.part.applicationmodules" containerData="" contributionURI="bundleclass://PocS3_Ibd/pocs3_ibd.part.ApplicationModuleView" label="Application Modules" iconURI="platform:/plugin/PocS3_Ibd/icons/vbs_file.png">
               <persistedState key="MODULE_DIR" value="Modules_ibd"/>
               <handlers xmi:id="_B0LeUJ_WEee1gOD-jEuQfg" elementId="pocs3_ibd.applicationmodules.handler.undo" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.handlers.EditingDomainProviderUndoHandler" command="_K3uxAJhYEeeG0OQkavDMng"/>
@@ -40,7 +40,7 @@
               </toolbar>
             </children>
           </children>
-          <children xsi:type="basic:PartStack" xmi:id="_hIwtM5PxEeelFMkguDB9EQ" elementId="pocs3_ibd.partstack.properties" containerData="50">
+          <children xsi:type="basic:PartStack" xmi:id="_hIwtM5PxEeelFMkguDB9EQ" elementId="pocs3_ibd.partstack.properties" containerData="">
             <children xsi:type="basic:Part" xmi:id="_hIwtNJPxEeelFMkguDB9EQ" elementId="pocs3_ibd.part.properties" contributionURI="bundleclass://PocS3_EAP/pocs3_eap.parts.common.PropertyView" label="Properties" iconURI="platform:/plugin/PocS3_EAP/icons/properties_view.png" tooltip="Properties"/>
           </children>
         </children>
