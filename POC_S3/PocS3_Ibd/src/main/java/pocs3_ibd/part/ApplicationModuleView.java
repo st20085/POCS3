@@ -14,7 +14,6 @@ import org.eclipse.e4.ui.di.Persist;
 import org.eclipse.e4.ui.model.application.ui.MDirtyable;
 import org.eclipse.e4.ui.workbench.UIEvents;
 import org.eclipse.emf.common.command.BasicCommandStack;
-import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStackListener;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
@@ -161,7 +160,8 @@ public class ApplicationModuleView implements IEditingDomainProvider, IEditActio
     applicationModule.setName(applicationModuleName);
 //    applicationModuleContainer.getApplicationModules().add(applicationModule);
 
-    Command addCommand = AddCommand.create(editingDomain, applicationModuleContainer, Pocs3_emfPackage.Literals.APPLICATION_MODULE_CONTAINER__APPLICATION_MODULES, applicationModule);
+    AddCommand addCommand = (AddCommand) AddCommand.create(editingDomain, applicationModuleContainer, Pocs3_emfPackage.Literals.APPLICATION_MODULE_CONTAINER__APPLICATION_MODULES, applicationModule);
+    addCommand.setLabel(addCommand.getLabel() + " application module "+applicationModule.getName());
     getEditingDomain().getCommandStack().execute(addCommand);
   }
 
@@ -176,12 +176,22 @@ public class ApplicationModuleView implements IEditingDomainProvider, IEditActio
   }
 
   /*
+   * @see pocs3_service_definitions.IEditAction#getCutTooltip()
+   */
+  @Override
+  public String getCutTooltip() {
+    ApplicationModule applicationModule = (ApplicationModule) ((IStructuredSelection) applicationModuleTableViewer.getSelection()).getFirstElement();
+    return IEditAction.super.getCutTooltip() + " application module "+applicationModule.getName();
+  }
+
+  /*
    * @see pocs3_service_definitions.IEditAction#cut()
    */
   @Override
   public void cut() {
     ApplicationModule applicationModule = (ApplicationModule) ((IStructuredSelection) applicationModuleTableViewer.getSelection()).getFirstElement();
-    Command removeCommand = RemoveCommand.create(editingDomain, applicationModuleContainer, Pocs3_emfPackage.Literals.APPLICATION_MODULE_CONTAINER__APPLICATION_MODULES, applicationModule);
+    RemoveCommand removeCommand = (RemoveCommand) RemoveCommand.create(editingDomain, applicationModuleContainer, Pocs3_emfPackage.Literals.APPLICATION_MODULE_CONTAINER__APPLICATION_MODULES, applicationModule);
+    removeCommand.setLabel(getCutTooltip());
     getEditingDomain().getCommandStack().execute(removeCommand);
   }
 
