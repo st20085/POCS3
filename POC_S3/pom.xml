@@ -24,6 +24,8 @@
         <module>PocS3_Ibd</module>
         <module>PocS3_IbdModel</module>
         <module>PocS3_IbdController</module>
+        <module>PocS3_EMF</module>
+        <module>PocS3_EMF.edit</module>
         <module>PocS3_Ibd_features</module>
 
         <!-- L3D -->
