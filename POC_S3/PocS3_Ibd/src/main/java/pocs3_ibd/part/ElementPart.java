@@ -2,11 +2,14 @@
 package pocs3_ibd.part;
 
 import java.util.Collections;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
+import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.Focus;
+import org.eclipse.e4.ui.di.UIEventTopic;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -16,8 +19,6 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 
 import pocs3_common_model.ICommonElementModel;
-import pocs3_common_model.event.CommonElementModelEvent;
-import pocs3_common_model.event.CommonElementModelListener;
 import pocs3_ibdmodel.IbdModel;
 import pocs3_service_definitions.IElement;
 import pocs3_service_definitions.IElementAction;
@@ -59,13 +60,21 @@ public class ElementPart implements IElementAction {
             this.selectionService.setSelection(selection.toArray());
         });
 
-        // refresh table when element model changes
-        this.ibdModel.getCommonElementModel().addCommonElementModelListener(new CommonElementModelListener() {
-            @Override
-            public void modelChanged(CommonElementModelEvent commonElementModelEvent) {
-                ElementPart.this.tableViewer.refresh();
-            }
-        });
+//        // refresh table when element model changes
+//        this.ibdModel.getCommonElementModel().addCommonElementModelListener(new CommonElementModelListener() {
+//            @Override
+//            public void modelChanged(CommonElementModelEvent commonElementModelEvent) {
+//                ElementPart.this.tableViewer.refresh();
+//            }
+//        });
+    }
+
+    @Inject
+    @Optional
+    private void commonElementModelChanged(@UIEventTopic(ICommonElementModel.COMMON_MODEL_CHANGED_TOPIC) List<IElement> elements) {
+      System.out.println("commonElementModelChanged "+elements);
+
+      ElementPart.this.tableViewer.refresh();
     }
 
     @Focus
@@ -87,8 +96,6 @@ public class ElementPart implements IElementAction {
         final IElement element = this.elementService.createNewElement(elementName);
 
         this.ibdModel.getCommonElementModel().addElements(Collections.singletonList(element));
-
-        this.tableViewer.refresh();
     }
 
     /**

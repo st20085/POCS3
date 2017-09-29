@@ -30,7 +30,7 @@ public class CreateElementHandler {
 //      System.out.println("CREATE DIAGRAM");
       final IElementAction elementAction = adapter.adapt(object, IElementAction.class);
       if (elementAction != null) {
-          final InputDialog inputDialog = new InputDialog(shell, "Example", "Enter element name", "Element nÂ°"+System.currentTimeMillis()%100, null);
+          final InputDialog inputDialog = new InputDialog(shell, "Example", "Enter element name", "Element n°"+System.currentTimeMillis()%100, null);
           if (inputDialog.open() == InputDialog.OK) {
               final String elementName = inputDialog.getValue();
               elementAction.createElement(elementName);

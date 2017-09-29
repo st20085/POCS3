@@ -8,5 +8,7 @@ Export-Package: pocs3_common_model,
  pocs3_common_model.event
 Require-Bundle: org.eclipse.e4.core.contexts,
  org.eclipse.e4.core.di,
- PocS3_ServiceDefinitions
+ PocS3_ServiceDefinitions,
+ org.eclipse.e4.core.services,
+ javax.inject
 Bundle-ActivationPolicy: lazy

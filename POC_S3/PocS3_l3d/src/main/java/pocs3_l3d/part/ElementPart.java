@@ -3,12 +3,15 @@ package pocs3_l3d.part;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.inject.Inject;
 
+import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.Focus;
+import org.eclipse.e4.ui.di.UIEventTopic;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -71,7 +74,15 @@ public class ElementPart implements IElementAction, IEditAction {
         });
 
         // refresh table when element model changes
-        this.l3dModel.getCommonElementModel().addCommonElementModelListener(this.commonElementModelListener);
+//        this.l3dModel.getCommonElementModel().addCommonElementModelListener(this.commonElementModelListener);
+    }
+
+    @Inject
+    @Optional
+    private void commonElementModelChanged(@UIEventTopic(ICommonElementModel.COMMON_MODEL_CHANGED_TOPIC) List<IElement> elements) {
+      System.out.println("commonElementModelChanged "+elements);
+
+      ElementPart.this.tableViewer.refresh();
     }
 
     @Focus
@@ -85,7 +96,7 @@ public class ElementPart implements IElementAction, IEditAction {
 
     @PreDestroy
     private void dispose() {
-        this.l3dModel.getCommonElementModel().removeCommonElementModelListener(this.commonElementModelListener);
+//        this.l3dModel.getCommonElementModel().removeCommonElementModelListener(this.commonElementModelListener);
     }
 
     ////////////////////////////////////////////////////////////// IElementAction ////////////////////////////////////////////////////////////////////////
